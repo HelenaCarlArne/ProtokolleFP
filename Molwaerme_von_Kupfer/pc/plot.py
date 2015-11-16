@@ -1,3 +1,4 @@
+
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -65,8 +66,27 @@ def table(name, data):
 	output.write(r'\bottomrule' + '\n' + r'\end{tabular}' + '\n' + r'\label{tab:LABEL}' + '\n' + r'\end{table}')
 	output.close()
 	
+
+x = np.linspace(0, 10, 1000)
+y = x ** np.sin(x)
+
+plt.subplot(1, 2, 1)
+plt.plot(x, y, label='Kurve')
+plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
+plt.ylabel(r'$Y \:/\: \si{\micro\joule}$')
+plt.legend(loc='best')
+
+plt.subplot(1, 2, 2)
+plt.plot(x, y, label='Kurve')
+plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
+plt.ylabel(r'$y \:/\: \si{\micro\joule}$')
+plt.legend(loc='best')
+
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('pc/plot.pdf')
+	
 #Alpha Faktor
-Tak, ak = np.genfromtxt('a.txt', unpack = True)
+Tak, ak = np.genfromtxt('rawdata/a.txt', unpack = True)
 
 def f(x, a, b, c, m):
 	return m*np.log(a*x+b)+c
@@ -81,7 +101,7 @@ plt.xlabel(r'$T/K$')
 plt.ylabel(r'$\alpha$')
 plt.legend(loc='best')
 #plt.show()
-plt.savefig('a.pdf')
+plt.savefig('pc/a.pdf')
 plt.clf()	
 
 
