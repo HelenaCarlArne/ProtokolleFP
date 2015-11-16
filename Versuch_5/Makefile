@@ -19,16 +19,16 @@ Abgabe.pdf: build/main.pdf|build
 	@cp build/main.pdf Abgabe.pdf
 	@echo Success
 
-plots/plot.pdf: plots/plot.py rawdata/* matplotlibrc header-matplotlib.tex|plots
+pc/plot.pdf: pc/plot.py rawdata/* matplotlibrc header-matplotlib.tex|pc
 	@echo 'Python-Plots:'
-	TEXINPUTS="$(call translate,$(pwd):)" python plots/plot.py
+	TEXINPUTS="$(call translate,$(pwd):)" python pc/plot.py
 	@echo
 
-plots/plot.py: rawdata/*
+pc/plot.py: rawdata/*
 	@echo "Plots-Ordner fehlt!"
 	@echo "=> Kopiere aus CAT-Vorlage"
-	@mkdir -p plots
-	@cp ../LaTeX/plots/* plots/
+	@mkdir -p pc
+	@cp ../LaTeX/pc/* pc/
 	@echo
 
 rawdata/*:
@@ -67,15 +67,14 @@ content/*:
 	@cp ../LaTeX/content/* content/
 	@echo
 
-calc:
-	@mkdir -p calc
-
 graphics:
 	@mkdir -p graphics
 
+tables:
+	@mkdir -p tables
 
 .DELETE_ON_ERROR:
-build/main.pdf: plots/plot.pdf calc header.tex main.tex content/* lit.bib programme.bib|build 
+build/main.pdf: pc/plot.pdf graphics tables header.tex main.tex content/* lit.bib programme.bib|build 
 	@echo 'LaTeX:'
 	@TEXINPUTS="$(call translate,build:)" lualatex \
 	  --output-directory=build \
