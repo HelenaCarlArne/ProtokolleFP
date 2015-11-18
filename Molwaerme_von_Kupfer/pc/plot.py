@@ -6,6 +6,7 @@ import uncertainties.unumpy as unp
 from uncertainties import ufloat
 import sympy
 from uncertainties import correlated_values, correlation_matrix
+import scipy.integrate as int
 #Table Funktion
 dummy = ufloat(69,42)
 dummyarray = np.array([dummy,dummy*6.626])
@@ -89,6 +90,8 @@ plt.clf()
  
 #Messwerte einlesen
 t, U, I, R = np.genfromtxt('rawdata/m.txt', unpack = True)
+m = 0.342
+M = 0.063546
 #Einheiten anpassen:
 I = I/1000
 #Temperatur umrechnen:
@@ -116,4 +119,5 @@ param = unp.uarray(params, perr)
 alpha = param[2]*unp.log(param[0]*T+param[1])
 #print(alpha)
 #Cp bestimmen
-
+Cp = M/m * E/dT
+print(Cp)
