@@ -1,9 +1,34 @@
 \begin{table}[h]
 \centering
-\caption{Die Debye Energie.}
-\begin{tabular}{ S[round-mode=places, round-precision=1] @{${}\pm{}$}  S[round-mode=places, round-precision=1] S[round-mode=places, round-precision=1] @{${}\pm{}$}  S[round-mode=places, round-precision=1]  S[round-mode=places, round-precision=1] S[round-mode=places, round-precision=-1] @{${}\pm{}$}  S[round-mode=places, round-precision=-1] }
+\caption{Die Debye-Energie.}
+\sisetup{
+	%uncertainty-separator = {\,},
+	table-number-alignment = center,
+	table-unit-alignment = center,
+	%table-figures-integer = 1,
+	%table-figures-decimal = 1,
+	table-auto-round = true
+}
+\begin{tabular}{
+	S[table-format=3.1]
+	@{\,$\pm{}$\,}
+	S[table-format=1.1]
+	S[table-format=2.1]
+	@{\,$\pm{}$\,}
+	S[table-format=1.1]
+	S[table-format=1.1]
+	S[table-format=3.0]
+	@{\,$\pm{}$\,} 
+	S[table-format=1.1]
+}
+%S[round-mode=places,round-precision=1]  @{${}\pm{}$} S[round-mode=places, round-precision=1] S[round-mode=places, round-precision=1]  @{${}\pm{}$} S[round-mode=places, round-precision=1]  S[round-mode=places, round-precision=1] S[round-mode=places, round-precision=-1] @{${}\pm{}$} S[round-mode=places, round-precision=-1]} \\
 \toprule
-\multicolumn{2}{c}{$T\/\:\si\kelvin$} &\multicolumn{2}{c}{$C_V\:/\:\si{\joule\per\mole\per\kelvin}$} &{$\frac{\theta_D}{T}\:/\:\si{\joule\per\kelvin}$} & \multicolumn{2}{c}{$\theta_D\si\joule$} \\ \midrule
+\multicolumn{2}{c}{$T\:/\:\si{\kelvin}$} 
+&\multicolumn{2}{c}{$C_V\,/[C_V]$} 
+&{$\frac{\theta_D}{T}\:/\:\si{\joule\per\kelvin}$} 
+&\multicolumn{2}{c}{$\theta_D\si\joule$}\\ 
+%\multicolumn{2}{c}{$T\/\:\si\kelvin$} &\multicolumn{2}{c}{$C_V\:/\:\si{\joule\per\mole\per\kelvin}$} &{$\frac{\theta_D}{T}\:/\:\si{\joule\per\kelvin}$} & \multicolumn{2}{c}{$\theta_D\si\joule$} \\ \midrule
+\midrule
 93.33570939999996&0.23686279999999998&13.742189549612418&0.5755524915717548&3.7&253.97364482895873&4.028154632939885\\
 103.30758459999998&0.2379884&16.88196073249394&0.5725746411917922&2.9&242.00042801301214&3.1557616579049643\\
 113.32673499999996&0.23911400000000002&17.617637405144738&0.5981818589096461&2.7&255.56220786143&3.296715811369545\\

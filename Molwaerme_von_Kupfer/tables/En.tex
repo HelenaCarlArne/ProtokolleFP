@@ -1,10 +1,25 @@
 \begin{table}[h]
 \centering
 \caption{Die aufgenommene Wärmemenge berechnet mit den Messwerten für Strom und Spannung.}
-
-\begin{tabular}{  S[round-mode=places, round-precision=1]  S[round-mode=places, round-precision=4]  S[round-mode=places, round-precision=2]  S[round-mode=places, round-precision=2] }
+\sisetup{
+	%uncertainty-separator = {\,},
+	table-number-alignment = left,
+	%table-figures-integer = 1,
+	%table-figures-decimal = 1,
+	table-auto-round = true
+}
+\begin{tabular}{
+	S[table-format=2.1]
+	S[table-format=1.2]
+	S[table-format=3.1]
+	S[table-format=4.1]
+}\\
 \toprule
-{$U\:/\:\si\volt$} & {$I\:/\:\si\ampere$} & {$\Delta t \:/\:\si\second$} & {$E\:/\:\si\joule$} \\ \midrule
+{$U\:/\:\si\volt$} 
+& {$I\:/\:\si\ampere$} 
+& {$\symup{\Delta} t \:/\:\si\second$} 
+& {$E\:/\:\si\joule$} \\ 
+\midrule
 13.9&0.1335&322.23&597.9460995\\
 18.8&0.1795&270.13&911.580698\\
 19.9&0.1905&252.41&956.8736895\\
