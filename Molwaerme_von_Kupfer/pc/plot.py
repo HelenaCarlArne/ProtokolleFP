@@ -1,4 +1,3 @@
-
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -67,30 +66,14 @@ def table(name, data):
 	output.close()
 	
 
-x = np.linspace(0, 10, 1000)
-y = x ** np.sin(x)
 
-plt.subplot(1, 2, 1)
-plt.plot(x, y, label='Kurve')
-plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
-plt.ylabel(r'$Y \:/\: \si{\micro\joule}$')
-plt.legend(loc='best')
-
-plt.subplot(1, 2, 2)
-plt.plot(x, y, label='Kurve')
-plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
-plt.ylabel(r'$y \:/\: \si{\micro\joule}$')
-plt.legend(loc='best')
-
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('pc/plot.pdf')
-	
 #Alpha Faktor
 Tak, ak = np.genfromtxt('rawdata/a.txt', unpack = True)
 
-def f(x, a, b, c, m):
-	return m*np.log(a*x+b)+c
-
+#def f(x, a, b, c, m):
+#	return m*np.log(a*(x-b))+c
+def f(x, a, b, m):
+	return m*np.log(a*x+ b)
 params, covs = curve_fit(f, Tak, ak)
 	
 plt.plot(Tak, ak,'bx', label='Messwerte')
@@ -103,5 +86,34 @@ plt.legend(loc='best')
 #plt.show()
 plt.savefig('pc/a.pdf')
 plt.clf()	
-
+ 
+#Messwerte einlesen
+t, U, I, R = np.genfromtxt('rawdata/m.txt', unpack = True)
+#Einheiten anpassen:
+I = I/1000
+#Temperatur umrechnen:
+def TR(R):
+	return 0.00134*R**2 + 2.296*R - 243.02
+Tt = TR(R)
+T = np.zeros(len(Tt)+1)
+T[0] = TR(23.7)
+for i in range(len(Tt)):
+	T[i+1] = Tt[i]
+T = T + 273.15
+#print(T)
+#Temperaturdifferenzen
+dT = np.zeros(len(T)-1)
+for i in range(len(T)-1):
+	dT[i] = T[i+1] - T[i]
+#print(dT)	
+#Energie bestimmen/ bzw. die zugeführte Wärmemenge
+E = U * I * t
+#print(t)
+#Conclusio: Verwende die Funktion für alpha
+perr = np.sqrt(np.diag(covs))
+param = unp.uarray(params, perr)
+#print(param)
+alpha = param[2]*unp.log(param[0]*T+param[1])
+#print(alpha)
+#Cp bestimmen
 
