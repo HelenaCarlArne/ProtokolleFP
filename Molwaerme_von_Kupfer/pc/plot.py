@@ -1,3 +1,7 @@
+# coding=utf-8
+
+# Bitte stets diese coding-Zeile hinzufügen!
+
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -175,6 +179,7 @@ thD = (deb*Td**3*9*con.R/Cvd)**(1/3)
 
 MthD = ufloat(np.mean(noms(thD)),np.std(noms(thD))/np.sqrt(len(noms(thD))))
 print(MthD)
+
 
 wd = (1/vl**3 + 2/vtr**3)**(-1/3)*(18*con.N_A*con.pi**2*rho/M)**(1/3) #N_A ist die Loschmidtsche Zahl, pi=3, hbar =1 :D und k die Boltzmannkonstante
 #print(wd)
