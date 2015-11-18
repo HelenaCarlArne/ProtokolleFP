@@ -14,6 +14,7 @@ from scipy.constants import physical_constants as pcon
 #Table Funktion
 dummy = ufloat(69,42)
 dummyarray = np.array([dummy,dummy*6.626])
+udummyarray = unp.uarray([4], [5*con.pi])
 
 #data1 = [a,b,c,d,e]
 #p1 = {'name':'tabelle1.tex','data':data1}
@@ -23,7 +24,7 @@ def table(name, data):
 	i=0
 	f = [0,0,0,0,0,0,0,0,0,0,0,0,0]
 	for i in range(len(data)):
-		if(type(data[i][0]) == type(dummy) or type(data[i][0]) == type(dummyarray[1])):
+		if(type(data[i][0]) == type(dummy) or type(data[i][0]) == type(dummyarray[1]) or type(data) == type(udummyarray)):
 			f[i] = True
 		else:
 			f[i] = False
@@ -95,25 +96,25 @@ plt.clf()
 #Messwerte einlesen
 t, U, I, R = np.genfromtxt('rawdata/m.txt', unpack = True)
 sR = 0.1
-R = unp.uarray(R, sR)
-m = 0.342
-M = 0.063546
-rho = 8920
-V0 = M/rho
-K = 1.278 * 10**11
-vl = 4700
-vtr = 2260
+R = unp.uarray(R, sR) #in ohm
+m = 0.342 #in kg
+M = 0.063546 #in kg/mol
+rho = 8920 #in kg/m³
+V0 = M/rho # in m³/mol
+K = 1.278 * 10**11 #in N/m²
+vl = 4700 # in m/s
+vtr = 2260 #in m/s
 #print(V0)
 
 #Einheiten anpassen:
-I = I/1000
+I = I/1000 #in A
 
 #Temperatur umrechnen:
 def TR(R):
 	return 0.00134*R**2 + 2.296*R - 243.02
 Tt = TR(R)
 T = unp.uarray(np.zeros(len(Tt)+1), 0)
-T[0] = TR(23.7)
+T[0] = TR(ufloat(23.7,0.1))
 for i in range(len(Tt)):
 	T[i+1] = Tt[i]
 T = T + 273.15
@@ -175,7 +176,54 @@ thD = (deb*Td**3*9*con.R/Cvd)**(1/3)
 MthD = ufloat(np.mean(noms(thD)),np.std(noms(thD))/np.sqrt(len(noms(thD))))
 print(MthD)
 
-wd = (1/vl**3 + 2/vtr**3)**(-1/3)*(18*con.N_A*con.pi**2*rho/M)**(1/3)
-print(wd)
+wd = (1/vl**3 + 2/vtr**3)**(-1/3)*(18*con.N_A*con.pi**2*rho/M)**(1/3) #N_A ist die Loschmidtsche Zahl, pi=3, hbar =1 :D und k die Boltzmannkonstante
+#print(wd)
 theta_D = con.hbar*wd/con.k
-print(theta_D)
+#print(theta_D)
+
+
+#Tabellen und anderer krasser Shit
+
+#Erstmal Uarray->Array, ist übrigens keine Symmetrietransformation da die Mantissen gekürzt werden
+#bei manchen Arrays muss für die Tabelle eine 0 in der ersten Zeile ergänzt werden.
+dTt = unp.uarray(np.zeros(len(dT)+1), 0)
+dTt[0] = ufloat(69,42)
+Cpt = unp.uarray(np.zeros(len(Cp)+1), 0)
+Cpt[0] = ufloat(69,42)
+Cvt = unp.uarray(np.zeros(len(Cv)+1), 0)
+Cvt[0] = ufloat(69,42)
+for i in range(len(dT)):
+	dTt[i+1] = dT[i]
+	Cvt[i+1] = Cv[i]
+	Cpt[i+1] = Cp[i]
+
+
+# Rt=np.zeros(len(R))
+# Tt=np.zeros(len(R)) 
+# dTtt=np.zeros(len(R)) 
+# Cptt=np.zeros(len(R)) 
+# Cvtt = np.zeros(len(R))
+# Ra = noms(R)
+# Rb = sdevs(R)
+# for i in range (len(R)):
+	# Rt[i] = ufloat(Ra[i], Rb[i])
+	# Tt[i] = ufloat(noms(T[i]), sdevs(T[i]))
+	# dTtt[i] = ufloat(noms(dTt[i]), sdevs(dTt[i]))
+	# Cvtt[i] = ufloat(noms(Cvt[i]), sdevs(Cvt[i]))
+	# Cptt[i] = ufloat(noms(Cpt[i]), sdevs(Cpt[i]))
+# print(Rt)	
+
+
+#Tabellen	
+data1 = [noms(R), T, dTt, Cvt, Cpt]
+p1 = {'name':'pc/tab1.tex', 'data':data1}
+table(**p1)
+
+data2 = [U, I, t, E]
+p2 = {'name':'pc/En.tex', 'data':data2}
+table(**p2)
+
+data3 = [Td, Cvd, deb, thD]
+p3 = {'name':'pc/deb.tex', 'data':data3}
+table(**p3)
+
