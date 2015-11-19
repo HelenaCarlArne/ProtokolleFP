@@ -7,9 +7,15 @@ import uncertainties.unumpy as unp
 from uncertainties import ufloat
 import sympy
 from uncertainties import correlated_values, correlation_matrix
+import scipy.integrate as int
+from uncertainties.unumpy import nominal_values as noms
+from uncertainties.unumpy import std_devs as sdevs
+import scipy.constants as con
+from scipy.constants import physical_constants as pcon
 #Table Funktion
 dummy = ufloat(69,42)
 dummyarray = np.array([dummy,dummy*6.626])
+udummyarray = unp.uarray([4], [5*con.pi])
 
 #data1 = [a,b,c,d,e]
 #p1 = {'name':'tabelle1.tex','data':data1}
@@ -19,31 +25,31 @@ def table(name, data):
 	i=0
 	f = [0,0,0,0,0,0,0,0,0,0,0,0,0]
 	for i in range(len(data)):
-		if(type(data[i][0]) == type(dummy) or type(data[i][0]) == type(dummyarray[1])):
+		if(type(data[i][0]) == type(dummy) or type(data[i][0]) == type(dummyarray[1]) or type(data) == type(udummyarray)):
 			f[i] = True
 		else:
 			f[i] = False
 	print(f)
 	output = open(name, 'w')
-	output.write(r'\begin{table}[h]' + '\n' + r'\centering' + '\n' + r'\caption{CAPTION}' + '\n' +r'\sisetup{round-mode=places,'+'\n'+r'round-precision=3}'+'\n'+ r'\begin{tabular}{ ')
+	output.write(r'\begin{table}[h]' + '\n' + r'\centering' + '\n' + r'\caption{CAPTION}' + '\n' +r'\sisetup{%uncertainty-seperator = {\,},'+'\n'+r'table-number-alignment = center,'+'\n'+'table-unit-alignment = center,'+'\n'+'%table-figures-integer = 1,'+'\n'+'%table-figures-decimal = 1,'+'\n'+'table-auto-round = true'+'\n'+'}'+'\n'+ r'\begin{tabular}{ ')
 	for i in range(len(data)):
 		if(f[i]):
-			output.write(r'S @{${}\pm{}$} ' + r' S ')
+			output.write(r'S[table-format= 3.1]'+'\n'+' @{\,$\pm{}$\,} '+'\n' + r' S[table-format= 3.1] ')
 		else:
-			output.write(r' S[table-format= .3] ')
+			output.write(r' S[table-format= 3.1] '+'\n')
 	output.write(r'}' + '\n' + r'\toprule' + '\n')
 	
 	for i in range(len(data)):
 		if(i < (len(data)-1)): 
 			if(f[i]):
-				output.write(r'\multicolumn{2}{c}{TITLE} &')
+				output.write(r'\multicolumn{2}{c}{TITLE}'+'\n'+'&')
 			else:
-				output.write(r'{$\text{Title}$} & ')
+				output.write(r'{$\text{Title}$}'+'\n'+'&')
 		else:
 			if(f[i]):
-				output.write(r'\multicolumn{2}{c}{TITLE} \\')
+				output.write(r'\multicolumn{2}{c}{TITLE} \\'+'\n')
 			else:
-				output.write(r'{$\text{Title}$} \\')
+				output.write(r'{$\text{Title}$} \\'+'\n')
 	output.write(r' \midrule' + '\n')
 	
 	#Tabelle

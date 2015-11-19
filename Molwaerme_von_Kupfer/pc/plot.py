@@ -34,25 +34,25 @@ def table(name, data):
 			f[i] = False
 	print(f)
 	output = open(name, 'w')
-	output.write(r'\begin{table}[h]' + '\n' + r'\centering' + '\n' + r'\caption{CAPTION}' + '\n' +r'\sisetup{round-mode=places,'+'\n'+r'round-precision=3}'+'\n'+ r'\begin{tabular}{ ')
+	output.write(r'\begin{table}[h]' + '\n' + r'\centering' + '\n' + r'\caption{CAPTION}' + '\n' +r'\sisetup{%uncertainty-seperator = {\,},'+'\n'+r'table-number-alignment = center,'+'\n'+'table-unit-alignment = center,'+'\n'+'%table-figures-integer = 1,'+'\n'+'%table-figures-decimal = 1,'+'\n'+'table-auto-round = true'+'\n'+'}'+'\n'+ r'\begin{tabular}{ ')
 	for i in range(len(data)):
 		if(f[i]):
-			output.write(r'S @{${}\pm{}$} ' + r' S ')
+			output.write(r'S[table-format= 3.1]'+'\n'+' @{\,$\pm{}$\,} '+'\n' + r' S[table-format= 3.1] ')
 		else:
-			output.write(r' S[table-format= .3] ')
+			output.write(r' S[table-format= 3.1] '+'\n')
 	output.write(r'}' + '\n' + r'\toprule' + '\n')
 	
 	for i in range(len(data)):
 		if(i < (len(data)-1)): 
 			if(f[i]):
-				output.write(r'\multicolumn{2}{c}{TITLE} &')
+				output.write(r'\multicolumn{2}{c}{TITLE}'+'\n'+'&')
 			else:
-				output.write(r'{$\text{Title}$} & ')
+				output.write(r'{$\text{Title}$}'+'\n'+'&')
 		else:
 			if(f[i]):
-				output.write(r'\multicolumn{2}{c}{TITLE} \\')
+				output.write(r'\multicolumn{2}{c}{TITLE} \\'+'\n')
 			else:
-				output.write(r'{$\text{Title}$} \\')
+				output.write(r'{$\text{Title}$} \\'+'\n')
 	output.write(r' \midrule' + '\n')
 	
 	#Tabelle
