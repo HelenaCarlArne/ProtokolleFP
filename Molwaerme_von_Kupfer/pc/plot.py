@@ -92,7 +92,7 @@ plt.plot(t, f(t, *params), 'r-', label='fit log')
 plt.grid()
 plt.xlabel(r'$T/K$')
 plt.ylabel(r'$\alpha$')
-plt.legend(loc='best')
+plt.legend(loc='best',numpoints=1)
 #plt.show()
 plt.savefig('pc/a.pdf')
 plt.clf()	
@@ -155,9 +155,9 @@ plt.errorbar(noms(T[1:]), noms(Cv),xerr = sdevs(T[1:]), yerr = sdevs(Cv),fmt='mx
 plt.grid()
 plt.xlabel(r'$T/K$')
 plt.ylabel(r'$C_\text{V / P}$')
-plt.legend(loc='best')
+plt.legend(loc='best',numpoints=1)
 #plt.show()
-plt.savefig('pc/C.pdf')
+plt.savefig('pc/plot.pdf')
 plt.clf()	
 
 TT = (T[1:])
@@ -221,14 +221,14 @@ for i in range(len(dT)):
 
 #Tabellen	
 data1 = [noms(R), T, dTt, Cvt, Cpt]
-p1 = {'name':'pc/tab1.tex', 'data':data1}
+p1 = {'name':'tables/tab1.tex', 'data':data1}
 table(**p1)
 
 data2 = [U, I, t, E]
-p2 = {'name':'pc/En.tex', 'data':data2}
+p2 = {'name':'tables/En.tex', 'data':data2}
 table(**p2)
 
 data3 = [Td, Cvd, deb, thD]
-p3 = {'name':'pc/deb.tex', 'data':data3}
+p3 = {'name':'tables/deb.tex', 'data':data3}
 table(**p3)
 

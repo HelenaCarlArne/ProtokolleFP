@@ -1,80 +1,117 @@
-﻿\section{Theorie}
-\label{sec:Theorie}
-Es gibt verschiedene Modelle zur Erklärung der Temperaturabhängigkeit der Molwärme. Deren Vorhersagen sollen quantitativ miteinander verglichen werden.
+﻿\section{Zielsetzung}
+Es wird die Molwärme von einer Kupferprobe experimentell bestimmt. 
+Hierzu werden drei Theorien vorgestellt, deren Vorhersage quantitativ miteinander verglichen werden.
 
+\section{Theorie}
+\label{sec:Theorie}
 Die Molwärme $C$ ist eine thermodynamische Größe, die die Änderung der inneren Energie $U$ unter der Änderung der Temperatur $T$ beschreibt.
-Hierzu wird zwischen den Molwärmen
+Hierzu wird zwischen den Molwärmen bei konstantem Druck
 \begin{align}
-	C_P = \left(\frac{\partial U}{\partial T}\right)_P
-	\intertext{und}
+	C_p = \left(\frac{\partial U}{\partial T}\right)_p
+	\label{eq:molwaermep}
+	\intertext{und bei konstantem Volumen}
 	C_V = \left(\frac{\partial U}{\partial T}\right)_V
+	\label{eq:molwaermev}
 \end{align}
-unterschieden, die jeweils die angeführte Größe als konstant ansehen.
-Der Zusammenhang zwischen beiden Molwärmen besteht durch
+unterschieden.
+Der Zusammenhang zwischen diesen Größen wird durch
 \begin{equation}
-	C_P-C_V = 9\alpha^2\kappa V_0 T,
+	C_p-C_V = 9\alpha^2\kappa V_0 T
 	\label{eq:molwaermeconv}
 \end{equation}
-wobei $\alpha$ der linearer Ausdehnungskoeffizient, $\kappa$ der Kompressionsmodul und $V_0$ das Molvolumen sind.
+beschrieben,
+wobei $\alpha$ der lineare Ausdehnungskoeffizient, $\kappa$ der Kompressionsmodul und $V_0$ das Molvolumen sind.
+
 \subsection{Die klassische Theorie der Molwärme}
-In einem kristallinen Festkörper sind die Atome durch Gitterkräfte fest an ihre Ruhelage gebunden. Sie können also nur Schwingungen in den drei senkrecht aufeinander stehenden Raumrichtungen ausführen. Die Energie ist dabei nach dem Äquipartitionstheorem gleichmäßig auf die Bewegungsfreiheitsgrade verteilt. Im Mittel besitzen die Atome, pro Freiheitsgrad, eine Energie von $\frac{1}{2}k_\text{B}T$. Bei eine harmonischen Schwingung sind kinetische und potentielle Energie im Mittel gleich, daher kann nach klassischer Physik eine mittlere Energie von
+In einem kristallinen Festkörper sind die Atome durch Gitterkräfte an ihre Ruhelage gebunden. 
+Sie können daher nur Schwingungen in den drei senkrecht aufeinander stehenden Raumrichtungen ausführen. 
+Die kinetische Energie ist dabei nach dem Äquipartitionstheorem gleichmäßig auf die Bewegungsfreiheitsgrade verteilt. 
+Im zeitlichen Mittel besitzen die Atome, 
+pro Freiheitsgrad, 
+eine Energie von $\frac{1}{2}k_\text{B}T$. 
+Bei eine harmonischen Schwingung sind kinetische und potentielle Energie im Mittel gleich, 
+daher wird nach der klassischen Physik eine mittlere Energie von
 \begin{equation*}
 	\langle u \rangle = 2\cdot3\cdot\frac{1}{2}k_\text B T
 \end{equation*}
-pro Atom erwartet werden.
-Im Kristall ergibt sich mit der Loschmidtschen Zahl $N_\text L$ für ein Mol Atome 
-\begin{equation*}
-	U = 3k_\text B N_\text L T = 3RT
-\end{equation*}
-für die Energie.
-Damit kann, bei konstantem Volumen, die spezifische Molwärme mit
-\begin{equation*}
+angenommen.
+Im Kristall ergibt sich mit der Avogadro-Konstanten $N_\text L$ bei der Teilchenzahl $N = N_\text L = \SI{1}{mol}$ für die Energie im Allgemeinen
+\begin{equation}
+	U = N \langle u \rangle
+	\label{eq:gesamtenergie}
+\end{equation}
+und im Weiteren für die klassische Theorie
+\begin{equation}
+	U_\text{klass} = 3k_\text B N_\text L T = 3RT.
+\end{equation}
+Damit kann die spezifische Molwärme bei konstantem Volumen mit
+\begin{equation}
 	C_V = \left(\frac{\partial U}{\partial T}\right)_V = 3R
-\end{equation*}
+\end{equation}
 berechnet werden.
-Die klassische Theorie widerspricht damit den experimentellen Ergebnissen, da hier keine Temperatur- oder Materialabhängigkeit mit in die Rechnung eingeht. Der Wert $3R$ wird bei hohen Temperaturen asymptotisch erreicht.
-Das besagt auch das Dulong-Petitsche Gesetz.
+
+Die klassische Theorie steht im Widerspruch zu den experimentellen Ergebnissen.
+Es ist bekannt, 
+dass die Molwärme von dem Material und von der momentanen Temperatur $T$ abhängig ist.
+
+
 \subsection{Das Einstein-Modell}
-Ein großer Mangel der klassischen Theorie ist die Missachtung der Quantelung der Energien. Im Einstein-Modell dagegen wird angenommen, dass die Atome mit der Frequenz $\omega$ schwingen und so nur Energien die ein Vielfaches von $\hbar\omega$ sind annehmen oder abgeben können.
-Um die mittlere Energie berechnen zu können, muss die Wahrscheinlichkeit, dass ein sich im thermischen Gleichgewicht befindender harmonischer Oszillator, bei der Temperatur $T$ die Energie $n\hbar\omega$ besitzt, mit einbezogen werden. Da die Energie Boltzmann-verteilt ist, kann die Wahrscheinlichkeit mit
+Die klassischen Theorie missachtet die Quantelung der Energien, insbesondere der Energiequantelung beim haromischen Oszillator. 
+Im Einstein-Modell wird angenommen, 
+dass die Atome mit der Frequenz $\omega$ schwingen und  nur Energien, die ein Vielfaches von $\hbar\omega$ sind, annehmen oder abgeben können.
+Zur Berechnung der mittleren Energie $\langle u \rangle _\text{Einstein}$ wird im Kontrast zum Äquipartitionstheorem die Verteilung $W(n)$ der Energien betrachtet. 
+$W(n)$ beschreibt die Wahrscheinlichkeit, 
+dass ein harmonischer Oszillator, 
+bei der Temperatur $T$ im thermischen Gleichgewicht die Energie $n\hbar\omega$ besitzt.
+Mit der Boltzmann-Verteilung wird
 \begin{equation*}
 	W(n) = \exp{\left(-\frac{n\hbar \omega}{k_\text B T}\right)}
 \end{equation*}
-angegeben werden.
-Um die mittlere Energie zu bestimmen, muss über alle möglichen Energien summiert werden, wobie diese dann durch die Summe der Wahrscheinlichkeiten geteilt werden muss.
-Es ergibt sich
+angegeben, womit 
 \begin{equation*}
-	\langle u \rangle _\text{Einstein} = \frac{\hbar\omega}{\exp{\left(\frac{\hbar\omega}{k_\text B T}\right)} - 1}  < k_\text B T
+	\langle u \rangle _\text{Einstein} = \frac{\sum\limits_n W(n)\cdot E(n)}{\sum\limits_n W(n)}=	\frac{\hbar\omega}{\exp{\left(\frac{\hbar\omega}{k_\text B T}\right)} - 1}  < k_\text B T
 \end{equation*}
-für die mittlere Energie.
-Mit Hilfe der mittleren Energie kann die Molwärme bestimmt werden:
+für die mittlere Energie folgt.
+Durch diese Formel kann mithilfe \eqref{eq:molwaermev} auf die Molwärme
 \begin{equation}
 	C_{V_\text{Einstein}} = \frac{d}{dT}3 N_\text L \frac{\hbar\omega}{\exp{\left(\frac{\hbar\omega}{k_\text B T}\right)} - 1} = 3R \frac{\hbar^2\omega^2}{k_\text B ^2 T^2} \frac{\exp{\left(\frac{\hbar\omega}{k_\text B T}\right)}}{\left(\exp{\left(\frac{\hbar\omega}{k_\text B T}\right)}-1\right)^2}\,\text.
 	\label{eqn:cv}
 \end{equation}
-Für große $T$ ergibt sich wieder der Grenzwert $3R$.
-Der große Unterschied zur klassischen Theorie ist aber, dass damit die beobachtete Abnahme der Molwärme erklärt werden kann.
-Die monofrequente Näherung stellt dennoch eine grobe Näherung dar, sodass bei tiefen Temperaturen große Abweichungen auftreten.
-\subsection{Das Debye-Modell}
-Ein noch besseres Modell stellt das Debye-Modell dar. Hier wird zusätzlich eine Verteilung der Schwingungsfrequenzen mit einbezogen. Es muss über alle möglichen Frequenzen integriert werden, sodass die Molwärme zu
+geschlossen werden.
+
+Im Einklang mit dem klassischen Modell und der experimentellen Erfahrung gilt für große Temperaturen der Grenzwert
 \begin{equation}
-	C_V = \frac{d}{dT}\int_0^{\omega_\text{max}} Z(\omega) \frac{\hbar\omega}{\exp{\left(\frac{\hbar\omega}{k_\text B T}\right)} - 1} d\omega
+	\lim_{T\to\infty} C_{V_\text{Einstein}} = 3R.
+\end{equation}
+Dies besagt das Dulong--Petit-Gesetz.
+Die monofrequente Näherung stellt dennoch eine grobe Näherung dar, 
+sodass bei tiefen Temperaturen große Abweichungen auftreten.
+
+\subsection{Das Debye-Modell}
+Zusätzlich zu den Annahmen im Einstein-Modell, wird die spektrale Verteilung $Z(\omega)$ der Schwingungsfrequenzen $\omega$ berücksichtigt.
+Es wird für die Berechnung der Energie $U$ über alle Frequenzen integriert, sodass die Molwärme zu
+\begin{equation}
+	C_V = \frac{\mathup d}{\mathup d T}\int_0^{\omega_\text{max}} Z(\omega) \langle u \rangle _\text{Einstein} \mathup d \omega= \frac{\mathup d}{\mathup d T}\int_0^{\omega_\text{max}} Z(\omega) \frac{\hbar\omega}{\exp{\left(\frac{\hbar\omega}{k_\text B T}\right)} - 1} d\omega
 	\label{eqn:cvn}
 \end{equation}
-modifiziert werden muss.
-Die Verteilung $Z(\omega)$ kann eine sehr komplizierte Gestalt haben. Wenn der Kristall aber nicht stark dispersiv ist und sich annähernd isotrop verhält, kann in guter Näherung angenommen werden, dass die Eigenfrequenzen in einem Würfel der Länge L abgezählt werden können.
-Es wird also klassische Physik mit Quantenmechanik verknüpft.
-Die Spektraldichte beträgt dann
+bestimmt ist.
+Die Verteilung $Z(\omega)$ kann eine sehr komplizierte Gestalt haben. 
+Wenn der Kristall aber nicht stark dispersiv ist und sich annähernd isotrop verhält, 
+kann in guter Näherung angenommen werden, 
+dass die Eigenfrequenzen in einem Würfel der Länge $L$ abgezählt werden können.
+%Es wird also klassische Physik mit Quantenmechanik verknüpft.
+Die Spektraldichte beträgt dann mit $v$: allgemeine Schallgeschwindigkeit
 \begin{equation*}
 	Z(\omega)d\omega = \frac{3L^3}{2\pi^2v^3}\omega^2 d\omega
 \end{equation*}
-oder
+oder, wenn zwischen $v_\text l$: longitudinale Schallgeschwindigkeit und $v_\text t$: transversale Schallgeschwindigkeit unterschieden wird,
 \begin{equation}
-	Z(\omega)d\omega = \frac{L^3}{2\pi^2}\omega^2\left(\frac{1}{v_\text{l}^3}+\frac{2}{v_{\text{tr}}^3}\right)d\omega
-	\label{eqn:z}\,\text,
+	Z(\omega)d\omega = \frac{L^3}{2\pi^2}\omega^2\left(\frac{1}{v_\text{l}^3}+\frac{2}{v_{\text{t}}^3}\right)d\omega.
+	\label{eqn:z}
 \end{equation}
-wenn der Unterschied der Phasengeschwindigkeiten in longitudinaler beziehungsweise transversaler Richtung berücksichtigt wird.
-Da ein endlicher Kristall nur endlich viele Eigenschwingungen besitzt, kann eine obere Grenzfrequenz $\omega_\text D$ berechnet werden. Vorausgesetzt der Kristall besteht aus $N_\text L$ Atomen, heißt die Grenzfrequenz $\omega_\text{D}$ mit 
+
+Da ein endlicher Kristall endlich viele Eigenschwingungen besitzt, kann eine obere Grenzfrequenz $\omega_\text D$ berechnet werden. 
+Unter der Annahme, der Kristall bestehe aus $N_\text L$ Atomen, heißt die Grenzfrequenz $\omega_\text{D}$ mit 
 \begin{equation}
 	\int_0^{\omega_\text D} Z(\omega) d\omega = 3 N_\text L
 	\label{eqn:wd}
@@ -86,14 +123,19 @@ Damit ist
 	\label{eqn:z2}
 \end{equation}
 die Verteilungsfunktion.
-Mit den Abkürzungen
-\begin{equation*}
-	x := \frac{\hbar\omega}{k_\text B T}\qquad\text{und}\qquad \frac{\theta_\text D}{T} :=\frac{\hbar\omega_\text D }{k_\text B T}
-\end{equation*}
-ergibt sich für die Molwärme
+Es ergibt sich für die Molwärme
 \begin{equation}
 	C_{V_\text{Debye}} = \frac{d}{dT}\left[9 N_\text L k_\text B T \left(\frac{T}{\theta_\text D}\right)^3 \int_0^{\frac{\theta_\text D}{T}} \frac{x^3}{\mathup e^x -1} dx \right] = 9 R \left(\frac{T}{\theta_\text D}\right)^3 \int_0^{\frac{\theta_\text D}{T}} \frac{x^4\mathup e^x}{\mathup (e^x -1)^2} dx
 	\label{eqn:cvd}
 \end{equation}
+mit den Abkürzungen
+\begin{equation*}
+	x := \frac{\hbar\omega}{k_\text B T}\qquad\text{und}\qquad \frac{\theta_\text D}{T} :=\frac{\hbar\omega_\text D }{k_\text B T}
+\end{equation*}
 in der Debye-Näherung.
-Für große $T$ ergibt sich wieder der Grenzwert $3R$, während die Molwärme bei tiefen Temperaturen  proportional zu $T^3$ wird. Damit beschreibt das Debye-Modell das Tieftemperaturverhalten wesentlich besser als das Einstein-Modell, stellt aber immer noch eine Näherung dar. 
+Im Einklang mit den vorangegangen Modellen und der experimentellen Erfahrung gilt für große Temperaturen der Grenzwert 
+\begin{equation}
+	\lim_{T\to\infty} C_{V_\text{Einstein}} = 3R.
+\end{equation}
+Zusätzlich wird erfasst, dass die Molwärme bei tiefen Temperaturen  proportional zu $T^3$ ist. 
+Damit ist das Debye-Modell für das Tieftemperaturverhalten eine bessere Näherung als das Einstein-Modell.
