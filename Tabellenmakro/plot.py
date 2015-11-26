@@ -15,8 +15,6 @@ from uncertainties.unumpy import nominal_values as noms
 from uncertainties.unumpy import std_devs as sdevs
 import scipy.constants as con
 from scipy.constants import physical_constants as pcon
-import math as m
-
 #Table Funktion
 dummy = ufloat(69,42)
 dummyarray = np.array([dummy,dummy*6.626])
@@ -28,14 +26,13 @@ udummyarray = unp.uarray([4], [5*con.pi])
 def table(name, data):
 	j=0
 	i=0
-	f = np.zeros(len(data))
+	f = [0,0,0,0,0,0,0,0,0,0,0,0,0]
 	for i in range(len(data)):
 		if(type(data[i][0]) == type(dummy) or type(data[i][0]) == type(dummyarray[1]) or type(data) == type(udummyarray)):
 			f[i] = True
 		else:
 			f[i] = False
 	print(f)
-	
 	output = open(name, 'w')
 	output.write(r'\begin{table}[h]' + '\n' + r'\centering' + '\n' + r'\caption{CAPTION}' + '\n' +r'\sisetup{%uncertainty-seperator = {\,},'+'\n'+r'table-number-alignment = center,'+'\n'+'table-unit-alignment = center,'+'\n'+'%table-figures-integer = 1,'+'\n'+'%table-figures-decimal = 1,'+'\n'+'table-auto-round = true'+'\n'+'}'+'\n'+ r'\begin{tabular}{ ')
 	for i in range(len(data)):
@@ -95,9 +92,9 @@ plt.plot(t, f(t, *params), 'r-', label='fit log')
 plt.grid()
 plt.xlabel(r'$T/K$')
 plt.ylabel(r'$\alpha$')
-plt.legend(loc='best',numpoints=1)
+plt.legend(loc='best')
 #plt.show()
-plt.savefig('pc/Plot.pdf')
+plt.savefig('pc/a.pdf')
 plt.clf()	
  
 #Messwerte einlesen
@@ -158,9 +155,9 @@ plt.errorbar(noms(T[1:]), noms(Cv),xerr = sdevs(T[1:]), yerr = sdevs(Cv),fmt='mx
 plt.grid()
 plt.xlabel(r'$T/K$')
 plt.ylabel(r'$C_\text{V / P}$')
-plt.legend(loc='best',numpoints=1)
+plt.legend(loc='best')
 #plt.show()
-plt.savefig('pc/plot.pdf')
+plt.savefig('pc/C.pdf')
 plt.clf()	
 
 TT = (T[1:])
@@ -181,13 +178,13 @@ thD = (deb*Td**3*9*con.R/Cvd)**(1/3)
 
 
 MthD = ufloat(np.mean(noms(thD)),np.std(noms(thD))/np.sqrt(len(noms(thD))))
-#print(MthD)
+print(MthD)
 
 
-wd = (1/vl**3 + 2/vtr**3)**(-1/3)*(18*con.N_A*con.pi**2*rho/M)**(1/3) #N_A ist die Loschmidtsche Zahl, pi=3, hbar =1 :D und k die Boltzmannkonstante
+#wd = (1/vl**3 + 2/vtr**3)**(-1/3)*(18*con.N_A*con.pi**2*rho/M)**(1/3) #N_A ist die Loschmidtsche Zahl, pi=3, hbar =1 :D und k die Boltzmannkonstante
 #print(wd)
-theta_D = con.hbar*wd/con.k
-print(theta_D)
+#theta_D = con.hbar*wd/con.k
+#print(theta_D)
 
 
 #Tabellen und anderer krasser Shit
@@ -224,19 +221,14 @@ for i in range(len(dT)):
 
 #Tabellen	
 data1 = [noms(R), T, dTt, Cvt, Cpt]
-p1 = {'name':'tables/tab1.tex', 'data':data1}
+p1 = {'name':'pc/tab1.tex', 'data':data1}
 table(**p1)
 
 data2 = [U, I, t, E]
-p2 = {'name':'tables/En.tex', 'data':data2}
+p2 = {'name':'pc/En.tex', 'data':data2}
 table(**p2)
 
-
 data3 = [Td, Cvd, deb, thD]
-p3 = {'name':'tables/deb.tex', 'data':data3}
+p3 = {'name':'pc/deb.tex', 'data':data3}
 table(**p3)
-
-data4 = [Tak, ak*10**6]
-p4 = {'name':'pc/al.tex', 'data':data4}
-#table(**p4)
 
