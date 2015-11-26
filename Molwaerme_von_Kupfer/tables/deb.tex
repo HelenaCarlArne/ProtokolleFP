@@ -1,35 +1,42 @@
 \begin{table}[h]
 \centering
-\caption{CAPTION}
-\sisetup{%uncertainty-seperator = {\,},
-table-number-alignment = center,
-table-unit-alignment = center,
-%table-figures-integer = 1,
-%table-figures-decimal = 1,
-table-auto-round = true
+\caption{Die Debye-Energie.}
+\sisetup{
+	%uncertainty-separator = {\,},
+	table-number-alignment = center,
+	table-unit-alignment = center,
+	%table-figures-integer = 1,
+	%table-figures-decimal = 1,
+	table-auto-round = true
 }
-\begin{tabular}{ S[table-format= 3.1]
- @{\,$\pm{}$\,} 
- S[table-format= 3.1] S[table-format= 3.1]
- @{\,$\pm{}$\,} 
- S[table-format= 3.1]  S[table-format= 3.1] 
-S[table-format= 3.1]
- @{\,$\pm{}$\,} 
- S[table-format= 3.1] }
+\begin{tabular}{
+	S[table-format=3.1]
+	@{\,$\pm{}$\,}
+	S[table-format=1.1]
+	S[table-format=2.1]
+	@{\,$\pm{}$\,}
+	S[table-format=1.1]
+	S[table-format=1.1]
+	S[table-format=3.0]
+	@{\,$\pm{}$\,} 
+	S[table-format=1.1]
+}
+%S[round-mode=places,round-precision=1]  @{${}\pm{}$} S[round-mode=places, round-precision=1] S[round-mode=places, round-precision=1]  @{${}\pm{}$} S[round-mode=places, round-precision=1]  S[round-mode=places, round-precision=1] S[round-mode=places, round-precision=-1] @{${}\pm{}$} S[round-mode=places, round-precision=-1]} \\
 \toprule
-\multicolumn{2}{c}{TITLE}
-&\multicolumn{2}{c}{TITLE}
-&{$\text{Title}$}
-&\multicolumn{2}{c}{TITLE} \\
- \midrule
-93.3357094&0.2368628&13.7421895495&0.575552491518&3.7&1.0&0.0\\
-103.3075846&0.2379884&16.8819607323&0.572574641132&2.9&1.0&0.0\\
-113.326735&0.239114&17.6176374049&0.598181858845&2.7&1.0&0.0\\
-123.1529344&0.2402128&17.2790613793&0.601954581407&2.8&1.0&0.0\\
-133.2655096&0.2413384&17.0585758576&0.581139812487&2.9&1.0&0.0\\
-143.1829094&0.2424372&17.7775017301&0.621018346267&2.7&1.0&0.0\\
-153.14536&0.243536&18.5925786275&0.650093549816&2.5&1.0&0.0\\
-163.1528614&0.2446348&19.8689212452&0.695099720236&2.2&1.0&0.0\\
+\multicolumn{2}{c}{$T\:/\:\si{\kelvin}$} 
+&\multicolumn{2}{c}{$C_V\,/[C_V]$} 
+&{$\frac{\theta_D}{T}\:/\:\si{\joule\per\kelvin}$} 
+&\multicolumn{2}{c}{$\theta_D\si\joule$}\\ 
+%\multicolumn{2}{c}{$T\/\:\si\kelvin$} &\multicolumn{2}{c}{$C_V\:/\:\si{\joule\per\mole\per\kelvin}$} &{$\frac{\theta_D}{T}\:/\:\si{\joule\per\kelvin}$} & \multicolumn{2}{c}{$\theta_D\si\joule$} \\ \midrule
+\midrule
+93.33570939999996&0.23686279999999998&13.742189549612418&0.5755524915717548&3.7&253.97364482895873&4.028154632939885\\
+103.30758459999998&0.2379884&16.88196073249394&0.5725746411917922&2.9&242.00042801301214&3.1557616579049643\\
+113.32673499999996&0.23911400000000002&17.617637405144738&0.5981818589096461&2.7&255.56220786143&3.296715811369545\\
+123.15293439999996&0.2402128&17.279061379553614&0.6019545814797218&2.8&282.93257240146875&3.697296130894846\\
+133.26550959999997&0.24133839999999998&17.058575857784458&0.5811398125731886&2.9&311.09645511577685&3.9521537312421735\\
+143.18290939999997&0.24243720000000002&17.777501730246744&0.6210183463600157&2.7&321.9198451542428&4.15273643925465\\
+153.14535999999998&0.24353599999999997&18.592578627674367&0.6500935499175255&2.5&330.6203080454006&4.24231931171675\\
+163.15286139999998&0.2446348&19.868921245346684&0.6950997203445519&2.2&330.14372584339225&4.215311037815498\\
 \bottomrule
 \end{tabular}
 \label{tab:deb}
