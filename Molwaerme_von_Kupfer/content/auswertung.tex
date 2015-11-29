@@ -2,35 +2,56 @@
 \label{sec:Auswertung}
 %In dem Versuch sollte die spezifische molare Wärmekapazität einer Kupferprobe bestimmt werden. 
 Die für die Molwärme charakteristische Materialgröße ist nach \eqref{eqn:cvd} die Debye-Temperatur $\theta_D$. 
-Es wird beim Ohmmeter ein Messwiderstandsfehler von $\SI{0.1}{\ohm}$ erwartet.
+Bei den Messgeräten Ohm-, Volt- und Amperemeter sowie für die Stoppuhr wird eine Messunsicherheit abgeschätzt:
+\begin{align*}
+	\sigma_R &= \SI{0.1}{\ohm}\\
+	\sigma_U &= \SI{0.01}{\volt}\\
+	\sigma_I &= \SI{0.1}{\milli\ampere}\\
+	\sigma_{\Delta t} &= \SI{0.1}{\second}	\,\text.
+\end{align*}
 \subsection{Messung der Molwärme}
-Die Molwärme $C_V$ bei konstantem Volumen zu bestimmen, gestaltet sich experimentell schwierig. Leichter ist es, zunächst die Molwärme $C_P$ bei konstantem Druck zu bestimmen und diese mittels \eqref{eq:molwaermeconv}
+Die Molwärme $C_V$ bei konstantem Volumen zu bestimmen, gestaltet sich experimentell schwierig. Einfacher ist es, zunächst die Molwärme $C_p$ bei konstantem Druck zu bestimmen und diese mittels \eqref{eq:molwaermeconv}
 umzurechnen. 
 Die Molwärme $C_V$ kann mit der zugeführten Energie bestimmt werden. Diese kann aus den Werten in Tabelle \ref{tab:En} und Tabelle \ref{tab:tab1} mit
 \begin{align}
 	E &= U \cdot I \cdot \symup\Delta t,\\
-	C_P &= \frac{M}{m}\cdot\frac{E}{\symup\Delta T}
+	C_p &= \frac{M}{m}\cdot\frac{E}{\symup\Delta T}
 	\label{eqn:cp}
 \end{align}
-berechnet werden. Dabei bezeichnen $M$ die molare Masse und $m$ die Probenmasse. Die Ergebnisse für die beiden Molwärmen sind dort auch eingetragen. 
+berechnet werden. Dabei bezeichnen $E$ die zugeführte Energie, $U$ die Spannung, $I$ die Stromstärke, $\Delta t$ das Zeitintervall, $\Delta T$ den Temperaturunterschied, $M$ die molare Masse und $m$ die Probenmasse. In Tabelle \ref{tab:tab1} sind außer den bereits genannten Größen die berechneten Molwärmen eingetragen.
+Die durch Messunsicherheiten entstehenden Fehler werden über Gauß mit den folgenden Fehlerformeln berechnet:
+\begin{align*}
+	\sigma_E &= \sqrt{I^{2} U^{2} \sigma_{{\Delta T}}^{2} + I^{2} {\Delta T}^{2} \sigma_{U}^{2} + U^{2} {\Delta T}^{2} \sigma_{I}^{2}}\\
+	\sigma_{C_p} &= \sqrt{\frac{E^{2} M^{2} \sigma_{{\Delta T}}^{2}}{{\Delta T}^{4} m^{2}} +\frac{M^{2} \sigma_{E}^{2}}{{\Delta T}^{2} m^{2}}}\\
+	\sigma_{C_V} &= \sqrt{324 T^{2} V_{0}^{2} \alpha^{2} \kappa^{2} \sigma_{\alpha}^{2} + 81 V_{0}^{2} \alpha^{4} \kappa^{2} \sigma_{T}^{2} + \sigma_{C_{p}}^{2}}\,\text.
+\end{align*}
 Der lineare Ausdehnungskoeffizient $\alpha$ ist in Tabelle \ref{tab:al} eingetragen. Um diese genauer an die gemessenen Temperaturen anzupassen, wurden diese logarithmisch mit
 \begin{equation*}
-	\alpha_\text{fit}(x) = a\cdot\log{(b\cdot x + c)}
+	\alpha_\text{fit}(T) = a\cdot\log{(b\cdot T + c)}
 \end{equation*}
-gefittet. Die Fitparameter sind dabei $a = \SI{-28 \pm 3}{}$, $b = \SI{
-0.52\pm0.05}{}$ und $c = (\SI{3.47\pm0.07}{})\cdot 10^{-6}$.
+gefittet. Die Fitparameter sind dabei $a = \SI{-28 \pm 3}{\per\kelvin}$, $b = \SI{0.52\pm0.05}{\per\kelvin}$ und $c = (\SI{3.47\pm0.07}{})\cdot 10^{-6}$.
 Der Fit für $\alpha$ ist in Abbildung \ref{fig:a} zu sehen.
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{pc/plot.pdf}
+  \includegraphics[width=\textwidth]{pc/Plot.pdf}
   \caption{Der Fit für den linearen Ausdehnungskoeffizienten.}
   \label{fig:a}
 \end{figure}
 \input{tables/En.tex}
 \input{tables/tab1.tex}
 \input{tables/al.tex}
+Zur Illustration und zur Übersicht, sind die Werte für $C_V$ und $C_p$ in Abbildung \ref{fig:cvcp} in Abhängigkeit von der, über den Messwiderstand berechneten, Temperatur geplottet. Die Einheiten für $C_V$ und $C_p$ wurden in den Tabellen aus Platzgründen bewusst weggelassen und werden hier seperat angegeben:
+\begin{equation*}
+	[C_V] = [C_p] = \si{\joule\per\mole\per\kelvin}\,\text.
+\end{equation*}
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{pc/cvcp.pdf}
+	\caption{Die Molwärmen in Abhängigkeit von der Temperatur.}
+	\label{fig:cvcp}
+\end{figure}
 \subsection{Bestimmung der Debye-Temperatur}
-Um die Debye-Temperatur $\theta_D$ zu bestimmen, kann die Gleichung \eqref{eqn:cvd} genutzt werden. Das Integral ist tabellarisiert in Abbildung \ref{fig:cvd}
+Um die Debye-Temperatur $\theta_D$ zu bestimmen, kann die Gleichung \eqref{eqn:cvd} genutzt werden. Die Zahlenwerte der Debye Funktion sind in Abbildung \ref{fig:cvd}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{graphics/cvd.png}
@@ -38,17 +59,33 @@ Um die Debye-Temperatur $\theta_D$ zu bestimmen, kann die Gleichung \eqref{eqn:c
 	\label{fig:cvd}
 \end{figure}
 zu sehen.
-Die Werte können dann abgelesen und zur weiteren Berechnung genutzt werden.
+Die Werte können abgelesen und zur weiteren Berechnung genutzt werden.
 Diese sind in Tabelle \ref{tab:deb} eingetragen.
 \input{tables/deb.tex}
-Die Debye-Temperatur kann dann mittels \eqref{eqn:cvd} berechnet werden.
+Die Debye-Temperatur kann mittels \eqref{eqn:cvd} berechnet werden.
 Es ergibt sich ein Mittelwert von
 \begin{equation*}
-	\theta_D = \SI{291\pm12}{\kelvin}
+	\theta_D = \left[\frac{{\frac{\theta_D}{T}}T^3\cdot9R}{C_V}\right]^{\frac{1}{3}} = \SI{291\pm12}{\kelvin}
 \end{equation*}
 für die Debye-Temperatur.
-Aus der Forderung \eqref{eqn:wd} kann die Debye-Temperatur für ein gegebenes Material auch bestimmt werden. Dazu muss die Verteilungsfunktion $Z(\omega)$ integriert und umgestellt werden.
+Der dabei enstandene Fehler berechnet sich mit
+\begin{equation*}
+	\sigma_{\theta_D} = \sqrt{\frac{\sigma_{T}^{2}}{T^{2}} 9^{\frac{2}{3}} \left(\frac{R {\frac{\theta_D}{T}}}{C_{V}} T^{3}\right)^{\frac{2}{3}} + \frac{\frac{1}{9} \sigma_{C_{V}}^{2}}{C_{V}^{2}} 9^{\frac{2}{3}} \left(\frac{R {\frac{\theta_D}{T}}}{C_{V}} T^{3}\right)^{\frac{2}{3}}}\,\text.
+\end{equation*}
+
+Aus der Forderung \eqref{eqn:wd} kann die Debye-Temperatur für ein gegebenes Material auch bestimmt werden. Dazu wird das Integral über die Verteilungsfunktion $Z(\omega)$ \eqref{eqn:z} ausgeführt:
+\begin{align*}
+	\int_0^{\omega_D} \frac{L^3}{2\pi^2}\omega^2\left(\frac{1}{v_\text{l}^3}+\frac{2}{v_\text{tr}^3}\right) d\omega &\overset{!}{=} 3 N_L\\
+	\frac{L^3}{6\pi^2}\omega_D^3\left(\frac{1}{v_\text{l}^3}+\frac{2}{v_\text{tr}^3}\right)  &= 3N_L\\
+	\left[\frac{18\pi^2N_L}{L^3}\left(\frac{1}{v_\text{l}^3}+\frac{2}{v_\text{tr}^3}\right)^{-1} \right]^{\frac{1}{3}} &= \omega_D \,\text.
+\end{align*}
+Die Größe $L$ ist die Länge der Probe, welche nicht gegeben ist. Diese kann aber mittels einer Umrechnung der Loschmidtschen Zahl $N_L$ eliminiert werden. Es ergibt sich:
+\begin{align*}
+	L^3 = V &= \frac{m}{\rho_\text{Cu}}\qquad N_L = N_A\frac{m}{M}\\
+	\Rightarrow \frac{N_L}{L^3} &= N_A\frac{\rho_\text{Cu}}{M}\,\text.
+\end{align*}
+Dabei ist $N_A$ die Avogadrokonstante.
 Mit den Werten $m = \SI{342}{\gram}$, $v_\text{l} = \SI{4.7}{\kilo\metre\per\second}$ und $v_\text{tr} = \SI{2.26}{\kilo\meter\per\second}$ kann über
 \begin{equation*}
-	\theta_D = \frac{\hbar\omega_D}{k_\text{B}} = \SI{331.991}{\kelvin}
-\end{equation*} bestimmt werden. 
+	\theta_D = \frac{\hbar\omega_D}{k_\text{B}}= \frac{\hbar}{k_\text{B}}\left[\frac{18\pi^2\rho_\text{Cu} N_A}{M}\left(\frac{1}{v_\text{l}^3}+\frac{2}{v_\text{tr}^3}\right)^{-1} \right]^{\frac{1}{3}} = \SI{331.991}{\kelvin}
+\end{equation*} bestimmt werden. Dabei sind $k_B$ die Boltzmannkonstante und $\hbar$ das reduzierte Plancksche Wirkungsquantum.

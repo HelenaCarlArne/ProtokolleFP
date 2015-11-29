@@ -1,6 +1,8 @@
 ﻿\section{Zielsetzung}
 Es wird die Molwärme von einer Kupferprobe experimentell bestimmt. 
-Hierzu werden drei Theorien vorgestellt, deren Vorhersage quantitativ miteinander verglichen werden.
+Hierzu werden drei Theorien vorgestellt, %deren Vorhersagen quantitativ miteinander verglichen werden.
+die aufeinander aufbauend, erweitert und ausgefeilt werden.
+Experimentell wird insbesondere das Debye-Modell untersucht.
 
 \section{Theorie}
 \label{sec:Theorie}
@@ -35,14 +37,14 @@ daher wird nach der klassischen Physik eine mittlere Energie von
 	\langle u \rangle = 2\cdot3\cdot\frac{1}{2}k_\text B T
 \end{equation*}
 angenommen.
-Im Kristall ergibt sich mit der Avogadro-Konstanten $N_\text L$ bei der Teilchenzahl $N = N_\text L = \SI{1}{mol}$ für die Energie im Allgemeinen
+Im Kristall ergibt sich mit der Avogadro-Konstanten $N_\text A$ bei der Teilchenzahl $N = N_\text A = \SI{1}{mol}$ für die Energie im Allgemeinen
 \begin{equation}
-	U = N \langle u \rangle
+	U = N_\text A \langle u \rangle
 	\label{eq:gesamtenergie}
 \end{equation}
 und im Weiteren für die klassische Theorie
 \begin{equation}
-	U_\text{klass} = 3k_\text B N_\text L T = 3RT.
+	U_\text{klass} = 3k_\text B N_\text A T = 3RT.
 \end{equation}
 Damit kann die spezifische Molwärme bei konstantem Volumen mit
 \begin{equation}
@@ -52,11 +54,12 @@ berechnet werden.
 
 Die klassische Theorie steht im Widerspruch zu den experimentellen Ergebnissen.
 Es ist bekannt, 
-dass die Molwärme von dem Material und von der momentanen Temperatur $T$ abhängig ist.
+dass die Molwärme, für niedrige Temperaturen, 
+von dem Material und von der momentanen Temperatur $T$ abhängig ist.
 
 
 \subsection{Das Einstein-Modell}
-Die klassischen Theorie missachtet die Quantelung der Energien, insbesondere der Energiequantelung beim haromischen Oszillator. 
+Die klassischen Theorie missachtet die Quantelung der Energien, insbesondere die Energiequantelung beim haromischen Oszillator. 
 Im Einstein-Modell wird angenommen, 
 dass die Atome mit der Frequenz $\omega$ schwingen und  nur Energien, die ein Vielfaches von $\hbar\omega$ sind, annehmen oder abgeben können.
 Zur Berechnung der mittleren Energie $\langle u \rangle _\text{Einstein}$ wird im Kontrast zum Äquipartitionstheorem die Verteilung $W(n)$ der Energien betrachtet. 
@@ -74,7 +77,7 @@ angegeben, womit
 für die mittlere Energie folgt.
 Durch diese Formel kann mithilfe \eqref{eq:molwaermev} auf die Molwärme
 \begin{equation}
-	C_{V_\text{Einstein}} = \frac{d}{dT}3 N_\text L \frac{\hbar\omega}{\exp{\left(\frac{\hbar\omega}{k_\text B T}\right)} - 1} = 3R \frac{\hbar^2\omega^2}{k_\text B ^2 T^2} \frac{\exp{\left(\frac{\hbar\omega}{k_\text B T}\right)}}{\left(\exp{\left(\frac{\hbar\omega}{k_\text B T}\right)}-1\right)^2}\,\text.
+	C_{V_\text{Einstein}} = \frac{d}{dT}3 N_\text A \frac{\hbar\omega}{\exp{\left(\frac{\hbar\omega}{k_\text B T}\right)} - 1} = 3R \frac{\hbar^2\omega^2}{k_\text B ^2 T^2} \frac{\exp{\left(\frac{\hbar\omega}{k_\text B T}\right)}}{\left(\exp{\left(\frac{\hbar\omega}{k_\text B T}\right)}-1\right)^2}\,\text.
 	\label{eqn:cv}
 \end{equation}
 geschlossen werden.
@@ -116,7 +119,8 @@ Unter der Annahme, der Kristall bestehe aus $N_\text L$ Atomen, heißt die Grenz
 	\int_0^{\omega_\text D} Z(\omega) d\omega = 3 N_\text L
 	\label{eqn:wd}
 \end{equation}
-Debye-Frequenz.
+Debye-Frequenz. 
+Dabei ist $N_\text L$ die Loschmidtsche Zahl.
 Damit ist 
 \begin{equation}
 	Z(\omega)d\omega = \frac{9 N_\text L}{\omega_\text D ^3}\omega^2 d\omega

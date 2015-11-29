@@ -17,6 +17,21 @@ import scipy.constants as con
 from scipy.constants import physical_constants as pcon
 import math as m
 
+def error(f, err_vars=None):
+    from sympy import Symbol, latex
+    s = 0
+    latex_names = dict()
+    
+    if err_vars == None:
+        err_vars = f.free_symbols
+        
+    for v in err_vars:
+        err = Symbol('latex_std_' + v.name)
+        s += f.diff(v)**2 * err**2
+        latex_names[err] = '\\sigma_{' + latex(v) + '}'
+        
+    return latex(sympy.sqrt(s), symbol_names=latex_names)
+
 #Table Funktion
 dummy = ufloat(69,42)
 dummyarray = np.array([dummy,dummy*6.626])
@@ -89,12 +104,12 @@ def f(x, a, b, m):
 	return m*np.log(a*x+ b)
 params, covs = curve_fit(f, Tak, ak)
 	
-plt.plot(Tak, ak,'bx', label='Messwerte')
+plt.plot(Tak, ak*10**6,'bx', label='Messwerte')
 t = np.linspace(50, 300, 500)
-plt.plot(t, f(t, *params), 'r-', label='fit log')
+plt.plot(t, f(t, *params)*10**6, 'r-', label='fit log')
 plt.grid()
-plt.xlabel(r'$T/K$')
-plt.ylabel(r'$\alpha$')
+plt.xlabel(r'$T\:/\:\si\kelvin$')
+plt.ylabel(r'$\alpha\:/\:\si{\per\micro\kelvin}$')
 plt.legend(loc='best',numpoints=1)
 #plt.show()
 plt.savefig('pc/Plot.pdf')
@@ -103,7 +118,13 @@ plt.clf()
 #Messwerte einlesen
 t, U, I, R = np.genfromtxt('rawdata/m.txt', unpack = True)
 sR = 0.1
+sU = 0.01
+sI = 0.1
+st = 0.1
+t = unp.uarray(t, st)
 R = unp.uarray(R, sR) #in ohm
+U = unp.uarray(U,sU)
+I = unp.uarray(I, sI)
 m = 0.342 #in kg
 M = 0.063546 #in kg/mol
 rho = 8920 #in kg/m³
@@ -156,11 +177,11 @@ Cv = Cp - 9 *(alpha[1:])**2*V0*T[1:]*K
 plt.errorbar(noms(T[1:]), noms(Cp),xerr=sdevs(T[1:]), yerr=sdevs(Cp), fmt='bx', label=r'$C_P$')
 plt.errorbar(noms(T[1:]), noms(Cv),xerr = sdevs(T[1:]), yerr = sdevs(Cv),fmt='mx', label =r'$C_V$')
 plt.grid()
-plt.xlabel(r'$T/K$')
-plt.ylabel(r'$C_\text{V / P}$')
+plt.xlabel(r'$T\:/\:\si\kelvin$')
+plt.ylabel(r'$C_\text{V / P}$ $/$ $\si{\joule\per\mole\per\kelvin}$')
 plt.legend(loc='best',numpoints=1)
 #plt.show()
-plt.savefig('pc/plot.pdf')
+plt.savefig('pc/cvcp.pdf')
 plt.clf()	
 
 TT = (T[1:])
@@ -181,7 +202,7 @@ thD = (deb*Td**3*9*con.R/Cvd)**(1/3)
 
 
 MthD = ufloat(np.mean(noms(thD)),np.std(noms(thD))/np.sqrt(len(noms(thD))))
-#print(MthD)
+print(MthD)
 
 
 #wd = (1/vl**3 + 2/vtr**3)**(-1/3)*(18*con.N_A*con.pi**2*rho/M)**(1/3) #N_A ist die Loschmidtsche Zahl, pi=3, hbar =1 :D und k die Boltzmannkonstante
@@ -223,19 +244,39 @@ for i in range(len(dT)):
 
 
 #Tabellen	
-data1 = [noms(R), T, dTt, Cvt, Cpt]
-p1 = {'name':'tables/tab1.tex', 'data':data1}
+data1 = [R, T, dTt, Cvt, Cpt]
+p1 = {'name':'pc/tab1.tex', 'data':data1}
 #table(**p1)
 
-data2 = [U, I, t, E]
-p2 = {'name':'tables/En.tex', 'data':data2}
+data2 = [U, I*1000, t, E]
+p2 = {'name':'pc/En.tex', 'data':data2}
 #table(**p2)
 
 data3 = [Td, Cvd, deb, thD]
-p3 = {'name':'tables/deb.tex', 'data':data3}
+p3 = {'name':'pc/deb.tex', 'data':data3}
 #table(**p3)
 
 data4 = [Tak, ak*10**6]
 p4 = {'name':'pc/al.tex', 'data':data4}
 #table(**p4)
 
+#Fehlerformeln
+#Wärmemenge
+U, I, t = sympy.var('U I \delta_t')
+E = U*I*t
+#print(error(E))
+print()
+#CP
+M, m, E, dT = sympy.var(r'M, m, E, \delta_T')
+CP = M/m * E/dT
+#print(error(CP))
+print()
+#CV
+CP, a, K, V, T = sympy.var(r'C_p, \alpha, \kappa, V_0, T')
+CV = CP - 9*a**2*K*V*T
+#print(error(CV))
+print()
+#theta_D
+de, Td, Cvd, R= sympy.var(r'deb, T, C_V, R')
+thD = (deb*Td**3*9*R/Cvd)**(1/3)
+#print(error(thD))
