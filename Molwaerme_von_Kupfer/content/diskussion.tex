@@ -1,9 +1,55 @@
 \section{Diskussion}
 \label{sec:Diskussion}
-Eine präzise Theorie liefert die Fermi-Dirac-Statistik, welche hier aber nicht untersucht werden soll.
+
 \subsection{Fehlerdiskussion}
-Um den Fehler gering zu halten, sollten während des Versuches Rezipientenwandtemperatur und Probentemperatur möglichst gleich sein. Dies gestaltet sich schwierig und stellt eine Fehlerquelle dar. Weitere Probleme, die nur durch das Innenleben des Rezipienten einsichtig würden, können hier nicht diskutiert werden, da dieser als Blackbox behandelt werden musste.
+Nach Abschnitt \ref{sec:durchfuehrung} wird die Angleichung der Temperaturen von Probe und Probengehäuse gefordert.
+Da das Heizsystem des Gehäuses nicht an die Probenheizung angepasst arbeitet, 
+muss es von Hand eingestellt und gegebenenfalls nachjustiert werden.
+Weiterhin reagiert das System träge auf Leistungsanpassungen. 
+Es konnte daher die obige Forderung nicht mit Sicherheit gewährleistet werden und 
+somit ist von störenden Effekten, die das Ergebnis beeinflussen, auszugehen.
+Weitere Probleme, 
+die nur durch das Innenleben des Rezipienten einsichtig würden, können hier nicht diskutiert werden, 
+da dieser als Blackbox behandelt werden musste.
+
 \subsection{Ergebnis der Messung}
-Die mit Hilfe der Debye Theorie vorhergsagte Molwärme konnte nicht im Bereich der Literaturangabe experimentell geprüft werden.
-Aus Mangel an Vergleich mit anderen Theorien lässt sich hieraus kein Schluss auf die Qualität der Theorie ziehen.
-Die theoretisch bestimmte Debye-Temperatur weicht um ca. $13$ Prozent von dem experimentellen Ergebnis ab. Dies kann an den diskutierten Fehlerquellen oder an zu schlechten Näherungen liegen.
+Für die Debye-Temperatur wurden für Kupfer der angegebenen Masse folgende Werte gefunden. 
+\begin{align}
+	\theta_D &= \SI{291(12)}{\kelvin},\\
+	\theta_{D, \text{Th.}} &= \SI{331.991}{\kelvin},
+\end{align}
+Mit dem Literaturwert \cite{debye-kupfer}
+\begin{equation}
+	\theta_{D, \text{Lit.}} = \SI{345}{\kelvin}
+\end{equation}
+ergeben sich die prozentualen Abweichungen $\Delta$
+\begin{align}
+	\Delta\theta_D &= 15{,}65 \%,\\
+	\Delta\theta_{D, \text{Th.}} &= 4{,}05 \%.
+\end{align}
+Die sind vertretbare Abweichungen im Rahmen einer nicht aufwendig vorbereiteten Messung, 
+obgleich der Literaturwert nicht in der einfachen Standardabweichung von $\theta_D$ liegt.
+
+Die Molwärme als solche ist keine in Standardwerken aufgeführte Größe, da sie von der Probenmenge abhängt.
+Die spezifische Wärmekapazität ist eine Materialkonstante und wird als Molwärme pro Masse definiert.
+Die spezifische Wärmekapazität ist wie die Molwärme von der Temperatur abhängig und wird in Tabellenwerken bei fester Temperatur angegeben.
+Der Vergleich der experimentell bestimmten Molwärme bei Raumtemperatur erfolgt mit der spezifischen Wärmekapazität und der molaren Masse $M_{\text{Kupfer}}=\SI{63.55}{\gram\per\mol}$ zu
+\begin{equation}
+	C_{p,\text{Lit.}} = c_{p,\text{Lit.}}\cdot M_{\text{Kupfer}}= \SI{24.21}{\joule\per\kelvin},\\
+\end{equation}
+bei Raumtemperatur, woraus sich die Abweichung
+\begin{equation}
+	\Delta C_p = 3{,}26 \%
+\end{equation}
+ergibt.
+Die geringe Abweichung lässt auf ein zufriedenstellenden Aufbau und Durchführung des Experimentes schließen.
+
+Mit den Ergebnissen des Experimentes, aufbauend auf die Debye-Theorie in Abschnitt \ref{sec:theorie_debye}, 
+kann diese als gute Näherung erkannt werden.
+
+\subsection{Verbesserungsansatz}
+Der Aufbau des Experimentes könnte durch selbstständige, abgestimmte Heizsysteme und digitalisierte Zeitaufnahme optimiert werden.
+Hierdurch würden Fehler, die auf Experimentführung zurückzuführen sind ausgeschlossen.
+Die Theorie von Debye lässt sich bezüglich der Verteilungsfunktion $Z(\omega)$ dadurch verfeinern, 
+indem die Energieverteilung nach Fermi-Dirac berücksichtigt wird. 
+Der Ansatz hierzu ist als BLABLA etwa in "Nolting 5.2, Leck mich" zu lesen.
