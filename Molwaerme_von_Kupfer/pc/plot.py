@@ -174,14 +174,15 @@ Cv = Cp - 9 *(alpha[1:])**2*V0*T[1:]*K
 
 
 #Plot
-plt.errorbar(noms(T[1:]), noms(Cp),xerr=sdevs(T[1:]), yerr=sdevs(Cp), fmt='bx', label=r'$C_P$')
+plt.errorbar(noms(T[1:]), noms(Cp),xerr=sdevs(T[1:]), yerr=sdevs(Cp), fmt='bx', label=r'$C_p$')
 plt.errorbar(noms(T[1:]), noms(Cv),xerr = sdevs(T[1:]), yerr = sdevs(Cv),fmt='mx', label =r'$C_V$')
 plt.grid()
 plt.xlabel(r'$T\:/\:\si\kelvin$')
-plt.ylabel(r'$C_\text{V / P}$ $/$ $\si{\joule\per\mole\per\kelvin}$')
+plt.ylabel(r'$C_\text{V / p}$ $/$ $\si{\joule\per\mole\per\kelvin}$')
 plt.legend(loc='best',numpoints=1)
 #plt.show()
 plt.savefig('pc/cvcp.pdf')
+plt.savefig('pc/plot.pdf')
 plt.clf()	
 
 TT = (T[1:])
