@@ -1,12 +1,10 @@
 ﻿\section{Zielsetzung}
-Es wird die Molwärme von einer Kupferprobe experimentell bestimmt. 
-Hierzu werden drei Theorien vorgestellt, %deren Vorhersagen quantitativ miteinander verglichen werden.
-die aufeinander aufbauend, erweitert und ausgefeilt werden.
-Experimentell wird insbesondere das Debye-Modell untersucht.
+Es wird die Molwärme von einer Kupferprobe, d.h. die aufgenommene Energie bei Temperatur-Erhöhung, experimentell bestimmt. 
+Hierzu werden drei Theorien -- das klassische Modell, das Einstein-Modell und das Debye-Modell -- zunächst dargelegt und anschließend das Debye-Modell experimentell untersucht.
 
 \section{Theorie}
 \label{sec:Theorie}
-Die Molwärme $C$ ist eine thermodynamische Größe, die die Änderung der inneren Energie $U$ unter der Änderung der Temperatur $T$ beschreibt.
+Die Molwärme $C$ ist eine thermodynamische Größe, die die Änderung der inneren Energie $U$ unter Änderung der Temperatur $T$ beschreibt.
 Hierzu wird zwischen den Molwärmen bei konstantem Druck
 \begin{align}
 	C_p = \left(\frac{\partial U}{\partial T}\right)_p
@@ -28,11 +26,11 @@ wobei $\alpha$ der lineare Ausdehnungskoeffizient, $\kappa$ der Kompressionsmodu
 In einem kristallinen Festkörper sind die Atome durch Gitterkräfte an ihre Ruhelage gebunden. 
 Sie können daher nur Schwingungen in den drei senkrecht aufeinander stehenden Raumrichtungen ausführen. 
 Die kinetische Energie ist dabei nach dem Äquipartitionstheorem gleichmäßig auf die Bewegungsfreiheitsgrade verteilt. 
-Im zeitlichen Mittel besitzen die Atome, 
-pro Freiheitsgrad, 
+Im zeitlichen Mittel besitzen die Atome 
+pro Freiheitsgrad
 eine Energie von $\frac{1}{2}k_\text{B}T$. 
 Bei eine harmonischen Schwingung sind kinetische und potentielle Energie im Mittel gleich, 
-daher wird nach der klassischen Physik eine mittlere Energie von
+daher wird nach klassischer Betrachtung eine mittlere Energie von
 \begin{equation*}
 	\langle u \rangle = 2\cdot3\cdot\frac{1}{2}k_\text B T
 \end{equation*}
@@ -54,7 +52,7 @@ berechnet werden.
 
 Die klassische Theorie steht im Widerspruch zu den experimentellen Ergebnissen.
 Es ist bekannt, 
-dass die Molwärme, für niedrige Temperaturen, 
+dass die Molwärme für niedrige Temperaturen 
 von dem Material und von der momentanen Temperatur $T$ abhängig ist.
 
 
@@ -64,7 +62,7 @@ Im Einstein-Modell wird angenommen,
 dass die Atome mit der Frequenz $\omega$ schwingen und  nur Energien, die ein Vielfaches von $\hbar\omega$ sind, annehmen oder abgeben können.
 Zur Berechnung der mittleren Energie $\langle u \rangle _\text{Einstein}$ wird im Kontrast zum Äquipartitionstheorem die Verteilung $W(n)$ der Energien betrachtet. 
 $W(n)$ beschreibt die Wahrscheinlichkeit, 
-dass ein harmonischer Oszillator, 
+dass ein harmonischer Oszillator 
 bei der Temperatur $T$ im thermischen Gleichgewicht die Energie $n\hbar\omega$ besitzt.
 Mit der Boltzmann-Verteilung wird
 \begin{equation*}
@@ -75,7 +73,7 @@ angegeben, womit
 	\langle u \rangle _\text{Einstein} = \frac{\sum\limits_n W(n)\cdot E(n)}{\sum\limits_n W(n)}=	\frac{\hbar\omega}{\exp{\left(\frac{\hbar\omega}{k_\text B T}\right)} - 1}  < k_\text B T
 \end{equation*}
 für die mittlere Energie folgt.
-Durch diese Formel kann mithilfe \eqref{eq:molwaermev} auf die Molwärme
+Durch diese Formel kann durch \eqref{eq:molwaermev} auf die Molwärme
 \begin{equation}
 	C_{V_\text{Einstein}} = \frac{d}{dT}3 N_\text A \frac{\hbar\omega}{\exp{\left(\frac{\hbar\omega}{k_\text B T}\right)} - 1} = 3R \frac{\hbar^2\omega^2}{k_\text B ^2 T^2} \frac{\exp{\left(\frac{\hbar\omega}{k_\text B T}\right)}}{\left(\exp{\left(\frac{\hbar\omega}{k_\text B T}\right)}-1\right)^2}\,\text.
 	\label{eqn:cv}
@@ -91,6 +89,7 @@ Die monofrequente Näherung stellt dennoch eine grobe Näherung dar,
 sodass bei tiefen Temperaturen große Abweichungen auftreten.
 
 \subsection{Das Debye-Modell}
+\label{sec:theorie_debye}
 Zusätzlich zu den Annahmen im Einstein-Modell, wird die spektrale Verteilung $Z(\omega)$ der Schwingungsfrequenzen $\omega$ berücksichtigt.
 Es wird für die Berechnung der Energie $U$ über alle Frequenzen integriert, sodass die Molwärme zu
 \begin{equation}
@@ -99,15 +98,15 @@ Es wird für die Berechnung der Energie $U$ über alle Frequenzen integriert, so
 \end{equation}
 bestimmt ist.
 Die Verteilung $Z(\omega)$ kann eine sehr komplizierte Gestalt haben. 
-Wenn der Kristall aber nicht stark dispersiv ist und sich annähernd isotrop verhält, 
+Wenn der Kristall weder stark dispersiv noch anisotrop ist, 
 kann in guter Näherung angenommen werden, 
 dass die Eigenfrequenzen in einem Würfel der Länge $L$ abgezählt werden können.
 %Es wird also klassische Physik mit Quantenmechanik verknüpft.
-Die Spektraldichte beträgt dann mit $v$: allgemeine Schallgeschwindigkeit
+Die Spektraldichte beträgt dann mit der allgemeine Schallgeschwindigkeit $v$ 
 \begin{equation*}
 	Z(\omega)d\omega = \frac{3L^3}{2\pi^2v^3}\omega^2 d\omega
 \end{equation*}
-oder, wenn zwischen $v_\text l$: longitudinale Schallgeschwindigkeit und $v_\text t$: transversale Schallgeschwindigkeit unterschieden wird,
+oder, wenn zwischen longitudinaler Schallgeschwindigkeit $v_\text l$ und transversaler Schallgeschwindigkeit $v_\text t$ unterschieden wird,
 \begin{equation}
 	Z(\omega)d\omega = \frac{L^3}{2\pi^2}\omega^2\left(\frac{1}{v_\text{l}^3}+\frac{2}{v_{\text{t}}^3}\right)d\omega.
 	\label{eqn:z}

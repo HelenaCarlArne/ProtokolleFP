@@ -7,22 +7,22 @@ Bei den Messgeräten Ohm-, Volt- und Amperemeter sowie für die Stoppuhr wird ei
 	\sigma_R &= \SI{0.1}{\ohm}\\
 	\sigma_U &= \SI{0.01}{\volt}\\
 	\sigma_I &= \SI{0.1}{\milli\ampere}\\
-	\sigma_{\Delta t} &= \SI{0.1}{\second}	\,\text.
+	\sigma_{\symup\Delta t} &= \SI{0.1}{\second}	\,\text.
 \end{align*}
 \subsection{Messung der Molwärme}
 Die Molwärme $C_V$ bei konstantem Volumen zu bestimmen, gestaltet sich experimentell schwierig. Einfacher ist es, zunächst die Molwärme $C_p$ bei konstantem Druck zu bestimmen und diese mittels \eqref{eq:molwaermeconv}
 umzurechnen. 
 Die Molwärme $C_V$ kann mit der zugeführten Energie bestimmt werden. Diese kann aus den Werten in Tabelle \ref{tab:En} und Tabelle \ref{tab:tab1} mit
 \begin{align}
-	E &= U \cdot I \cdot \symup\Delta t,\\
-	C_p &= \frac{M}{m}\cdot\frac{E}{\symup\Delta T}
+	E &= U \cdot I \cdot \symup{\Delta} t,\\
+	C_p &= \frac{M}{m}\cdot\frac{E}{\symup{\Delta} T}
 	\label{eqn:cp}
 \end{align}
-berechnet werden. Dabei bezeichnen $E$ die zugeführte Energie, $U$ die Spannung, $I$ die Stromstärke, $\Delta t$ das Zeitintervall, $\Delta T$ den Temperaturunterschied, $M$ die molare Masse und $m$ die Probenmasse. In Tabelle \ref{tab:tab1} sind außer den bereits genannten Größen die berechneten Molwärmen eingetragen.
+berechnet werden. Dabei bezeichnen $E$ die zugeführte Energie, $U$ die Spannung, $I$ die Stromstärke, $\symup\Delta t$ das Zeitintervall, $\symup\Delta T$ den Temperaturunterschied, $M$ die molare Masse und $m$ die Probenmasse. In Tabelle \ref{tab:tab1} sind außer den bereits genannten Größen die berechneten Molwärmen eingetragen.
 Die durch Messunsicherheiten entstehenden Fehler werden über Gauß mit den folgenden Fehlerformeln berechnet:
 \begin{align*}
-	\sigma_E &= \sqrt{I^{2} U^{2} \sigma_{{\Delta T}}^{2} + I^{2} {\Delta T}^{2} \sigma_{U}^{2} + U^{2} {\Delta T}^{2} \sigma_{I}^{2}}\\
-	\sigma_{C_p} &= \sqrt{\frac{E^{2} M^{2} \sigma_{{\Delta T}}^{2}}{{\Delta T}^{4} m^{2}} +\frac{M^{2} \sigma_{E}^{2}}{{\Delta T}^{2} m^{2}}}\\
+	\sigma_E &= \sqrt{I^{2} U^{2} \sigma_{{\symup\Delta T}}^{2} + I^{2} {\symup\Delta T}^{2} \sigma_{U}^{2} + U^{2} {\symup\Delta T}^{2} \sigma_{I}^{2}}\\
+	\sigma_{C_p} &= \sqrt{\frac{E^{2} M^{2} \sigma_{{\symup\Delta T}}^{2}}{{\symup\Delta T}^{4} m^{2}} +\frac{M^{2} \sigma_{E}^{2}}{{\symup\Delta T}^{2} m^{2}}}\\
 	\sigma_{C_V} &= \sqrt{324 T^{2} V_{0}^{2} \alpha^{2} \kappa^{2} \sigma_{\alpha}^{2} + 81 V_{0}^{2} \alpha^{4} \kappa^{2} \sigma_{T}^{2} + \sigma_{C_{p}}^{2}}\,\text.
 \end{align*}
 Der lineare Ausdehnungskoeffizient $\alpha$ ist in Tabelle \ref{tab:al} eingetragen. Um diese genauer an die gemessenen Temperaturen anzupassen, wurden diese logarithmisch mit
@@ -52,12 +52,12 @@ Zur Illustration und zur Übersicht, sind die Werte für $C_V$ und $C_p$ in Abbi
 \end{figure}
 \subsection{Bestimmung der Debye-Temperatur}
 Um die Debye-Temperatur $\theta_D$ zu bestimmen, kann die Gleichung \eqref{eqn:cvd} genutzt werden. Die Zahlenwerte der Debye Funktion sind in Abbildung \ref{fig:cvd}
-\begin{figure}
+\begin{table}
 	\centering
 	\includegraphics[width=0.8\textwidth]{graphics/cvd.png}
 	\caption{Werte der Debye-Funktion.}
 	\label{fig:cvd}
-\end{figure}
+\end{table}
 zu sehen.
 Die Werte können abgelesen und zur weiteren Berechnung genutzt werden.
 Diese sind in Tabelle \ref{tab:deb} eingetragen.
