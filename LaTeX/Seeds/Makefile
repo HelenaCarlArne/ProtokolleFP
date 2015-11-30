@@ -74,15 +74,15 @@ tables:
 	@mkdir -p tables
 
 .DELETE_ON_ERROR:
-build/main.pdf: pc/plot.pdf graphics/* tables/* header.tex main.tex content/* lit.bib programme.bib|build 
+build/main.pdf: pc/plot.pdf graphics tables header.tex main.tex content/* lit.bib programme.bib|build 
 	@echo 'LaTeX:'
 	@TEXINPUTS="$(call translate,build:)" lualatex \
 	  --output-directory=build \
 	  --interaction=nonstopmode \
 	  --halt-on-error \
-	main.tex|grep -i -A1 -e'!' -e'error'  -e'main.pdf' 
+	main.tex|grep -i -e'!' -e'error' -e'undefined' -e'main.pdf'
 	@echo
-	@BIBINPUTS=build: biber build/main.bcf|grep -i -e'biber' -e'err' -e'error' -e'warn'
+	@BIBINPUTS=build: biber build/main.bcf|grep -i -e'biber' -e'error' -e'warning'
 	@echo
 	@lualatex \
 	  --output-directory=build \
