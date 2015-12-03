@@ -71,22 +71,48 @@ def table(name, data):
 	#Tabelle Ende
 	output.write(r'\bottomrule' + '\n' + r'\end{tabular}' + '\n' + r'\label{tab:LABEL}' + '\n' + r'\end{table}')
 	output.close()
-	
 
-x = np.linspace(0, 10, 1000)
-y = x ** np.sin(x)
+def quad(x,a,b,c):
+	return a*x**2+b*x+c
 
-plt.subplot(1, 2, 1)
-plt.plot(x, y, label='Kurve')
-plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
-plt.ylabel(r'$Y \:/\: \si{\micro\joule}$')
-plt.legend(loc='best')
+mod1=np.array([200,220,230,0,2*3.15,0])
+mod2=np.array([120,140,150,0,2*3.15,0])
+mod3=np.array([70,80,90,0,2*2.65,0])
 
-plt.subplot(1, 2, 2)
-plt.plot(x, y, label='Kurve')
-plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
-plt.ylabel(r'$y \:/\: \si{\micro\joule}$')
-plt.legend(loc='best')
+params1,comat = curve_fit(quad,mod1[0:3],mod1[3:6])
+params2,comat = curve_fit(quad,mod2[0:3],mod2[3:6])
+params3,comat = curve_fit(quad,mod3[0:3],mod3[3:6])
 
+x = np.linspace(50,250,10000)
+
+print(params1)
+print(params2)
+print(params3)
+print(max(quad(x,*params1)))
+print(max(quad(x,*params2)))
+print(max(quad(x,*params3)))
+
+with open("pc/resultat.txt", 'w') as data:
+	data.write("#Parameter der Fits\n" + "%s\n%s\n%s\n"%(params1,params2,params3) + "#Maxima der Fits\n" +"%s\n%s\n%s\n"%(max(quad(x,*params1)),max(quad(x,*params2)),max(quad(x,*params3))))
+
+
+plt.xlim(50,250)
+plt.ylim(0,8)
+plt.plot(mod1[0:3],mod1[3:6],'kx', label='Messdaten')
+plt.plot(mod2[0:3],mod2[3:6],'kx')
+plt.plot(mod3[0:3],mod3[3:6],'kx')
+plt.plot(x, quad(x,*params1),'r-', label='Kurve 1')
+plt.plot(x, quad(x,*params2),'g-', label='Kurve 2')
+plt.plot(x, quad(x,*params3),'b-', label='Kurve 3')
+plt.xlabel(r'Reflektorspannung $U \:/\: \si{\volt}$')
+plt.ylabel(r'Ma\ss\,\,f\"ur Leistung, Amplitude $A$')
+plt.legend(loc=0,numpoints=1)
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('pc/plot.pdf')
+plt.show()
+
+breiteseite_mean=np.mean([22.45,22.7,22.7,22.7,22.55])
+print(breiteseite_mean)
+
+with open("pc/resultat.txt", 'a') as data:
+	data.write("#Breitseite in mm\n"+"%s\n"%breiteseite_mean)
