@@ -24,7 +24,7 @@ pc/plot.pdf: pc/plot.py rawdata/* matplotlibrc header-matplotlib.tex|pc
 	TEXINPUTS="$(call translate,$(pwd):)" python pc/plot.py
 	@echo
 
-pc/plot.py: rawdata/*
+pc/plot.py:
 	@echo "Plots-Ordner fehlt!"
 	@echo "=> Kopiere aus CAT-Vorlage"
 	@mkdir -p pc
