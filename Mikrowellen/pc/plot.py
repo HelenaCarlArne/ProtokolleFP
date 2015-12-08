@@ -112,7 +112,7 @@ plt.ylabel(r'Ma\ss\,\,f\"ur Leistung, Amplitude $A$')
 plt.legend(loc=0,numpoints=1)
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('pc/plot.pdf')
-#plt.show()
+plt.close()
 
 #Mittelwerte der Breitseite
 breiteseite_mean=np.mean([22.45,22.7,22.7,22.7,22.55])

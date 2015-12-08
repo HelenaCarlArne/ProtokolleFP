@@ -102,6 +102,12 @@ gezeigt.
 Tabelle \ref{tab:SWR_Daempfung} sind die Messwerte des SWR-Messer aufgetragten.
 Zusätzlich zeigt es zum Messwert gehörende die Millimetereinstellung des Dämpfers und den zur Millimetereinstellung gehörende Theoriewert sowie die Abweichung zwischen Theoriewert und Messung.
 Die Ergebnisse sind in Abbildung \ref{plt:daempfung} aufgetragen.
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{pc/daempfung.pdf}
+\caption{Graphische Darstellung der Dämpfung, Theorie und Messwerte.}
+\label{plt:daempfung}
+\end{figure}
 \begin{table}
 \centering
 \caption{Gemessene und theoretische Dämpfung.}
@@ -132,7 +138,7 @@ Die Ergebnisse der SWR-Methode sind in Tabelle \ref{tab:swr_methode}, die Ergeni
 Zur Bestimmung der Stehwellenverhältnisse wurden in der SWR-Methode die Ausgabe des Messgerätes ausgelesen, bei den anderen Methoden wurden die Formeln
 \begin{align}
 	S_\text{3dB}&=\sqrt{1+\frac{1}{\sin²\left(\frac{\pi(d_2-d_1)}{\lambda_\text g}\right)}}\\
-	S_\text{Abschwächer}&=\sfrac{\symup\Delta A}{2}
+	S_\text{Abschwächer}&=\frac{\symup\Delta A}{2}
 \end{align}
 mit dem doppelten Abstand zweier Minima $\lambda_\text g$ benutzt.
 \begin{table}
