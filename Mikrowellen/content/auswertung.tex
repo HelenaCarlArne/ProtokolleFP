@@ -84,17 +84,103 @@ Die Abmessungen, die Wellenlänge $\lambda_\text g$ und Frequenz $f$ sind in Tab
 gezeigt. 
 \begin{table}
 \centering
-\caption{Messwerte zur Untersuchung der Moden des Reflexklystrons.}
+\caption{Messwerte zur Untersuchung der Dämpfung.}
 \begin{tabular}{ccccc}
 	\toprule
 	$\frac{f_\text{Messung}}{\si{\mega\hertz}}$& \
-	$\frac{\mathup{\Delta}x_\text{Minima}}{\si{\milli\meter}}$& \
+	$\frac{\symup{\Delta}x_\text{Minima}}{\si{\milli\meter}}$& \
 	$\frac{a}{\si{\milli\meter}}$& \
 	$\frac{\lambda_\text g}{\si{\milli\meter}}$& \
 	$\frac{f_\text{Berechnung}}{\si{\mega\hertz}}$\\
 	\midrule
-		9023&	24.1&	22.62&	0&	0\\
+		9023&	24.1&	22.62&	48.2&	9088.4\\
 	\bottomrule
 \end{tabular}
 \label{tab:flambdagamma}
+\end{table}
+
+Tabelle \ref{tab:SWR_Daempfung} sind die Messwerte des SWR-Messer aufgetragten.
+Zusätzlich zeigt es zum Messwert gehörende die Millimetereinstellung des Dämpfers und den zur Millimetereinstellung gehörende Theoriewert sowie die Abweichung zwischen Theoriewert und Messung.
+Die Ergebnisse sind in Abbildung \ref{plt:daempfung} aufgetragen.
+\begin{table}
+\centering
+\caption{Gemessene und theoretische Dämpfung.}
+\begin{tabular}{cccc}
+	\toprule
+	Messwert& \
+	Dämpfereinstellung& \
+	Theoriewert& \
+	Abweichung \\
+	$\si{\decibel}$& \
+	$\si{\milli\meter}$& \
+	$\si{\decibel}$& \
+	\%\\
+	\midrule
+		2&  1,345&   3,64&-98\\
+		4&  1,698&   5,65&-96\\
+		6&  2,115&   8,59&-94\\
+		8&  2,341&  10,43&-92\\
+		10& 2,609&  12,86&-90\\
+	\bottomrule
+\end{tabular}
+\label{tab:SWR_Daempfung}
+\end{table}
+
+\subsection{Untersuchung von stehenden Wellen}
+Die stehenden Wellen werden mit drei Methoden -- SWR-Methode, $\SI{3}{\decibel}$-Methode,Abschwächermethode -- ausgemessen. 
+Die Ergebnisse der SWR-Methode sind in Tabelle \ref{tab:swr_methode}, die Ergenisse der $\SI{3}{\decibel}$-Methode in Tabelle \ref{tab:3dB} und die Ergebnisse der Abschwächer-Methode in Tabelle \ref{tab:Abschwaecher} aufgelistet.
+Zur Bestimmung der Stehwellenverhältnisse wurden in der SWR-Methode die Ausgabe des Messgerätes ausgelesen, bei den anderen Methoden wurden die Formeln
+\begin{align}
+	S_\text{3dB}&=\sqrt{1+\frac{1}{\sin²\left(\frac{\pi(d_2-d_1)}{\lambda_\text g}\right)}}\\
+	S_\text{Abschwächer}&=\sfrac{\symup\Delta A}{2}
+\end{align}
+mit dem doppelten Abstand zweier Minima $\lambda_\text g$ benutzt.
+\begin{table}
+\centering
+\caption{Ergebnisse der SWR-Methode.}
+\begin{tabular}{cc}
+	\toprule
+	Tiefe der Nadel& SWR-Messwert\\
+	\si{\milli\meter}& a.u.\\
+	\midrule
+	3& 1,1\\
+	5& 1,5\\
+	7& 2,8\\
+	8& 4\\
+	9& \infty \\
+	\bottomrule
+\end{tabular}
+\label{tab:swr_methode}
+\end{table}
+\begin{table}
+\centering
+\caption{Ergebnisse der $\SI{3}{\decibel}$-Methode.}
+\begin{tabular}{cccccc}
+	\toprule
+	$\frac{d_1}{\si{\milli\meter}}$& \
+	$\frac{d_2}{\si{\milli\meter}}$& \
+	$\frac{\text{1.Min}}{\si{\milli\meter}}$& \
+	$\frac{\text{2.Min}}{\si{\milli\meter}}$& \
+	$\frac{\lambda_\text g}{\si{\milli\meter}}$& \
+	$\frac{S}{\si{\decibel}}$\\
+	\midrule
+	78,8&	92,7&	5&	33& 56&	2,37\\
+	\bottomrule
+\end{tabular}
+\label{tab:3dB}
+\end{table}
+\begin{table}
+\centering
+\caption{Ergebnisse der Abschwächer-Methode.}
+\begin{tabular}{cccc}
+	\toprule
+	$\frac{A_1}{\si{\decibel}}$& \
+	$\frac{A_2}{\si{\decibel}}$& \	
+	$\frac{\symup\Delta A}{\si{\decibel}}$& \	
+	$\frac{S}{\si{\decibel}}$\\
+	\midrule
+	20&	38&	18&	9\\
+	\bottomrule
+\end{tabular}
+\label{tab:Abschwaecher}
 \end{table}
