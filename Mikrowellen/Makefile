@@ -80,9 +80,9 @@ build/main.pdf: pc/plot.pdf graphics tables header.tex main.tex content/* lit.bi
 	  --output-directory=build \
 	  --interaction=nonstopmode \
 	  --halt-on-error \
-	main.tex|grep -i -e'!' -e'error' -e'undefined' -e'main.pdf'
+	main.tex|grep -i -A 2 --colour=auto -e'!' -e'error' -e'undefined references' -e'main.pdf'
 	@echo
-	@BIBINPUTS=build: biber build/main.bcf|grep -i -e'biber' -e'error' -e'warning'
+	@BIBINPUTS=build: biber build/main.bcf |grep -i -C1 --colour=auto -e'biber' -e'error' -e'warning'
 	@echo
 	@lualatex \
 	  --output-directory=build \
@@ -93,7 +93,7 @@ build/main.pdf: pc/plot.pdf graphics tables header.tex main.tex content/* lit.bi
 	  --output-directory=build \
 	  --interaction=nonstopmode \
 	  --halt-on-error \
-	main.tex|grep -i -e'!'-e'error' -e'warning' -e'biber' -e'rerunfilecheck'
+	main.tex|grep -i -A 2 --colour=auto -e'!'-e'error' -e'multiply-defined labels' -e'biber' -e'rerunfilecheck' -e'main.pdf'
 
 build:
 	@mkdir -p build
