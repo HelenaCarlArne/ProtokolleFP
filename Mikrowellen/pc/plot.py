@@ -133,6 +133,7 @@ plt.legend(loc="best",numpoints=1)
 plt.grid()
 plt.xlabel(r'D\"ampfungseinstellung $\:/\: \si{\milli\meter}$')
 plt.ylabel(r'D\"ampfung $\:/\: \si{\decibel}$')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('pc/daempfung.pdf')
 plt.show()
 
