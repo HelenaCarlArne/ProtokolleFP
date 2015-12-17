@@ -19,4 +19,4 @@ Zur Wellenlängenberechnung wird die Messsonde verschoben, bis sich ein Minimum 
 
 Anschließend wird die Frequenz durch Variation der Dämpfung bestimmt. Dazu wird der Kurzschluss durch einen Abschluss ersetzt. Es werden für Dämpfungen im Abstand von $\SI{2}{\deci\bel}$ die Ausschläge notiert.
 \subsection{Stehwellenmessung}
-Zur Messung der stehenden Wellen wird zusätzlich ein Gleitschraubentransformator in den Hohlleiter eingebaut.
+
