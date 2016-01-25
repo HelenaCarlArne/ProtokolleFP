@@ -80,7 +80,7 @@ build/main.pdf: pc/plot.pdf graphics tables header.tex main.tex content/* lit.bi
 	  --output-directory=build \
 	  --interaction=nonstopmode \
 	  --halt-on-error \
-	main.tex|grep -i -A 2 --colour=auto -e'!' -e'error' -e'undefined references' -e'main.pdf'
+	main.tex|grep -i -e'!' -e'error' -e'undefined' -e'main.pdf'
 	@echo
 	@BIBINPUTS=build: biber build/main.bcf|grep -i -e'biber' -e'error' -e'warning'
 	@echo

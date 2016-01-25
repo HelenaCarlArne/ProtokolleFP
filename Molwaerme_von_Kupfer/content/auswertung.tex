@@ -1,7 +1,7 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 %In dem Versuch sollte die spezifische molare Wärmekapazität einer Kupferprobe bestimmt werden. 
-Die für die Molwärme charakteristische Materialgröße ist nach \eqref{eqn:cvd} die Debye-Temperatur $\theta_D$. 
+Die für die Molwärme charakteristische Materialgröße ist nach Gleichung \eqref{eqn:cvd} die Debye-Temperatur $\theta_D$. 
 Bei den Messgeräten Ohm-, Volt- und Amperemeter sowie für die Stoppuhr wird eine Messunsicherheit abgeschätzt:
 \begin{align*}
 	\sigma_R &= \SI{0.1}{\ohm}\\
@@ -10,7 +10,7 @@ Bei den Messgeräten Ohm-, Volt- und Amperemeter sowie für die Stoppuhr wird ei
 	\sigma_{\symup\Delta t} &= \SI{0.1}{\second}	\,\text.
 \end{align*}
 \subsection{Messung der Molwärme}
-Die Molwärme $C_V$ bei konstantem Volumen zu bestimmen, gestaltet sich experimentell schwierig. Einfacher ist es, zunächst die Molwärme $C_p$ bei konstantem Druck zu bestimmen und diese mittels \eqref{eq:molwaermeconv}
+Die Molwärme $C_V$ bei konstantem Volumen zu bestimmen, gestaltet sich experimentell schwierig. Einfacher ist es, zunächst die Molwärme $C_p$ bei konstantem Druck zu bestimmen und diese mittels Gleichung \eqref{eq:molwaermeconv}
 umzurechnen. 
 Die Molwärme $C_V$ kann mit der zugeführten Energie bestimmt werden. Diese kann aus den Werten in Tabelle \ref{tab:En} und Tabelle \ref{tab:tab1} mit
 \begin{align}
@@ -37,13 +37,13 @@ Der Fit für $\alpha$ ist in Abbildung \ref{fig:a} zu sehen.
   \caption{Der Fit für den linearen Ausdehnungskoeffizienten.}
   \label{fig:a}
 \end{figure}
-\input{tables/En.tex}
-\input{tables/tab1.tex}
-\input{tables/al.tex}
 Zur Illustration und zur Übersicht, sind die Werte für $C_V$ und $C_p$ in Abbildung \ref{fig:cvcp} in Abhängigkeit von der, über den Messwiderstand berechneten, Temperatur geplottet. Die Einheiten für $C_V$ und $C_p$ wurden in den Tabellen aus Platzgründen bewusst weggelassen und werden hier seperat angegeben:
 \begin{equation*}
 	[C_V] = [C_p] = \si{\joule\per\mole\per\kelvin}\,\text.
 \end{equation*}
+\input{tables/En.tex}
+\input{tables/tab1.tex}
+\input{tables/al.tex}
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{pc/cvcp.pdf}
@@ -51,7 +51,7 @@ Zur Illustration und zur Übersicht, sind die Werte für $C_V$ und $C_p$ in Abbi
 	\label{fig:cvcp}
 \end{figure}
 \subsection{Bestimmung der Debye-Temperatur}
-Um die Debye-Temperatur $\theta_D$ zu bestimmen, kann die Gleichung \eqref{eqn:cvd} genutzt werden. Die Zahlenwerte der Debye Funktion sind in Abbildung \ref{fig:cvd}
+Um die Debye-Temperatur $\theta_D$ zu bestimmen, kann die Gleichung \eqref{eqn:cvd} genutzt werden. Die Zahlenwerte der Debye Funktion sind in Tabelle \ref{fig:cvd}
 \begin{table}
 	\centering
 	\includegraphics[width=0.8\textwidth]{graphics/cvd.png}
@@ -65,13 +65,16 @@ Diese sind in Tabelle \ref{tab:deb} eingetragen.
 Die Debye-Temperatur kann mittels \eqref{eqn:cvd} berechnet werden.
 Es ergibt sich ein Mittelwert von
 \begin{equation*}
-	\theta_D = \left[\frac{{\frac{\theta_D}{T}}T^3\cdot9R}{C_V}\right]^{\frac{1}{3}} = \SI{291\pm12}{\kelvin}
+	\theta_D = \frac{\theta_D}{T}\cdot T = \SI{352.8\pm0.6}{\kelvin}
+	%\theta_D = \left[\frac{{\frac{\theta_D}{T}}T^3\cdot9R}{C_V}\right]^{\frac{1}{3}} = \SI{352.75\pm0.6}{\kelvin}
 \end{equation*}
-für die Debye-Temperatur.
-Der dabei enstandene Fehler berechnet sich mit
+für die Debye-Temperatur mit der Messunsicherheit nach
 \begin{equation*}
-	\sigma_{\theta_D} = \sqrt{\frac{\sigma_{T}^{2}}{T^{2}} 9^{\frac{2}{3}} \left(\frac{R {\frac{\theta_D}{T}}}{C_{V}} T^{3}\right)^{\frac{2}{3}} + \frac{\frac{1}{9} \sigma_{C_{V}}^{2}}{C_{V}^{2}} 9^{\frac{2}{3}} \left(\frac{R {\frac{\theta_D}{T}}}{C_{V}} T^{3}\right)^{\frac{2}{3}}}\,\text.
+	\sigma_{\theta_D} = \sigma_T\cdot \frac{\theta_D}{T},%(\underbrace{\sigma_{\frac{\Theta_D}{T}}}_{= 0} \cdot T)^2 + \
+	%(\sigma_T \cdot \frac{\Theta_D}{T}})^2}
+	%\sigma_{\theta_D} = \sqrt{\frac{\sigma_{T}^{2}}{T^{2}} 9^{\frac{2}{3}} \left(\frac{R {\frac{\theta_D}{T}}}{C_{V}} T^{3}\right)^{\frac{2}{3}} + \frac{\frac{1}{9} \sigma_{C_{V}}^{2}}{C_{V}^{2}} 9^{\frac{2}{3}} \left(\frac{R {\frac{\theta_D}{T}}}{C_{V}} T^{3}\right)^{\frac{2}{3}}}\,\text.
 \end{equation*}
+wobei die Werte nach Tabelle \ref{fig:cvd} als fehlerfrei angesehen werden.
 
 Aus der Forderung \eqref{eqn:wd} kann die Debye-Temperatur für ein gegebenes Material auch bestimmt werden. Dazu wird das Integral über die Verteilungsfunktion $Z(\omega)$ \eqref{eqn:z} ausgeführt:
 \begin{align*}
