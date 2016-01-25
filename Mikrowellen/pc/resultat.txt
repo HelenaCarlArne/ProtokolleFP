@@ -8,3 +8,17 @@
 5.2999995229
 #Breitseite in mm
 22.62
+#Fit der Theorie-Dämpfung
+[ 1.76785714  0.30357143  0.03571429]
+#Berechnete Frequenz
+9088384.63009
+#Theoriewerte
+[  3.64211562   5.64827136   8.58579063  10.43472891  12.86132534]
+#Breitseite in mm
+22.62
+#Fit der Theorie-Dämpfung
+[ 1.76785714  0.30357143  0.03571429]
+#Berechnete Frequenz
+9088384.63009
+#Theoriewerte
+[  3.64211562   5.64827136   8.58579063  10.43472891  12.86132534]

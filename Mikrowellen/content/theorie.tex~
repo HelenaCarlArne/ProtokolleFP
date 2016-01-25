@@ -2,8 +2,8 @@
 In den Versuch sollen ein Reflexklystron und Mikrowellen in einem Hohlleiter untersucht und vermessen werden.
 \section{Theorie}
 \label{sec:Theorie}
-\cite{skript}
-Der Begriff Mikrowellen ist nicht wirklich scharf definiert. Im allgemeinen wird damit der Frequenzbereich von $\SI{300}{\mega\hertz}$ bis $\SI{300}{\giga\hertz}$ verstanden. Überschneidungen zum Bereich der Radiowellen sind dabei nicht auszuschließen.
+\nocite{skript}
+Der Begriff Mikrowellen ist nicht wirklich scharf definiert. Im Allgemeinen wird damit der Frequenzbereich von $\SI{300}{\mega\hertz}$ bis $\SI{300}{\giga\hertz}$ verstanden. Überschneidungen zum Bereich der Radiowellen sind dabei nicht auszuschließen.
 \subsection{Hohlleiter}
 Ein Hohlleiter ist ein metallisches Rohr in dem elektromagnetische Wellen geleitet werden. Die Rohre haben meist einen rechteckigen oder runden Querschnitt mit einer gut leitenden Oberflächer auf der Innenseite.
 In geeigneten Freuquenzen, lassen sich durch Hohlleiter elektrische Signale viel verlustärmer übertragen als in Festkörpern.
@@ -16,3 +16,4 @@ Ein Klystron kann allgemein zur Verstärkung und zur Frequenzmodulation von elek
 	\includegraphics[width=6cm]{graphics/kly.png}
 	\caption{Das Reflexklystron}
 	\label{fig:kly}
+\end{figure}

@@ -3,6 +3,7 @@
 Die Funktionsweise des Versuchsaufbaus mit dem Vorgehen nach Abschnitt \ref{sec:durchfuehrung_1} wurde getestet
 und die Messung gestartet, 
 nachdem das System ausreichend aufgeheizt ist.
+
 Die Amplitude $A$ ist ein Maß für die Leistung $P$ und wird in willkürlichen Einheiten oder Skalenteile gemessen,
 da Berechnung nur bei Leistungsverhältnisse stattfinden.
 %
@@ -25,8 +26,8 @@ da Berechnung nur bei Leistungsverhältnisse stattfinden.
 
 Die Moden des Reflexklystrons können bestimmt werden,
 indem die Reflektorspannungen $U_-$, $U_\text{max}$, $U_+$ und die Amplitude $A$ aufgenommen werden, 
-bei welchen ein Oszillogram nach Abbildung \ref{fig:mod} angezeigt wird.
-Die Frequenz $f_0$ wird bestimmt, indem der Frequenzmesser so eingestellt wird, sodass exakt die Spitze der Mode in Abbildung \ref{fig:mods} geringfügig eindellt.
+bei welchen ein Oszillogram nach Abbildung \ref{fig:moden} angezeigt wird.
+Die Frequenz $f_0$ wird bestimmt, indem der Frequenzmesser so eingestellt wird, sodass exakt die Spitze der Mode in Abbildung \ref{fig:moden} geringfügig eindellt.
 Die Messwerte sind in Tabelle \ref{tab:moden} dargestellt und werden in Abbildung \ref{plt:moden} als Messpunkte und Fit einer quadratischen Funktion 
 %
 \begin{equation}
