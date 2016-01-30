@@ -1,7 +1,3 @@
-#
-# General Voraussetzung: ex. im Ordner.
-#
-
 # Windows-freundliche Übersetzung in MSys2/Cydwin
 ifeq (,$(shell sh -c 'cygpath --version 2> /dev/null'))
   # Unix
@@ -15,57 +11,53 @@ endif
 
 all: Abgabe.pdf
 
+plots: pc/plot.py matplotlibrc header-matplotlib.tex|pc
+	@echo 'Python-Plots:'
+	TEXINPUTS="$(call translate,$(pwd):)" python pc/plot.py
+	@echo
+
 Abgabe.pdf: build/main.pdf|build
 	@cp build/main.pdf Abgabe.pdf
 	@echo Success
 
-pc/plot.pdf: pc/plot.py rawdata/* matplotlibrc header-matplotlib.tex|pc
+pc/plot.pdf: pc/plot.py matplotlibrc header-matplotlib.tex|pc
 	@echo 'Python-Plots:'
 	TEXINPUTS="$(call translate,$(pwd):)" python pc/plot.py
 	@echo
 
 pc/plot.py:
 	@echo "Plots-Ordner fehlt!"
-	@echo "=> Kopiere aus CAT-Vorlage"
-	@mkdir -p pc
-	@cp ../LaTeX/pc/* pc/
-	@echo
+	@echo "=> Kopiere aus Vorlage"
+	@false
 
 rawdata/*:
-	@echo 'Es fehlen die Rohdaten! Als Initialisierung bitte Rohdaten abspeichern und make erneut starten.'
+	@echo 'Bitte Rohdaten abspeichern und make erneut starten.'
 	@mkdir -p rawdata
 	@false
 
 lit.bib programme.bib:
 	@echo 'Es fehlen die Bibliothek-Daten!'
-	@echo '=> Kopiere aus PeP-et-al-Vorlage'
-	@cp ../LaTeX/latex-template/lit.bib lit.bib
-	@cp ../LaTeX/latex-template/programme.bib programme.bib
-	@echo
+	@echo '=> Kopiere aus PeP-et-al-Vorlage, falls Projekt neu.'
+	@false
 
 matplotlibrc header-matplotlib.tex:
 	@echo "Konfigurationsdateien fehlen!"
 	@echo "=> Kopiere aus PeP-et-al-Vorlage"
-	@cp ../LaTeX/latex-template/header-matplotlib.tex ./header-matplotlib.tex
-	@cp ../LaTeX/latex-template/matplotlibrc ./matplotlibrc
-	@echo
+	@false
 
 header.tex:
 	@echo "Die Header-Datei fehlt!"
-	@echo "=> Kopiere aus CAT-Vorlage"
-	@cp ../LaTeX/header.tex header.tex
-	@echo
+	@echo "=> Kopiere aus Vorlage"
+	@false
 
-main.tex: 
-	@echo "Main.tex fehlt!""
+main.tex:
+	@echo "Main.tex fehlt!"
 	@false
 
 content/*:
 	@echo "Content-Vorlagen fehlen!"
-	@echo "=> Kopiere aus CAT-Vorlage"
-	@mkdir -p content
-	@cp ../LaTeX/content/* content/
-	@echo
+	@echo "=> Kopiere aus Vorlage, falls Projekt neu."
+	@false
 
 graphics:
 	@mkdir -p graphics
@@ -74,7 +66,7 @@ tables:
 	@mkdir -p tables
 
 .DELETE_ON_ERROR:
-build/main.pdf: pc/plot.pdf graphics tables header.tex main.tex content/* lit.bib programme.bib|build 
+build/main.pdf: pc/plot.pdf graphics tables header.tex main.tex content/* lit.bib programme.bib|build
 	@echo 'LaTeX:'
 	@TEXINPUTS="$(call translate,build:)" lualatex \
 	  --output-directory=build \
@@ -93,18 +85,17 @@ build/main.pdf: pc/plot.pdf graphics tables header.tex main.tex content/* lit.bi
 	  --output-directory=build \
 	  --interaction=nonstopmode \
 	  --halt-on-error \
-	main.tex|grep -i -e'!'-e'error' -e'warning' -e'biber' -e'rerunfilecheck'
+	main.tex|grep -i -e'!'-e'error' -e'warning' -e'biber'
 
 build:
 	@mkdir -p build
 	@echo 'Erstelle build-Ordner'
 	@echo
 
+again:
+	@make clean
+	@make all
+
 clean:
 	@rm -rf build
 	@echo 'Entferne build-Ordner, Abgabe.pdf unberührt.'
-
-purge:
-	@ls | grep -v -e"main.tex" -e"Makefile" | xargs rm -rf
-	@rm -rf build
-	@echo 'Alles weg.'
