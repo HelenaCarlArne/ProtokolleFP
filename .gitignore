@@ -5,3 +5,6 @@
 */matplotlibrc
 */header.tex
 */pc/*.pdf
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
