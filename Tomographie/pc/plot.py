@@ -75,7 +75,14 @@ def table(name, data):
     output.close()
 
 
-
+# Dies plottet alle von Robert ausgegebenen Daten graphisch:
+#
+# ACHTUNG: ES DÜRFEN KEINERLEI FALSCHE DATEIEN IM ORDNER LIEGEN, etwa .DS_Store
+# oder ähnlich
+#
+# Dauer: etwa eine Minute
+intensity = np.array([])
+print("")
 for root, _, files in os.walk("rawdata/Daten_von_Robert/"):
     for f in files:
         fullpath = os.path.join(root, f)
@@ -85,6 +92,32 @@ for root, _, files in os.walk("rawdata/Daten_von_Robert/"):
         plt.legend(loc='best')
         plt.xlim(0,len(x))
         plt.ylim(0,max(y)+100)
-        plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+        plt.axvline(250,color='k', linestyle='dotted')
+        plt.axvline(285,color='k', linestyle='dotted')
+        plt.title("I={}".format(np.sum(y[250:285])))
+        intensity=np.append(intensity,np.sum(y[250:285]))
+        plt.xlabel("Kanäle")
+        plt.ylabel("Zerfälle")
+        plt.tight_layout(pad=0.2, h_pad=1.08, w_pad=1.08)
         plt.savefig('pc/{}.pdf'.format(f))
         plt.close()
+
+print(intensity, sep=",")
+# Dies plottet Leerwuerfel_gerade einzeln, da es ein eigenes Format hat:
+# Dauer: etwa eine Minute
+
+
+y = np.genfromtxt("rawdata/Leerwuerfel_gerade.dat", unpack=True)
+x = np.arange(0,1024)
+plt.plot(x,y,"k-",label="Leerwuerfel_gerade")
+plt.legend(loc='best')
+plt.xlim(0,len(x))
+plt.ylim(0,max(y)+100)
+plt.title("I={}".format(np.sum(y[250:285])))
+plt.axvline(250,color='k', linestyle='dotted')
+plt.axvline(285,color='k', linestyle='dotted')
+plt.xlabel("Kanäle")
+plt.ylabel("Zerfälle")
+plt.tight_layout(pad=0.2, h_pad=1.08, w_pad=1.08)
+plt.savefig('pc/Leerwuerfel_gerade.pdf')
+plt.close()
