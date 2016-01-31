@@ -1,2 +1,62 @@
 \section{Diskussion}
 \label{sec:Diskussion}
+
+\subsection{Diskussion über das angewandte Verfahren und des Fehlers}
+\label{sec:Diskussion1}
+Ein Tomograph ist ein wichtiges Instrument, um Struktur- und Materialaufklärung
+zu gewährleisten. In der Medizin werden Geräte verwendet, die die Menge an
+inkorperierter Strahlung gering halten. Ein $\gamma$-Strahler ist also a priori
+ausgeschlossen. In der Materialprüfung, insbesondere bei Metallen, müssen hingegen
+Strahlungsquellen einer hohen Intensität benutzt werden, um in vertretbarer Zeit
+ausreichend Zerfälle zu registrieren und damit ein verlässiliches Ergebnis zu
+erzielen. Das Durchleuchten eines Lkw - als vereinendes Beispiel - verwendet
+ernstzunehmende Strahlung, wird aber erst nach Passieren der Fahrerkabine gestartet.
+
+Als poisson-verteilter Zerfallsprozess kann eine Formel gefunden werden, die die
+gewünschte Messunsicherheit $p$, hier 3\%, und die dazu erforderliche Anzahl $N$
+verknüpft
+\begin{equation}
+  N=\frac{1}{p^2}\approx 1100
+\end{equation}
+Der statistische Fehler ist damit als bekannt und vernachlässigbar gegenüber eventuell
+auftretenden systematischen Fehlern anzusehen. Diese systematischen Fehler liegen
+im Wesentlichen an der Probenausrichtung für eine Projektion, welche die Absorptionskoeffizienten
+untereinander mischen lassen. Selbst bei idealer Ausrichtung muss weiter angenommen
+werden, dass der kummulierte Strahl divergiert und damit mehr Elementarwürfel als
+vorgesehen erfasst.
+
+\subsection{Diskussion über die Materialien-Recherce und Wahl der Genauigkeit}
+\label{sec:Diskussion2}
+Bei "Messing" handelt sich um C27200, welcher im englischsprachigen Raum
+als \textit{Common Brass}, gewöhnliches Messing, bezeichnet wird. Die Dichte
+wurde für dieses spezielle Messing in der Rechnung benutzt.
+
+Die Absorptionskoeffizienten sind abhängig von der Energie der $\gamma$-Quanten.
+Es wurde darauf verzichtet, die Absorptionskoeffizienten für die Materialien durch
+Regression für eine exakte Photonenenergie aus den Plots im Anhang zu erhalten.
+Der Detektor gibt eine Intensität aus, die sich über einen kleinen Kanalintervall
+(Kanal 250-286) erstreckt. Geringfügige Abweichungen der Wellenlänge werden also
+als nicht-absorbierte Photonen registriert.
+Im Idealfall ist die Quelle monochromatisch und der Detektor nur gegenüber dieser
+Frequenz empfindlich. Die so bestimmten Absorptionskoeffizienten berücksichtigen
+dabei beide auftretenden Effekte, Photoeffekt und Compton-Streuung, gleichermaßen.
+
+\subsection{Diskussion über die Abweichung von der Anleitung}
+\label{sec:Diskussion3}
+In der Versuchsanleitung wird versichert, dass die Probenwürfeln aus den Materialien
+bestünden, aus denen die homogenen Würfel bestehen.
+Unabhängig davon, wie sich die ermittelten Absorptionseigenschaften auf eine Materialhypothese
+auswirken, kann der Mittelwert $\bar\mu_i$ herangezogen werden, um ein Material
+im Tomographen wiederzuerkennen.
+
+Die Elemente des Probewürfels, die nicht als Leerstellen oder Blei-Würfel erkannt
+wurden, haben Absorptionskoeffizienten von  $\mu\approx\SI{0.1}{\per\centi\meter}$.
+Dies ist eine wesentliche Abweichung von dem Koeffizienten des Würfel 1-Materials,
+$\mu\approx\SI{0.5}{\per\centi\meter}$.
+Abweichungen aufgrund von systematischen Fehlern erklären die Abweichung der
+Koeffizienten zum Literaturwert. Diese Abweichungen sollten hingegen nicht in den
+Messungen zwischen den Würfeln 1 und 4 auftreten, wenn gleichbleibende
+Laborbedingungen gesetzt sind. Es wird folglich angenommen, dass ein anderes Material
+als Messing vorliegt.
+Aus der Erfahrung mit den homogenen Würfeln ist der Koeffzient aus der Messung
+kleiner als der Literaturwert. Der nächstgelegene Literaturwert ist der des Delrin.

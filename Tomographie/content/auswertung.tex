@@ -1,49 +1,120 @@
 \section{Auswertung}
 \label{sec:Auswertung}
-
-\begin{table}
+Die aus dem in Abschnitt \ref{sec:Durchführung} beschriebenen Absorptionskoeffizienten\footnote{kurz: Abs.koeff.} $\mu$
+unterscheiden sich von den in der Literatur angegebenen Massenabsorptionskoeffizienten\footnote{kurz:Massenabs.koeff.} $\mu_m$.
+Der Zusammenhang der beiden Koeffizienten ist
+\begin{equation}
+  \mu=\mu_m \cdot \rho,
+\end{equation}
+wobei $\rho$ die Massenvolumendichte des Materials ist.
+Die umgerechneten und erwarteten Koeffizienten sind in Tabelle \ref{tab:koeff} aufgetragen.
+\begin{table}[t]
   \centering
-  \begin{tabular}{cllll}
+  \begin{tabular}{l S[table-format=2.2] S[table-format=1.3] S[table-format=1.3]}
     \toprule
-    {Würfelchen-Nr.} & {Homogener Würfel 1}&{Abweichung} & {Homogener Würfel 2}& {Abweichung}\\
-    {}&{in} &{in \%} &{in} &{in \%}\\
+    Material& {Dichte}& {Massenabs.koeff.}& {Absorptions-}\\
+    &$\si{\gram\per\centi\meter\cubed}$&$\si{\centi\meter\squared\per\gram}$&$\si{\per\centi\meter}$\\
     \midrule
-    Würfel 1&   0.6189&   7.36 &  1.3419&    31.82\\
-    Würfel 2&   0.5893&   2.22 &  1.0039&    -1.37\\
-    Würfel 3&   0.5499&   -4.6 &  0.9754&    -4.17\\
-    Würfel 4&   0.5472&   -5.33&  0.9178&    -9.84\\
-    Würfel 5&   0.5217&   -9.5 &  1.0033&    -1.44\\
-    Würfel 6&   0.6440&   11.71&  0.9919&    -2.56\\
-    Würfel 7&   0.5802&   0.64 &  0.9982&    -1.94\\
-    Würfel 8&   0.6361&   10.35&  1.26&    23.99\\
-    Würfel 9&   0.5016&   -12.97& 0.67&    -33.53\\
+    Delrin&     1.41&  0.082&    0.12\\
+    Aluminium&  2.71&  0.075&    0.20\\
+    Eisen&      7.70&  0.074&    0.57\\
+    Messing&    8.44&  0.074&    0.63\\
+    Blei&       11.34& 0.118&    1.34\\
     \bottomrule
   \end{tabular}
+  \caption{Absorptions- und Massenabsorptionskoeffizienten in der Umgebung von
+  $E_\gamma=\SI{600}{\kilo\electronvolt}$ sowie die Dichten bei Raumtemperatur.
+  \cite{dichte_messing}\cite{dichte_pom}\cite{dichte_rest}}
+  \label{tab:koeff}
+\end{table}
+Die mithilfe des in Abschnitt \ref{sec:Durchführung} vorgestellten Verfahrens experimentell
+bestimmten Absorptionskoeffizienten sind in Tabellen \ref{tab:messwerte_homogen}
+und \ref{tab:messwerte_probe} zu finden.
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{c S[table-format=1.3] S[table-format=-2.2] S[table-format=1.2] S[table-format=-2.2]}
+    \toprule
+    {Nr.} & {Würfel 1}&{Abweichung} & {Würfel 2}& {Abweichung}\\
+    {}&{in $\si{\centi\meter\squared\per\gram}$} &{in \%} &{in $\si{\centi\meter\squared\per\gram}$} &{in \%}\\
+    \midrule
+     1&   0.6189&   7.36 &  1.3419&    31.82\\
+     2&   0.5893&   2.22 &  1.0039&    -1.37\\
+     3&   0.5499&   -4.6 &  0.9754&    -4.17\\
+     4&   0.5472&   -5.33&  0.9178&    -9.84\\
+     5&   0.5217&   -9.5 &  1.0033&    -1.44\\
+     6&   0.6440&   11.71&  0.9919&    -2.56\\
+     7&   0.5802&   0.64 &  0.9982&    -1.94\\
+     8&   0.6361&   10.35&  1.2622&    23.99\\
+     9&   0.5016&   -12.97& 0.6766&    -33.53\\
+    \bottomrule
+  \end{tabular}
+  \caption{Aus den gemessenen Intensitäten errechnete Absorptionskoeffizienten der Elementarwürfel,
+  homogene Würfel 1 und 2.}
+  \label{tab:messwerte_homogen}
 \end{table}
 
-Für die Homogenen Würfel werden die Mittelwerte $\mathup\Delta \mu$ zu
+Für die homogenen Würfel werden die Mittelwerte $\bar \mu$
 \begin{align}
-  \mathup\Delta \mu &= 0.5765\\
-  \mathup\Delta \mu &= 1.018
+  \bar \mu_1 &= 0.5765\\
+  \bar \mu_2 &= 1.018
   \label{wert:homogen}
 \end{align}
+ermittelt (im wahren Sinne :D ).
+In Tabelle \ref{tab:messwerte_homogen} sind die Abweichungen der Messwerte vom
+Mittelwert eingetragen, um die Zuverlässigkeit der Messwerte %in Abschnitt \ref{sec:Diskussion}
+zu diskutieren. Die Absorptionskoeffizienten in Tabelle \ref{tab:koeff} liegen teilweise nah beieinander.
+Die Abweichung der errechneten Koeffizienten in Tabelle \ref{tab:messwerte_homogen} von
+zirka $-10\,\%$ bis $10\,\%$ in erster Messung und von bis zu $-33\,\%$ in der zweiten Messung lassen daher vermuten,
+dass die Zuordnung der Elementarwürfel zu einem Material bestenfalls grob und unzuverlässig ist.
 
-\begin{table}
+Der Mittelwert $\bar\mu_2$ aus \eqref{wert:homogen} kann Blei zugeordnet werden.
+Der Mittelwert weicht vom Literaturwert um etwa $24\,\%$ nach unten ab.
+Obwohl der Mittelwert $\bar\mu_1$ sehr nahe beim Absorptionskoeffizienten
+für Eisen liegt, ist es unwahrscheinlich, dass Würfel 1 aus Eisen besteht. Die eingangs
+vorgestellten Unsicherheiten und die Abweichungen des Mittelwertes $\bar\mu_2$ legen in diesem Fall einen Hypothesen-Fehler nahe.
+Bestünde der erste Würfel aus Messing, so betrüge die Abweichungen von $\bar\mu_1$
+etwa $8,5\,\%$ nach unten.
+Diese Abweichung erscheint plausibel im Anbetracht der anderen auftretenden Abweichungen.
+Der Würfel 1 besteht demnach vermutlich aus Blei, der Würfel 2 aus Messing.
+\begin{table}[ht]
   \centering
-  \begin{tabular}{cll}
+  \begin{tabular}{cS[table-format=1.3]S[table-format=1.0]S[table-format=2.1]}
     \toprule
-    \multicolumn{3}{c}{Proben-Würfel Nr. 4}\\
-    {}&{in} &{Klasse}\\
+    \multicolumn{3}{c}{Proben-Würfel Nr. 4}&{Abweichung zu $\mu_m$}\\
+    {}&{in $\si{\per\centi\meter}$} &{Art}&{in \%}\\
     \midrule
-    Würfel 1&   0.04&   1\\
-    Würfel 2&   -0.009&   0\\
-    Würfel 3&   0.04&   1\\
-    Würfel 4&   1.01&   2\\
-    Würfel 5&   1.092&    2\\
-    Würfel 6&   0.949&    2\\
-    Würfel 7&   0.028&    1\\
-    Würfel 8&   -0.018&   0\\
-    Würfel 9&   0.07&   1\\
+    Würfel 1&   0.04&   1&    -66.6\\
+    Würfel 2&  -0.009&  0&    -0.9\\
+    Würfel 3&   0.04&   1&    -66.6\\
+    Würfel 4&   1.01&   2&    -24.6\\
+    Würfel 5&   1.092&  2&    -18.5\\
+    Würfel 6&   0.949&  2&    -29.2\\
+    Würfel 7&   0.028&  1&    -76.6\\
+    Würfel 8&   -0.018& 0&    -1.8\\
+    Würfel 9&   0.07&   1&    -41.6\\
     \bottomrule
   \end{tabular}
+  \caption{Aus den gemessenen Intensitäten errechnete Absorptionskoeffizienten der Elementarwürfel,
+  Proben-Würfel Nr.\,4.}
+  \label{tab:messwerte_probe}
 \end{table}
+Die negativen Koeffizienten, die bei den homogenen Würfeln nicht
+aufgetreten sind, können als Leerstellen interpretiert werden.
+In dieser Auswertung wird das Abklingen der $\gamma$-Strahlung in Luft vernachlässigt.
+Es kann angenommen werden, dass nur wenig Leerstellen auftreten; ein Würfelaufbau
+mit vielen Leerstellen ist unbeständig und würde Anordnungsfehler verursachen,
+die die Auswertung sehr schwierig gestalten.
+In Tabelle \ref{tab:messwerte_probe} ist in eigener Spalte die Art beschrieben,
+zu welcher der Würfel geordnet werden kann. Art 0 ist eine Leerstelle, Art 1 ist Delrin,
+Art 2 ist Blei.
+
+Es ist überzeugend, die Würfel 4,5,6 als Bleiwürfel zu identifizieren respektive sie
+dem Material von Würfel 2 zuzuordnen.
+Die Abweichungen der Elementarwürfel von dem Literaturwert ist in gleicher Größenordung
+wie bei der Messung an Würfel 2.
+Die übrigen Würfel haben auffallend geringe Koeffizienten und damit vermutlich aus Delrin.
+Da Messing im ersten Teil der Auswertung mit Koeffizienten $\mu\approx\SI{0.5}{\per\centi\meter}$
+erkannt wurde, ist Messing nur sehr unwahrscheinlich das Material der Elementarwürfel.
+Da Delrin als Reinmaterial nicht untersucht wurde, kann keine verlässliche Aussage über die
+hohen Abweichungen getroffen werden.
+Ausführliche Diskussion ist hierzu in Abschnitt \ref{sec:Diskussion}.
