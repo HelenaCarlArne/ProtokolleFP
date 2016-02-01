@@ -7,8 +7,8 @@ Der Zusammenhang der beiden Koeffizienten ist
   \mu=\mu_m \cdot \rho,
 \end{equation}
 wobei $\rho$ die Massenvolumendichte des Materials ist.
-Die umgerechneten und erwarteten Koeffizienten sind in Tabelle \ref{tab:koeff} aufgetragen.
-\begin{table}[t]
+Die nach dieser Formel umgerechneten und als Messwerte erwarteten Koeffizienten sind in Tabelle \ref{tab:koeff} aufgetragen.
+\begin{table}[b]
   \centering
   \begin{tabular}{l S[table-format=2.2] S[table-format=1.3] S[table-format=1.3]}
     \toprule
@@ -27,25 +27,121 @@ Die umgerechneten und erwarteten Koeffizienten sind in Tabelle \ref{tab:koeff} a
   \cite{dichte_messing}\cite{dichte_pom}\cite{dichte_rest}}
   \label{tab:koeff}
 \end{table}
-Die mithilfe des in Abschnitt \ref{sec:Durchführung} vorgestellten Verfahrens experimentell
-bestimmten Absorptionskoeffizienten sind in Tabellen \ref{tab:messwerte_homogen}
+In Tabelle \ref{tab:messwerte_intensitaet} sind die über den ausgesuchten Kanalintervall
+integrierten Zerfälle.
+In Tabelle \ref{tab:messwerte_intensitaet2} sind die für
+die Matrixgleichung \eqref{eq:Matrix} verwendeten Werte des Vektors $\vec{I}$.
+Die mithilfe der in Abschnitt \ref{sec:Durchführung} vorgestellten Matrixgleichung
+\eqref{eq:Matrix} experimentell bestimmten Absorptionskoeffizienten sind in Tabellen \ref{tab:messwerte_homogen}
 und \ref{tab:messwerte_probe} zu finden.
+
+Um die Unsicherheit der Absorptionskoeffizienten zu bestimmten, wird die gemittelte
+Unsicherheit in den Intensitäten aus dem Vektor $\vec{I}$ betrachtet.
+Mithilfe der Gleichung \eqref{eq:uncert} werden die Unsicherheiten der
+Absorptionskoeffizienten bestimmt und in Tabelle \ref{tab:messwerte_homogen}
+zusätzlich angegeben.
+Die gemittelten Unsicherheiten in der Intensität betragen
+\begin{align}
+  \sigma_{1}&=0.01,\\
+  \sigma_{2}&=0.02,\\
+  \sigma_{3}&=0.009.
+  \label{eq:uncert_log_intensity}
+\end{align}
+
+\begin{table}[p]
+  \centering
+  \begin{tabular}{llS[table-format=6.0]S[table-format=3.0]}
+    \toprule
+    {Objekt}&{Projektion}&{Anzahl $N$}&{Unsicherheit $\sqrt{N}$}\\
+    \midrule
+Leermessung&&            182333&   427\\
+Leerwürfel &gerade&  63058&    251\\
+ &diagonal&  63098&    251\\
+ &halbdiagonal&  62991&    250\\
+Würfel 1 & 01&  6361&     79\\
+  & 02&  10509&    102\\
+  & 03&  10692&    103\\
+  & 04&  10940&    104\\
+  & 05&  6447&     80\\
+  & 06&  11279&    106\\
+  & 07&  10401&    101\\
+  & 08&  10737&    103\\
+  & 09&  10720&    103\\
+  & 10&  13163&    114\\
+  & 11&  12112&    110\\
+  & 12&  11262&    106\\
+Würfel 2 & 01&  1105&     33\\
+  & 02&  1729&     41\\
+  & 03&  2314&     48\\
+  & 04&  2539&     50\\
+  & 05&  1037&     32\\
+  & 06&  4671&     68\\
+  & 07&  2223&     47\\
+  & 08&  2528&     50\\
+  & 09&  3610&     60\\
+  & 10&  5777&     76\\
+  & 11&  2662&     51\\
+  & 12&  3454&     58\\
+Würfel 4 & 01&  12503&    111\\
+  & 02&  62255&    249\\
+  & 03&  3108&     55 \\
+  & 04&  61660&    248\\
+  & 05&  11767&    108\\
+  & 06&  19961&    141\\
+  & 07&  19552&    139\\
+  & 08&  19589&    139\\
+  & 09&  17596&    132\\
+  & 10&  15917&    126\\
+  & 11&  15361&    123\\
+  & 12&  16543&    128\\
+  \bottomrule
+\end{tabular}
+\caption{Die gemessenen Zerfälle pro Messobjekt und Projektion sowie die aus der
+Poisson-Verteilung folgende Messunsicherheit.}
+\label{tab:messwerte_intensitaet}
+\end{table}
+\begin{table}
+  \centering
+  \begin{tabular}{cS[table-format=1.3]@{\,\( \pm \)\,}S[table-format=1.3]S[table-format=1.3]
+    @{\,\( \pm \)\,}S[table-format=1.3]S[table-format=1.3]@{\,\( \pm \)\,}S[table-format=1.3]}
+    \toprule
+    &\multicolumn{3}{c}{Intensitäten}\\
+    {Projektion}&\multicolumn{2}{c}{Würfel 1}&\multicolumn{2}{c}{Würfel 2}&\multicolumn{2}{c}{Würfel 4}\\
+    \midrule
+1&   2.295& 0.013&  4.045&  0.030& 1.619& 0.010\\
+2&   1.792& 0.011&  3.597&  0.024& 0.013& 0.006\\
+3&   1.775& 0.010&  3.305&  0.021& 3.010& 0.018\\
+4&   1.752& 0.010&  3.212&  0.020& 0.022& 0.006\\
+5&   2.281& 0.013&  4.108&  0.031& 1.679& 0.010\\
+6&   1.721& 0.010&  2.603&  0.015& 1.150& 0.008\\
+7&   1.802& 0.011&  3.345&  0.022& 1.171& 0.008\\
+8&   1.770& 0.010&  3.217&  0.020& 1.169& 0.008\\
+9&   1.771& 0.010&  2.859&  0.017& 1.275& 0.009\\
+10&  1.566& 0.010&  2.389&  0.014& 1.376& 0.009\\
+11&  1.649& 0.010&  3.164&  0.020& 1.411& 0.009\\
+12&  1.722& 0.010&  2.903&  0.017& 1.337& 0.009\\
+    \bottomrule
+  \end{tabular}
+  \caption{Die für die Auswertung benutzte Werte des Vektors $\vec{I}$ und die Unsicherheit.}
+  \label{tab:messwerte_intensitaet2}
+\end{table}
+
 \begin{table}[ht]
   \centering
-  \begin{tabular}{c S[table-format=1.3] S[table-format=-2.2] S[table-format=1.2] S[table-format=-2.2]}
+  \begin{tabular}{c S[table-format=1.3]@{\,\( \pm \)\,}S[table-format=1.3] S[table-format=-2.2] S[table-format=1.3]@{\,\( \pm \)\,}S[table-format=1.3] S[table-format=-2.2]}
     \toprule
-    {Nr.} & {Würfel 1}&{Abweichung} & {Würfel 2}& {Abweichung}\\
-    {}&{in $\si{\centi\meter\squared\per\gram}$} &{in \%} &{in $\si{\centi\meter\squared\per\gram}$} &{in \%}\\
+    {Nr.} & \multicolumn{2}{c}{Würfel 1}&{Abweichung zu Lit.} & \multicolumn{2}{c}{Würfel 2}& {Abweichung zu Lit.}\\
+    {}&\multicolumn{2}{c}{in $\si{\per\centi\meter}$} &{in \%} &\multicolumn{2}{c}{in $\si{\per\centi\meter}$} &{in \%}\\
     \midrule
-     1&   0.6189&   7.36 &  1.3419&    31.82\\
-     2&   0.5893&   2.22 &  1.0039&    -1.37\\
-     3&   0.5499&   -4.6 &  0.9754&    -4.17\\
-     4&   0.5472&   -5.33&  0.9178&    -9.84\\
-     5&   0.5217&   -9.5 &  1.0033&    -1.44\\
-     6&   0.6440&   11.71&  0.9919&    -2.56\\
-     7&   0.5802&   0.64 &  0.9982&    -1.94\\
-     8&   0.6361&   10.35&  1.2622&    23.99\\
-     9&   0.5016&   -12.97& 0.6766&    -33.53\\
+     1&   0.619&0.004&   7.36 &  1.342&0.0002&    31.82\\
+     2&   0.589&0.002&   2.22 &  1.003&0.0001&    -1.37\\
+     3&   0.550&0.004&   -4.6 &  0.975&0.0002&    -4.17\\
+     4&   0.547&0.002&   -5.33&  0.918&0.0001&    -9.84\\
+     5&   0.522&0.002&   -9.5 &  1.003&0.0001&    -1.44\\
+     6&   0.644&0.002&   11.71&  0.992&0.0001&    -2.56\\
+     7&   0.580&0.004&   0.64 &  0.998&0.0002&    -1.94\\
+     8&   0.636&0.002&   10.35&  1.262&0.0001&    23.99\\
+     9&   0.502&0.004&   -12.97& 0.677&0.0002&   -33.53\\
     \bottomrule
   \end{tabular}
   \caption{Aus den gemessenen Intensitäten errechnete Absorptionskoeffizienten der Elementarwürfel,
@@ -53,15 +149,15 @@ und \ref{tab:messwerte_probe} zu finden.
   \label{tab:messwerte_homogen}
 \end{table}
 
-Für die homogenen Würfel werden die Mittelwerte $\bar \mu$
+Für die homogenen Würfel werden die Durchschnittswerte der Absorptionskoeffizienten% (vgl. Tabelle \ref{tab:messwerte_homogen})
 \begin{align}
   \bar \mu_1 &= 0.5765\\
   \bar \mu_2 &= 1.018
   \label{wert:homogen}
 \end{align}
-ermittelt (im wahren Sinne :D ).
-In Tabelle \ref{tab:messwerte_homogen} sind die Abweichungen der Messwerte vom
-Mittelwert eingetragen, um die Zuverlässigkeit der Messwerte %in Abschnitt \ref{sec:Diskussion}
+ermittelt.
+In Tabelle \ref{tab:messwerte_homogen} sind die Abweichungen der Messwerte diesem Mittelwert
+ eingetragen, um die Zuverlässigkeit der Messwerte %in Abschnitt \ref{sec:Diskussion}
 zu diskutieren. Die Absorptionskoeffizienten in Tabelle \ref{tab:koeff} liegen teilweise nah beieinander.
 Die Abweichung der errechneten Koeffizienten in Tabelle \ref{tab:messwerte_homogen} von
 zirka $-10\,\%$ bis $10\,\%$ in erster Messung und von bis zu $-33\,\%$ in der zweiten Messung lassen daher vermuten,
@@ -78,20 +174,20 @@ Diese Abweichung erscheint plausibel im Anbetracht der anderen auftretenden Abwe
 Der Würfel 1 besteht demnach vermutlich aus Blei, der Würfel 2 aus Messing.
 \begin{table}[ht]
   \centering
-  \begin{tabular}{cS[table-format=1.3]S[table-format=1.0]S[table-format=2.1]}
+  \begin{tabular}{cS[table-format=1.3]@{\,\( \pm \)\,}S[table-format=1.3]S[table-format=1.0]S[table-format=2.1]}
     \toprule
-    \multicolumn{3}{c}{Proben-Würfel Nr. 4}&{Abweichung zu $\mu_m$}\\
-    {}&{in $\si{\per\centi\meter}$} &{Art}&{in \%}\\
+    \multicolumn{3}{c}{Proben-Würfel Nr. 4}&&{Abweichung zu Lit.}\\
+    {}&\multicolumn{2}{c}{in $\si{\per\centi\meter}$} &{Art}&{in \%}\\
     \midrule
-    Würfel 1&   0.04&   1&    -66.6\\
-    Würfel 2&  -0.009&  0&    -0.9\\
-    Würfel 3&   0.04&   1&    -66.6\\
-    Würfel 4&   1.01&   2&    -24.6\\
-    Würfel 5&   1.092&  2&    -18.5\\
-    Würfel 6&   0.949&  2&    -29.2\\
-    Würfel 7&   0.028&  1&    -76.6\\
-    Würfel 8&   -0.018& 0&    -1.8\\
-    Würfel 9&   0.07&   1&    -41.6\\
+     1&   0.04&   0.00003& 1&    -66.6\\
+     2&  -0.009&  0.00002& 0&    -0.9\\
+     3&   0.04&   0.00003& 1&    -66.6\\
+     4&   1.01&   0.00002& 2&    -24.6\\
+     5&   1.092&  0.00002& 2&    -18.5\\
+     6&   0.949&  0.00002& 2&    -29.2\\
+     7&   0.028&  0.00003& 1&    -76.6\\
+     8&   -0.018& 0.00002& 0&    -1.8\\
+     9&   0.07&   0.00003& 1&    -41.6\\
     \bottomrule
   \end{tabular}
   \caption{Aus den gemessenen Intensitäten errechnete Absorptionskoeffizienten der Elementarwürfel,
