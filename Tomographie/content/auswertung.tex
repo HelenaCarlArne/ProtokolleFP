@@ -1,7 +1,99 @@
 \section{Auswertung}
 \label{sec:Auswertung}
-Die aus dem in Abschnitt \ref{sec:Durchführung} beschriebenen Absorptionskoeffizienten\footnote{kurz: Abs.koeff.} $\mu$
-unterscheiden sich von den in der Literatur angegebenen Massenabsorptionskoeffizienten\footnote{kurz:Massenabs.koeff.} $\mu_m$.
+\subsection{Methode der Auswertung}
+\label{sec:Auswertung1}
+\begin{table}
+  \centering
+  \huge
+  \begin{TAB}(e,2cm,2cm){|c|c|c|}{|c|c|c|}
+    $\mu_1$&$\mu_2$&$\mu_3$\\
+    $\mu_4$&$\mu_5$&$\mu_6$\\
+    $\mu_7$&$\mu_8$&$\mu_9$\\
+  \end{TAB}
+  \caption{Querschnitt der Probe.}
+\end{table}
+Es werden die Intensitäten eines Leerwürfels und die Intensitäten der Material-gefüllten Würfel gemessen.
+Die Auswertung geschieht über die sogenannten Projektionsmatrizen, die die Geometrie
+des Würfels und den Strahlengang durch den Würfel verknüpft.
+
+Das Lambert-Beersche Gesetz beschreibt die Abnahme der Intensität bei Durchdringen
+einer Schicht der Dicke $d$ mit dem Absorptionskoeffizient $\lambda$. Für das Durchdringen
+mehrer Schichten wird
+\begin{equation}
+  I(d_i,\lambda_i) = I_0 \exp\left(-\sum_i \lambda_i d_i\right)
+\end{equation}
+ausgenutzt.
+Diese Gleichung wird zu
+\begin{equation}
+  \sum_i \lambda_i d_i = \ln\left(\frac{I_0}{I_j}\right) =: A_j
+\end{equation}
+umgeformt.
+Die zwölf gewünschten Strahlengänge durch den Probewürfel ergeben zwölf Gleichungen,
+in denen die neun Koeffizenten auftreten.
+In Matrixschreibweise und mit der Dicke der Elementarwürfel $d=\SI{1}{\centi\meter}$ wird
+das überbestimmte Gleichungssystem
+\begin{equation}
+  d
+  \begin{pmatrix}
+    0&0&\sqrt{2}&0&\sqrt{2}&0&\sqrt{2}&0&0\\
+    1&1&1&0&0&0&0&0&0\\
+    0&0&0&1&1&1&0&0&0\\
+    0&0&0&0&0&0&1&1&1\\
+    \sqrt{2}&0&0&0&\sqrt{2}&0&0&0&\sqrt{2}\\
+    0&0&1&0&0&1&0&0&1\\
+    0&1&0&0&1&0&0&1&0\\
+    1&0&0&1&0&0&1&0&0\\
+    0&\sqrt{2}&0&\sqrt{2}&0&0&0&0&0\\
+    0&0&0&\sqrt{2}&0&0&0&\sqrt{2}&0\\
+    0&\sqrt{2}&0&0&0&\sqrt{2}&0&0&0\\
+  \end{pmatrix}
+  \cdot
+  \begin{pmatrix}
+    \mu_1\\
+    \mu_2\\
+    \mu_3\\
+    \mu_4\\
+    \mu_5\\
+    \mu_6\\
+    \mu_7\\
+    \mu_8\\
+    \mu_9
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    A_1\\
+    A_2\\
+    A_3\\
+    A_4\\
+    A_5\\
+    A_6\\
+    A_7\\
+    A_8\\
+    A_9\\
+    A_{10}\\
+    A_{11}\\
+    A_{12}
+  \end{pmatrix}
+  \label{eq:Matrix}
+\end{equation}
+gefunden. Diese Matrix wird als Projektionsmatrix bezeichnet. Sie verknüpft die
+Koeffizienten $\lambda_i$, die durch die Projektion $I_j$ erfasst werden.
+Mit den durch Intensitätsmessung bestimmten $A_j$ können durch
+\begin{equation}
+  \vec{\mu}= (A^{T}A)^{-1}A^{T}\vec{I}
+\end{equation}
+die Koeffizienten gefunden werden.
+Die Unsicherheit beträgt dabei
+\begin{equation}
+  \vec{\sigma_\mu^2}=\sigma_I^2(A^{T}A)^{-1}
+  \label{eq:uncert}
+\end{equation}
+mit der Varianz $\sigma_I^2$ der Intensitätsbestimmung.
+
+\subsection{Ergebnisse}
+\label{sec:Auswertung2}
+Die aus dem in Abschnitt \ref{sec:Auswertung1} beschriebenen Absorptionskoeffizienten\footnote{kurz: Abs.koeff.} $\mu$
+unterscheiden sich von den in der Literatur angegebenen Massenabsorptionskoeffizienten\footnote{kurz: Massenabs.koeff.} $\mu_m$.
 Der Zusammenhang der beiden Koeffizienten ist
 \begin{equation}
   \mu=\mu_m \cdot \rho,
@@ -31,7 +123,7 @@ In Tabelle \ref{tab:messwerte_intensitaet} sind die über den ausgesuchten Kanal
 integrierten Zerfälle.
 In Tabelle \ref{tab:messwerte_intensitaet2} sind die für
 die Matrixgleichung \eqref{eq:Matrix} verwendeten Werte des Vektors $\vec{I}$.
-Die mithilfe der in Abschnitt \ref{sec:Durchführung} vorgestellten Matrixgleichung
+Die mithilfe der in Abschnitt \ref{sec:Auswertung1} vorgestellten Matrixgleichung
 \eqref{eq:Matrix} experimentell bestimmten Absorptionskoeffizienten sind in Tabellen \ref{tab:messwerte_homogen}
 und \ref{tab:messwerte_probe} zu finden.
 
@@ -105,7 +197,7 @@ Poisson-Verteilung folgende Messunsicherheit.}
   \begin{tabular}{cS[table-format=1.3]@{\,\( \pm \)\,}S[table-format=1.3]S[table-format=1.3]
     @{\,\( \pm \)\,}S[table-format=1.3]S[table-format=1.3]@{\,\( \pm \)\,}S[table-format=1.3]}
     \toprule
-    &\multicolumn{3}{c}{Intensitäten}\\
+    &\multicolumn{6}{c}{Intensitäten}\\
     {Projektion}&\multicolumn{2}{c}{Würfel 1}&\multicolumn{2}{c}{Würfel 2}&\multicolumn{2}{c}{Würfel 4}\\
     \midrule
 1&   2.295& 0.013&  4.045&  0.030& 1.619& 0.010\\
@@ -130,7 +222,8 @@ Poisson-Verteilung folgende Messunsicherheit.}
   \centering
   \begin{tabular}{c S[table-format=1.3]@{\,\( \pm \)\,}S[table-format=1.3] S[table-format=-2.2] S[table-format=1.3]@{\,\( \pm \)\,}S[table-format=1.3] S[table-format=-2.2]}
     \toprule
-    {Nr.} & \multicolumn{2}{c}{Würfel 1}&{Abweichung zu Lit.} & \multicolumn{2}{c}{Würfel 2}& {Abweichung zu Lit.}\\
+    &\multicolumn{3}{c}{Würfel 1}&\multicolumn{3}{c}{Würfel 2}\\
+    {Nr.} & \multicolumn{2}{c}{Abs.Koeff. $\mu$}&{Abweichung zu Lit.} & \multicolumn{2}{c}{Abs.Koeff. $\mu$}& {Abweichung zu Lit.}\\
     {}&\multicolumn{2}{c}{in $\si{\per\centi\meter}$} &{in \%} &\multicolumn{2}{c}{in $\si{\per\centi\meter}$} &{in \%}\\
     \midrule
      1&   0.619&0.004&   7.36 &  1.342&0.0002&    31.82\\
@@ -172,27 +265,39 @@ Bestünde der erste Würfel aus Messing, so betrüge die Abweichungen von $\bar\
 etwa $8,5\,\%$ nach unten.
 Diese Abweichung erscheint plausibel im Anbetracht der anderen auftretenden Abweichungen.
 Der Würfel 1 besteht demnach vermutlich aus Blei, der Würfel 2 aus Messing.
+
 \begin{table}[ht]
   \centering
   \begin{tabular}{cS[table-format=1.3]@{\,\( \pm \)\,}S[table-format=1.3]S[table-format=1.0]S[table-format=2.1]}
     \toprule
-    \multicolumn{3}{c}{Proben-Würfel Nr. 4}&&{Abweichung zu Lit.}\\
-    {}&\multicolumn{2}{c}{in $\si{\per\centi\meter}$} &{Art}&{in \%}\\
+    &\multicolumn{4}{c}{Probe-Würfel 4}\\
+    Nr. &\multicolumn{2}{c}{Abs.koeff. $\mu$}&{Abweichung zu Lit.}&{Art}\\
+    {}&\multicolumn{2}{c}{in $\si{\per\centi\meter}$} &{in \%}&\\
     \midrule
-     1&   0.04&   0.00003& 1&    -66.6\\
-     2&  -0.009&  0.00002& 0&    -0.9\\
-     3&   0.04&   0.00003& 1&    -66.6\\
-     4&   1.01&   0.00002& 2&    -24.6\\
-     5&   1.092&  0.00002& 2&    -18.5\\
-     6&   0.949&  0.00002& 2&    -29.2\\
-     7&   0.028&  0.00003& 1&    -76.6\\
-     8&   -0.018& 0.00002& 0&    -1.8\\
-     9&   0.07&   0.00003& 1&    -41.6\\
+     1&   0.04&   0.00003&    -66.6& 1\\
+     2&  -0.009&  0.00002&    -0.9& 0\\
+     3&   0.04&   0.00003&    -66.6& 1\\
+     4&   1.01&   0.00002&    -24.6& 2\\
+     5&   1.092&  0.00002&    -18.5& 2\\
+     6&   0.949&  0.00002&    -29.2& 2\\
+     7&   0.028&  0.00003&    -76.6& 1\\
+     8&   -0.018& 0.00002&    -1.8& 0\\
+     9&   0.07&   0.00003&    -41.6& 1\\
     \bottomrule
   \end{tabular}
   \caption{Aus den gemessenen Intensitäten errechnete Absorptionskoeffizienten der Elementarwürfel,
   Proben-Würfel Nr.\,4.}
   \label{tab:messwerte_probe}
+\end{table}
+\begin{table}
+  \centering
+  \huge
+  \begin{TAB}(e,2cm,2cm){|c|c|c|}{|c|c|c|}
+    Delrin&Luft&Delrin\\
+    Blei&Blei&Blei\\
+    Delrin&Luft&Delrin\\
+  \end{TAB}
+  \caption{Ergebnis der Messung: Aufbau des Probewürfels 4.}
 \end{table}
 Die negativen Koeffizienten, die bei den homogenen Würfeln nicht
 aufgetreten sind, können als Leerstellen interpretiert werden.
