@@ -1,4 +1,32 @@
+\section{Ziel des Versuchs}
+Ziel des Versuchs ist die tomographische Vermessung eines aus Elementarwürfeln zusammengesetzten Würfels.
 \section{Theorie}
 \label{sec:Theorie}
-
-\cite{sample}
+Die Tomographie ist ein bildgebendes Verfahren, mit dem die räumliche Struktur eines Objekts wieder gegeben werden kann.
+Dabei wird das Objekt von hochenergetischer elektromagnetischer Strahlung oder auch Teilchenstrahlung durchdrungen. Die Absorption dieser Strahlung im zu untersuchenden Ojekt gibt Aufschluss über die Beschaffenheit des Materials. Wird dies für unterschiedliche Projektionsebenen durchgeführt, kann auf die räumliche Struktur des Objekts rückgeschlossen werden. In diesem Fall wird $\gamma$-Strahlung verwendet.
+Die gemessene Intensität verhält sich nach
+\begin{equation}
+	N = I_0 \mathup e^{-\sum \mu_i d_i}
+	\label{eqn:int}
+\end{equation}
+zur Ausgangsintensität. Dabei sind die $\mu_i$ die Absorptionskoeffizienten der unterschiedlichen Materialen und $d_i$ die durchdrungenen Wegstrecken.
+Umstellen liefert
+\begin{equation*}
+	\sum_i \mu_i d_i = \mathup{ln}\left(\frac{I_0}{N_j}\right)
+\end{equation*}
+für die Absorptionskoeffizienten.
+Durch viele Messungen wird das Gleichungssystem überbestimmt, um die Fehler zu minimieren.
+Die $\mu_i$ werden durch die Lösung eines Matrixgleichungssystems bestimmt.
+Es ergibt sich
+\begin{align}
+	\mathbf{A} \cdot \vec \mu &= \vec I \\
+	(\mathbf A^T \mathbf A) \cdot \vec \mu &= (\mathbf A^T \cdot \vec I)\\
+	\vec \mu &= (\mathbf A^T \mathbf A)^{-1} \cdot \mathbf A^T \vec I
+\end{align}
+für die Absorptionskoeffizienten.
+Die Varianzen $\sigma_i^2$ lassen sich durch die Diagonalelemente der Matrix
+\begin{equation}
+	\mathbf C = \sigma_I^2(\mathbf A^T \mathbf A)^{-1}
+	\label{eqn:Cii}
+\end{equation}
+bestimmen.
