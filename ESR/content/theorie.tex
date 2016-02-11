@@ -1,0 +1,112 @@
+\section{Zielsetzung}
+\nocite{skript}
+Zwischen dem Bahndrehimpuls $\vec{L}$ und dem magnetischen Moment $\vec{m}$
+besteht in der klassischen Physik der Zusammenhang  $\vec{m} =\gamma \vec{L}$ mit
+dem gyromagnetischen Verhältnis $\gamma$.
+Jedoch können für gebundene Elektronen eines Atoms mit verschwindenem Bahndrehimpuls
+oder für freie Elektronen eine magnetisches Moment gemessen werden.
+Ziel des Experimentes ist die Vermessung und skizzenhafte Herleitung des magnetischen
+Momentes eines freien Elektrons.
+
+\section{Theorie}
+\label{sec:Theorie}
+\subsection{Quantenmechanische Beschreibung des magnetischen Moments von einem gebundenen Elektron}
+Für ein Atom in der Einelektronen-Näherung ist die Wellenfunktion
+\begin{equation}
+  \Psi_\text{n,l,m}(r,\theta,\phi) = R_\text{n,l}(r)\cdot \Theta_\text{l,m}(\theta)\cdot \Phi(\phi) \
+  = R_\text{n,l}(r)\cdot \Theta_\text{l,m}(\theta)\cdot \frac{\exp\left(im\phi\right)}{\sqrt{2\pi}}
+  \label{eq:1e_approx}
+\end{equation}
+mit den Quantenzahlen: Hauptquantenzahl $n$, Nebenquantenzahl $l$ und
+magnetische Orientierung $m$.
+Um die Normierung der Wellenfunktion $\Psi_\text{n,l,m}(r,\theta,\phi)$ zu aufrecht zu halten,
+sind alle Faktorfunktionen über das Volumenintegral normiert.
+Die quantenmechanische Stromdichte
+\begin{align}
+  \vec{S}&=\frac{\hbar}{2im_0}(\Psi^{*}\nabla\Psi - \Psi\nabla\Psi^{*})\\
+          &=\frac{\hbar}{m_0}\frac{R^2\Theta^2}{2\pi}\frac{m}{r\sin(\theta)}
+        \label{eq:stromdichte}
+\end{align}
+ergibt nach Mulitplikation mit der Ladung die Stromdichte
+\begin{equation}
+  j_\text{el}= - e_0 \vec{S}.
+  \label{eq:stromdichte2}
+\end{equation}
+Zu beachten ist, dass in der Wellenfunktion \eqref{eq:1e_approx} nur der $\Phi$-Anteil
+komplex ist und dass dadurch die radialen und $\Theta$-Anteile in \eqref{eq:stromdichte}
+verschwinden.
+Mit \eqref{eq:stromdichte} wird der Strom entlang des Azimuth-Winkels
+\begin{align}
+  \mathup{d}I_\phi &= j_\text{el} \mathup{d}A_\phi\\
+          &= j_\text{el} r \mathup{d}\theta \mathup{d}r
+\end{align}
+und das magnetische Moment als Produkt dieses Stromes und der umströmten Fläche
+\begin{align}
+  \mathup{d}\mu&=\mathup{d}I_\phi \cdot A\\
+            &=j_\text{el} r \mathup{d}\theta \mathup{d}r \cdot \pi r^2\sin^2(\theta)
+\end{align}
+gefunden.
+Nach Ausführen der trivialen Integrationen - die Normierung der Funktionen $R$ und $\Theta$ ist maßgeblich-
+wird das magnetische Moment
+\begin{align}
+  \mu&=-\hbar m \frac{e_0}{2m_0}\int\limits_0^\infty r^2 R^2(r)\mathup{d}r \
+  \int\limits_0^{2\pi} \Theta^2(\theta)\sin(\theta)\mathup{d}\theta\\
+      &=-\hbar m \frac{e_0}{2m_0}\\
+      &=: m \mu_B
+\end{align}
+gefunden.
+Die Abkürzung $\mu_B$ besteht nur aus Naturkonstanten und wird Bohrsches
+Magneton bezeichnet, es verknüpft die Magnetquantenzahl und das magnetische Moment;
+\begin{equation}
+  \mu_B = \SI{9,274015(3)e-24}{\joule\per\tesla}.
+  \label{eq:bohrmag}
+\end{equation}
+Es folgt also, dass das magnetische Moment quantisiert ist.
+\subsection{Richtungsquantisierung des \texorpdfstring{magnetischen Momentes $\mu$}{magnetischen Momentes}
+und die Aufspaltung der Energieniveaus im Magnetfeld}
+Die Komponente des Bahndrehimpulses $\vec{L}$ entlang einer ausgezeichneten Richtung
+ist abhängig von der magnetischen Orientierungsquantenzahl $m$.
+Wird die Richtung des Magnetfeldes willkürlich in $z$-Richtung festgelegt,
+kann die $z$-Komponente des Bahndrehimpulses $L_z$ als
+\begin{equation}
+  L_z = m\cdot\hbar
+\end{equation}
+festgelegt werden.
+Die Quantenzahl $m$ ist ganzzahlig und durch die Forderung $L_z \le |\vec{L}|$
+beschränkt, $m \in [0,\pm 1,\pm 2,..., \pm l]$ und $\vert m \vert = 2l+1$.
+Diese Quantisierung ist in den Energieniveaus sichtbar. Die Energie eines magnetischen
+Dipols $\vec{M}=L_z\vec{e_z}$ in einem äußeren Magnetfeld $\vec{B}$ ist
+\begin{equation}
+  E = -\vec{M}\cdot\vec{B} = -m\hbar\cdot B.
+\end{equation}
+Das Aufspalten der Energieniveaus bei Anwesenheit eines Magnetfeldes ist der
+Zeeman-Effekt.
+Er kann dadurch sichtbar gemacht werden, dass die Kraft auf einen magnetischen
+Dipol im inhomogenen Feld,
+\begin{equation}
+  F= -\nabla E,
+\end{equation}
+im Falle vom oben beschriebenen gebundenen Elektron ebenfalls quantisiert ist.
+Ein Detektor könnte die Ablenkung des Elektronenstrahls anhand der $\vert m \vert = 2l+1$
+verschiedenen Richtungen anzeigen.
+
+\subsection{Auswirkung des Elektronenspins auf die Energieniveaus}
+Durch den Stern-Gerlach-Versuch wurde gezeigt, dass auch Teilchenstrahlen abgelenkt
+werden, wenn die enthaltenen gebundenen Elektronen keinen Bahndrehimpuls haben.
+Im Originalaufbau werden Silberatome benutzt, deren äußeres Elektron keinen
+Bahndrehimpuls hat.
+Ein Detektor zeigt an, dass der Silberatom-Strahl betragsmäßig gleich in zwei
+Richtungen abgelenkt werden.
+Aus der Anzahl der erlaubten Werte für $m$ folgt, dass ein Bahndrehimpuls-artiger
+Zustand $\vec{S}$ mit $l_\text{Spin} =\sfrac{1}{2}$ neben dem konventionellen
+Bahndrehimpuls $\vec{L}$ existiert.
+Die erlaubten Quantenzahlen der magnetischen Orientierung sind halbzahlig,
+$\m_\text{Spin}=\pm\sfrac{1}{2}$.
+Aus dieser Analogie zum Bahndrehimpuls wird der zusätzliche Zustand \emph{Spin}
+oder \emph{Eigendrehimpuls} genannt, obwohl Elektronen als
+punktförmige Teilchen nicht rotieren können.
+Das magnetische Moment eines Elektronenspin ist
+\begin{equation}
+  \mu_\text{Spin} = \pm g m_\text{Spin} \mu_B
+\end{equation}
+mit dem eingeführten Landé-Faktor oder gyromagnetischen Verhältnis $g \approx 2$.
