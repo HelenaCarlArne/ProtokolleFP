@@ -83,7 +83,7 @@ def table(name, data):
 # Dauer: etwa eine Minute
 
 plt.plot([0,1],[0,1],"kx") # Für die Zeitmarke der Makefile
-plt.savefig("pc/plt.pdf")
+plt.savefig("pc/plot.pdf")
 plt.close()
 
 print("Plotte alle von Robert ausgegebenen Daten graphisch")
