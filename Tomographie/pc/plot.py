@@ -81,6 +81,12 @@ def table(name, data):
 # oder ähnlich
 #
 # Dauer: etwa eine Minute
+
+plt.plot([0,1],[0,1],"kx") # Für die Zeitmarke der Makefile
+plt.savefig("pc/plot.pdf")
+plt.close()
+
+print("Plotte alle von Robert ausgegebenen Daten graphisch")
 intensity = np.array([])
 print("")
 for root, _, files in os.walk("rawdata/Daten_von_Robert/"):
@@ -101,7 +107,8 @@ for root, _, files in os.walk("rawdata/Daten_von_Robert/"):
         plt.tight_layout(pad=0.2, h_pad=1.08, w_pad=1.08)
         plt.savefig('pc/{}.pdf'.format(f))
         plt.close()
-
+print("")
+print("Alle auftretenden integrierten Intensitäten")
 print(intensity, sep=",")
 # Dies plottet Leerwuerfel_gerade einzeln, da es ein eigenes Format hat:
 # Dauer: etwa eine Minute
@@ -120,6 +127,10 @@ plt.ylabel("Zerfälle")
 plt.tight_layout(pad=0.2, h_pad=1.08, w_pad=1.08)
 plt.savefig('pc/Leerwuerfel_gerade.pdf')
 plt.close()
+
+
+print("")
+print("Plotte die Literaturwerte für Abs.koeff.")
 
 x1,x2,x3,x4 = np.genfromtxt("rawdata/aluminum.txt").T
 plt.plot(x1,x2,'g-',label="Compton-Streuung")
