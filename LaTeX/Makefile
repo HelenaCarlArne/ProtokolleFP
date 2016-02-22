@@ -65,7 +65,7 @@ programme.bib:
 matplotlibrc header-matplotlib.tex:
 	@echo "Konfigurationsdateien fehlen!"
 	@echo "=> Kopiere aus PeP-et-al- und CAT-Vorlage"
-	@cp -n ../LaTeX/header-matplotlib.tex ./header-matplotlib.tex
+	@cp -n ../LaTeX/latex-template/header-matplotlib.tex ./header-matplotlib.tex
 	@cp -n ../LaTeX/latex-template/matplotlibrc ./matplotlibrc
 	@echo
 
