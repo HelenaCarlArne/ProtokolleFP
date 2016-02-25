@@ -172,6 +172,7 @@ Bp = np.array([ufloat(0,0), B1p, B2p, B3p, B4p, B5p])
 Bts = (Ba + Bp)/2
 Be = (Bae - Bpe)/2
 Bem = Be.mean()
+Btx  = (Bae + Bpe)/2
 print(Bts)
 print(Be)
 print(Bem)
@@ -180,21 +181,37 @@ Bt = np.array([Bts])
 #Frequenzen
 fm = np.array([0, 10.572, 15.901, 20.557, 25.00, 29.448])*10**6
 fe = np.array([0, 10.00, 15.35, 20.00, 24.44, 30.00])*10**6 
+fx = np.array([ 10.572, 15.901, 20.557, 25.00, 29.448])*10**6
 
 def Bf(x, m, b):
 	return m*x + b
 params, cov = curve_fit(Bf, abs(fm), noms(Bts))
 print(params)
-params = correlated_values(params, cov)
-m = params[0]
+param = correlated_values(params, cov)
+m = param[0]
 g = h/(muB*m)
 print(g)
 
+x = np.linspace(-5,30, 1000)
+plt.errorbar(fm/10**6, noms(Bts)*10**3, yerr=sdevs(Bts)*10**4, fmt='rx', label="Messwerte mit 10-fachem Fehler")
+plt.errorbar(fm/10**6, noms(Bts)*10**3, yerr=sdevs(Bts)*10**3, fmt='kx', label="Messwerte mit normalem Fehler")
+plt.plot(x, Bf(x*10**6, *params)*10**3, 'b-', label="Regressionsgerade")
 
-plt.errorbar(fm, noms(Bts), yerr=sdevs(Bts), fmt='rx', label="Messwerte")
+plt.grid()
 plt.legend(loc='best')
 
-plt.xlabel(r'$\nu \:/\: \si{\hertz}$')
+plt.xlabel(r'$\nu \:/\: \si{\mega\hertz}$')
+plt.ylabel(r'$B \:/\: \si{\milli\tesla}$')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('pc/plot.pdf')
+#data1 = [a,b,c,d,e]
+#p1 = {'name':'tabelle1.tex','data':data1}
+#table(**p1)
+mf = np.array([mf1, mf2, mf3, mf4, mf5])
+Ia = np.array([I1a, I2a, I3a, I4a, I5a])
+Ip = np.array([I1p, I2p, I3p, I4p, I5p])
+
+data1 = [mf, Ip*10**3, Ia*10**3, Bpe*10**3, Bae*10**3, Btx*10**3, fx/10**6]
+p1 = {'name':'pc/tab.tex', 'data':data1}
+table(**p1)
 

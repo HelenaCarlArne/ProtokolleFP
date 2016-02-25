@@ -1,6 +1,11 @@
 \section{Auswertung}
 \label{sec:Auswertung}
-\subsection{Berechnung des Resonanzmagnetfeldes}
+Bei dem beschriebenen Messverfahren wurden die im Anhang befindlichen Messkurven mit einem x-y-Schreiber aufgenommen.
+Aus diesen kann, mittels einer Messskala $\xi$, die Lage des jeweiligen Resonanzminimums bestimmt werden. Aus der willkürlichen Messskala ergeben sich Fehler beim Ablesen und Umrechnen. Diese werden in den weiteren Rechnungen mittels Gaußscher Fehlerfortpflanzung berücksichtigt.
+
+\input{tables/tab.tex}
+
+Da das Verfahren auf sehr kleinen Magnetfeldern beruht, muss das Erdmagnetfeld als Störfaktor unbedingt berücksichtigt werden. Aus den, zum Magnetfeld, parallelen und antiparallelen Messungen, werden die Ströme abgelesen. Aus diesen kann mit
 
 Spulenhalbmesser $r = \SI{0.1}{\meter}$
 Windungszahl $n = 156$
@@ -9,9 +14,39 @@ Windungszahl $n = 156$
     B(I)= \frac{8}{\sqrt{125}}\mu_0\frac{n}{r}I
 \end{equation}
 
+das Magnetfeld $B$ der Helmholtzspule berücksichtigt werden.
+Die Messwerte des Stroms und die berechneten Magnetfelder, sowie die Messskala $\xi$ finden sich in Tabelle \ref{tab:tab}.
+Dabei bedeuten die mit $a$ und $p$ indizierten Größen, die jeweilige antiparallele oder parallele Messung. Der Mittelwert aus diesen ist das wahre Magnetfeld $\bar B$. 
+Als Nebenprodukt kann mit diesen Werten das Erdmagnetfeld bestimmt werden.
+Dies ergibt
+\begin{equation}
+	B_\text{Erde} = \frac{B_p - B_a}{2} = \SI{50.2\pm 0.08}{\micro\tesla}
+\end{equation}
+als Mittelwert.
+Nach \eqref{eqn:B} hängen $B$ und $\Delta E$ linear voneinander ab.
+Umstellen ergibt
+\begin{equation}
+	B = \frac{h}{\mu_B g} \nu
+\end{equation}
+für das Magnetfeld.
+Daraus ist ersichtlich, dass die gesuchte Größe $g$, das gyromagnetische Verhältnis des Elektrons, aus einer linearen Regressionsrechnung bestimmt werden kann.
+Nach
+\begin{equation}
+	B = m\cdot\nu + b
+\end{equation}
+lassen sich die Fitparameter $m$ und $b$ bestimmen. Der y-Achsnabschnitt liegt bei etwa $b = -4{,}86\cdot10^{-6}$, was einer zu erwartenden Ursprungsgerade sehr nahe kommt.
+Aus dem Parameter $m$ kann das gyromagnetische Verhältnis zu
+\begin{equation}
+	g = \frac{h}{\mu_B m} = \SI{2.025\pm0.024}{}
+\end{equation} 
+bestimmt werden.
+In Abbildung \ref{fig:plot} sind die eingetragenen Messwerte und die Regressionsgerade zu sehen.
+
+
+
 \begin{figure}
-  \centering
-  \includegraphics[]{pc/plot.pdf}
-  \caption{Plot.}
-  \label{fig:plot}
+	\centering
+	\includegraphics[]{pc/plot.pdf}
+	\caption{Hier sind Methwerte und eine Rezessionsgerade.}
+	\label{fig:plot}
 \end{figure}
