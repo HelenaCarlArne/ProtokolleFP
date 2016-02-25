@@ -1,0 +1,42 @@
+\begin{table}[h]
+\centering
+\caption{Methtabelle}
+\sisetup{%uncertainty-seperator = {\,},
+table-number-alignment = center,
+table-unit-alignment = center,
+%table-figures-integer = 1,
+%table-figures-decimal = 1,
+%table-auto-round = true
+}
+\begin{tabular}{ S[table-format= 1.2]
+ @{\,$\pm{}$\,} 
+ S[table-format= 0.2] S[table-format= 3.0]
+ @{\,$\pm{}$\,} 
+ S[table-format= 1.0] S[table-format= 3.0]
+ @{\,$\pm{}$\,} 
+ S[table-format= 2.0] S[table-format= 0.3]
+ @{\,$\pm{}$\,} 
+ S[table-format= 0.3] S[table-format= 0.3]
+ @{\,$\pm{}$\,} 
+ S[table-format= 0.3] S[table-format= 0.3]
+ @{\,$\pm{}$\,} 
+ S[table-format= 0.3]  S[table-format= 2.3] 
+}
+\toprule
+\multicolumn{2}{c}{$\xi\:/\: \si{\milli\ampere\per\milli\meter}$}
+&\multicolumn{2}{c}{$I_p\:/\:\si{\milli\ampere}$}
+&\multicolumn{2}{c}{$I_a\:/\:\si{\milli\ampere}$}
+&\multicolumn{2}{c}{$B_p\:/\:\si{\milli\tesla}$}
+&\multicolumn{2}{c}{$B_a\:/\:\si{\milli\tesla}$}
+&\multicolumn{2}{c}{$\bar B \:/\:\si{\milli\tesla}$}
+&{$\nu\:/\:\si{\mega\hertz}$} \\
+ \midrule
+1.83&0.05&219&3&309&5&0.307&0.004&0.433&0.007&0.370&0.006&10.572\\
+1.89&0.06&353&3&419&5&0.495&0.005&0.588&0.008&0.541&0.006&15.901\\
+1.84&0.07&477&8&545&11&0.67&0.01&0.76&0.01&0.72&0.01&20.557\\
+1.87&0.06&599&3&668&5&0.840&0.004&0.937&0.007&0.889&0.005&25.0\\
+1.79&0.09&705&8&769&11&0.99&0.01&1.08&0.02&1.03&0.01&29.448\\
+\bottomrule
+\end{tabular}
+\label{tab:tab}
+\end{table}
