@@ -1,4 +1,111 @@
+\section{Versuchsziel}
+{\footnotesize \textit{Carl Arne Thomann}}
+
+Es wird die effektive Masse von Elektronen in einem Material durch Ausnutzen des Faraday-Effektes bestimmt.
 \section{Theorie}
 \label{sec:Theorie}
-\footnotesize{\textit{Carl Arne Thomann}}
-\cite{sample}
+\subsection{Effektive Masse}
+Die effektive Masse ist ein Konzept aus der Festkörperphysik,
+um die im Allgemeinen komplizierte Dispersionsrelation - und damit das Verhalten - von Elektronen im Halbleitern
+durch das Modell der freien Elektronen zu beschreiben.
+Eine beispielhafte Dispersionsrelation von Elektronen im Halbleitern ist in
+Abbildung \ref{fig:dispersion} gezeigt.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth,draft]{graphics/dispersion.pdf}
+\end{figure}
+Wird am $\Gamma$\-/Punkt die Dispersion durch eine Parabel angenährt,
+\begin{equation}
+    E(\vec k) = E(0) + \frac{1}{2}\sum\limits_{i=1}^3 \frac{\partial^2 E}{\partial k_i^2}\Bigl|_{x=0}k_i^2,
+\end{equation}
+und mit der Energiedispersion freier Elektronen verglichen, %die anstelle der Ruhemasse $m_0$ eine modifizierte Masse $m^{*}$ tragen,
+\begin{equation}
+    E(\vec k) = \frac{h^2}{(2\pi)^2}\frac{k^2}{2m},
+\end{equation}
+kann ein Halbleiterelektronen als freies Elektron beschrieben werden, sofern die Masse des freien Halbleiterelektrons
+\begin{equation}
+    m = \frac{h}{(2\pi)^2}\frac{1}{\frac{\partial^2 E}{\partial k_i^2}\Bigl|_{k=0}}
+\end{equation}
+ist.
+Mit dieser effektiven Masse gehen vorherige Gleichungen ineinander über und die Konzepte vereinen.
+Für symmetrische Halbleiter ist die Unterscheidung der drei Richtungen $k_i$ überflüssig;
+es wird von kugelförmigen Energieflächen gesprochen.
+\begin{equation}
+    E(\vec k) = E(0) + \frac{h^2}{(2\pi)^2}\frac{k^2}{2m}
+\end{equation}
+\subsection{Zirkulare Doppelbrechung von optisch aktiven Medien}
+\label{sec:doppel_aktiv}
+Zirkulare Doppelbrechung beschreibt die Abhängigkeit des Brechungsindex von der Polarisation mit dem Effekt,
+linear polarisiertes Licht bei der Transmission durch den Kristall um den sogenannten Faraday-Winkel $\Theta$ zu drehen.
+Die Ursache dafür liegt in elektrischen Dipolen, die einerseits in den Gitteratome und
+andererseits durch Bandelektronen bei Wechselwirkung mit den Atomrümpfen induziert werden.
+Linear polarisiertes Licht wird als Überlagerung von links- und rechtsdrehender zirkular polarisiertem Licht,
+\begin{align}
+    E(z) &= \frac{1}{2} \left(E_\text{R}(z)+E_\text{L}(z)\right)\\
+    \shortintertext{mit}
+    E_\text{R}(z) &= (E_0 \vec x_0 - i E_0 \vec y_0) \exp(ik_\text{R}z)\\
+    E_\text{L}(z) &= (E_0 \vec x_0 + i E_0 \vec y_0) \exp(ik_\text{L}z).
+\end{align}
+\begin{figure}{h}
+    \centering
+    \includegraphics[width=0.5\textwidth,draft]{graphics/drehung.pdf}
+\end{figure}
+Die Polarisation des Lichtes beim Eintritt in das Medium als
+\begin{equation}
+    E(z=0) = E_0 \vec x_0
+\end{equation}
+festgelegt.
+Für $z = L$, dem Ort des Austritts aus dem Kristall, gilt
+\begin{alignat}{3}
+    E(z=L) &= \frac{E_0}{2} \{ (\exp(ik_\text{R}L)+\exp(ik_\text{L}L))\vec x_0 + (i\exp(ik_\text{L}L)-i\exp(ik_\text{R}L))\vec y_0\}\\
+    &= \frac{E_0}{2} \vec x_0 \{ \exp(i(k_\text{R}+k_\text{L})\sfrac{L}{2})\exp(i(k_\text{R}-k_\text{L})\sfrac{L}{2}) + \exp(i(k_\text{R}+k_\text{L})\sfrac{L}{2})\exp(i(-k_\text{R}+k_\text{L})\sfrac{L}{2})\}\\
+    &+ \frac{E_0}{2}\vec y_0 \{ \exp(i(-k_\text{R}+k_\text{L})\sfrac{L}{2})\exp(i(k_\text{R}+k_\text{L})\sfrac{L}{2}) - \exp(i(k_\text{R}-k_\text{L})\sfrac{L}{2})\exp(i(k_\text{R}+k_\text{L})\sfrac{L}{2}) \}.
+\end{alignat}
+Mit den Abkürzungen
+\begin{align}
+    \Psi &= \frac{L}{2} (k_\text{R}+k_\text{L})\\
+    \Theta &= \frac{L}{2} (k_\text{R}-k_\text{L}) = \frac{L\omega}{2 c} (n_\text{R}-n_\text{L})
+\end{align}
+ergibt sich schließlich für den austretenden Strahl
+\begin{equation}
+    E(z=L) = E_0 \exp(i\Psi)\begin{pmatrix} \cos(\Theta)\\\sin(\Theta)\end{pmatrix},
+\end{equation}
+eine um $\Theta$ gedrehte und um $\Psi$ phasenverschobene polarisierte Welle.
+
+Bei angelegtem elektrischen Feld wird die Polarisation durch
+\begin{equation}
+    \vec P = \epsilon_0 \chi \vec E = \epsilon_0 \begin{pmatrix} \chi_{xx} & \chi_{xy} & \chi_{xz} \\ \chi_{yx} & \chi_{yy} & \chi_{yz} \\ \chi_{zx} & \chi_{zy} & \chi_{zz} \end{pmatrix} \begin{pmatrix} E_x\\E_y\\E_z \end{pmatrix}
+    \label{eq:polarisation}
+\end{equation}
+beschrieben.
+Ein Material wird doppelbrechend, wenn der Dielektrizitätstensor $\chi$ nicht-diagonale Elemente hat, die zueinander komplex konjugiert sind.
+Es besteht der Zusammenhang
+\begin{equation}
+    \Theta \approx \frac{L\omega}{2cn}\chi_{xy}.
+\end{equation}
+\subsection{Zirkulare Doppelbrechung durch Anlegen von äußeren Feldern}
+Auch bei optisch inaktiven Materialen kann eine Drehung von linear polarisiertem Licht wie in Abschnitt \ref{sec:doppel_aktiv} beobachtet werden.
+Die Kraftgleichung von Elektronen, auf die $\vec E$\-/ und $\vec B$\-/Felder sowie ein harmonisches Potential wirken,
+\begin{equation}
+    -m\omega^2\vec r + K \vec r = -e_0 \vec E + i e_0 \omega \vec r \times \vec B
+\end{equation}
+lässt sich mit dem Ansatz
+\begin{equation}
+    \vec P = - N e_0 \vec r
+\end{equation}
+in eine vergleichbare Form zu \eqref{eq:polarisation} bringen.
+Wird weiter der Suszeptibilitätstensor $\chi$ in der Gestalt
+\begin{equation}
+    \chi = \begin{pmatrix} \chi_{xx} & i\chi_{xy} & 0 \\ i\chi_{yx} & \chi_{yy} & 0\\ 0 & 0 & \chi_{zz} \end{pmatrix}
+\end{equation}
+angenommen, kann durch Koeffizientenvergleich zum Einen die Forderung $i\chi_{xy}=-i\chi_{yx}$ und damit zum Anderen die feldinduzierte Doppelbrechung gezeigt werden.
+Durch Auflösen nach $\chi_{xy}$ wird abschließend
+\begin{equation}
+    \Theta = \frac{e_0^3}{2\epsilon_0 c} \frac{\omega^2}{(-m\omega^2+k)^2-(e_0\omega B)^2} \frac{NBL}{n}
+\end{equation}
+mit der Ladungsträgeranzahl $N$, dem Magnetfeld $B$, der Länge des Kristalls $L$, der Brechzahl $n$ und der Resonanzfrequenz $\omega = \sqrt{\frac{K}{m}}$ des harmonischen Potentials gefunden.
+Für freie Elektronen, wie für diese Zwecke angesetzt, wird
+\begin{equation}
+    \Theta = \frac{e_0^3}{8\pi^2\epsilon_0 c^3} \frac{1}{m^2} \lambda^2 \frac{NBL}{n}
+\end{equation}
+gefunden.
