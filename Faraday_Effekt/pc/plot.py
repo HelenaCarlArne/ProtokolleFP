@@ -73,20 +73,127 @@ def table(name, data):
 	output.close()
 	
 
-x = np.linspace(0, 10, 1000)
-y = x ** np.sin(x)
 
-plt.subplot(1, 2, 1)
-plt.plot(x, y, label='Kurve')
-plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
-plt.ylabel(r'$Y \:/\: \si{\micro\joule}$')
+#Methwerte einlesen
+sk, Bp, Bn = np.genfromtxt('pc/mag.txt', unpack = True)
+d1 = 1.36
+d2 = 1.296
+d3 = 5.11
+
+N1 = 1.2*10**24
+N2 = 2.8*10**24
+n  = 3.4
+
+l, thp1, thp2, thp3 = np.genfromtxt('pc/bp.txt', unpack = True)
+l, thn1, thn2, thn3 = np.genfromtxt('pc/bn.txt', unpack = True)
+
+th1 = abs(1/2 * (thp1-thn1)/d1)
+th2 = abs(1/2 * (thp2-thn2)/d2)
+th3 = abs(1/2 * (thp3-thn3)/d3)
+
+sk = sk - 69
+
+e0 = 1.602 * 10 **(-19)
+eps0 = 8.854 * 10 **(-12)
+c = 3*10**8
+B = 447.5 * 10 ** (-3)
+
+
+
+#B-Feld
+
+plt.plot(sk, Bp,'rx-', label='B positiv gepolt')
+plt.plot(sk, Bn,'bx-', label='B negativ gepolt')
+
+plt.xlabel(r'Abstand von der Probe in $\si{\milli\meter}$')
+plt.ylabel(r'$B \:/\: \si{\milli\tesla}$')
 plt.legend(loc='best')
-
-plt.subplot(1, 2, 2)
-plt.plot(x, y, label='Kurve')
-plt.xlabel(r'$\alpha \:/\: \si{\ohm}$')
-plt.ylabel(r'$y \:/\: \si{\micro\joule}$')
-plt.legend(loc='best')
-
+plt.grid()
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('pc/plot.pdf')
+plt.clf()
+
+#Rotation
+
+plt.plot(l, th1,'r-', label=r'$N = 1{,}2 \cdot 10^{18} \si{\per\cubic\centi\meter}$')
+plt.plot(l, th2,'b-', label=r'$N = 2{,}8 \cdot 10^{18} \si{\per\cubic\centi\meter}$')
+plt.plot(l, th3,'k-', label='rein')
+
+plt.xlabel(r'$\lambda\:/\: \si{\micro\meter}$')
+plt.ylabel(r'$\frac{\theta}{d} \:/\: \si{\degree\per\milli\meter}$')
+plt.ylim([0,9])
+plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05),
+          ncol=3, fancybox=True, shadow=True)
+plt.grid()
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('pc/rot.pdf')
+plt.clf()
+
+th1 = th1/180*np.pi
+th2 = th2/180*np.pi
+th3 = th3/180*np.pi
+
+th1 = abs(th1-th3)
+th2 = abs(th2-th3)
+
+def reg(x, a, b):
+	return a*x +b
+
+t = np.linspace(0,7, 1000)
+
+#Probe 1
+
+param1, cov1 = curve_fit(reg, l**2, th1)
+
+plt.plot(l**2, th1, 'rx', label=r'$N = 1{,}2 \cdot 10^{18} \si{\per\cubic\centi\meter}$, Messwerte')
+plt.plot(t, reg(t, *param1), 'b-', label='fit')
+
+plt.xlabel(r'$\lambda²\:/\: \si{\square\micro\meter}$')
+plt.ylabel(r'$\frac{\theta_1 - \theta_\text{rein}}{d_i} \:/\: \si{\per\milli\metre}$')
+
+plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05),
+          ncol=3, fancybox=True, shadow=True)
+plt.grid()
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('pc/p1.pdf')
+plt.clf()
+
+#Probe 2
+
+param2, cov2 = curve_fit(reg, l**2, th2)
+
+plt.plot(l**2, th2, 'rx', label=r'$N = 2{,}8 \cdot 10^{18} \si{\per\cubic\centi\meter}$, Messwerte')
+plt.plot(t, reg(t, *param2), 'b-', label='fit')
+
+plt.xlabel(r'$\lambda²\:/\: \si{\square\micro\meter}$')
+plt.ylabel(r'$\frac{\theta_2 - \theta_\text{rein}}{d_i} \:/\: \si{\per\milli\metre}$')
+
+plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05),
+          ncol=3, fancybox=True, shadow=True)
+plt.grid()
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('pc/p2.pdf')
+plt.clf()
+
+
+#Effektive Masse Probe 1
+param1 = correlated_values(param1, cov1)
+
+a1 = param1[0]*10**15
+
+m1 = unp.sqrt(e0**3*N1*B/(n*8*np.pi**2*eps0*c**3*a1))
+
+print(m1)
+
+#Effektive Masse Probe 2
+
+param2 = correlated_values(param2, cov2)
+
+a2 = param2[0]*10**15
+
+m2 = unp.sqrt(e0**3*N2*B/(n*8*np.pi**2*eps0*c**3*a2))
+
+print(m2)
+
+
+
