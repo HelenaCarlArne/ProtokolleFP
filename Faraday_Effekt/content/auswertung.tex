@@ -1,10 +1,31 @@
 \section{Auswertung}
 \label{sec:Auswertung}
-{\footnotesize \textit{Jonathan Kriewald}}
+{\footnotesize \textit{Jonat$\hbar$an Kriewald}}
 
+\subsection{Das Magnetfeld}
+Um die magentische Feldstärke bei der Probe zu ermitteln, wurde die gemessene Feldstärke gegen den Abstand zur Probe in beide Richtungen geplottet.
+Diese sind in Abbildung \ref{fig:plot} zu sehen.
 \begin{figure}
   \centering
   \includegraphics[draft]{pc/plot.pdf}
-  \caption{Plot.}
+  \caption{Das Magnetfeld.}
   \label{fig:plot}
 \end{figure}
+Die Messwerte sind in Tabelle \ref{tab:B} eingetragen.
+Als Feldstärke an der Probe wird der Mittelwert von $B = \SI{447.5}{\milli\tesla}$ angenommen.
+\input{tables/B.tex}
+\subsection{Messung der Faraday-Rotation}
+Die Proben an denen die Faraday-Rotation gemessen wurde, sind 2 dotierte und ein hochreiner GaAs Halbleiter.
+Die dotierten Proben haben eine Ladungsträgerdichte von $N_1 =  1{,}2 \cdot 10^{18} \si{\per\cubic\centi\meter}$ respektive $N_2 = 2{,}8 \cdot 10^{18} \si{\per\cubic\centi\meter}$.
+Die Proben haben Dicken von $d_1 = \SI{1.36}{\milli\meter}$, $d_2 = \SI{1.296}{\milli\meter}$ und $d_\text{rein} = \SI{5.11}{\milli\meter}$.
+Die bei den unterschiedlich ausgerichteten Magnetfelder gemessenen Rotationswinkel sind in den Tabellen \ref{tab:th1} - \ref{tab:th3} zu sehen.
+Der Differenzwinkel wurde dabei mit der Probendicke normiert.
+Dieser wird nach 
+\begin{equation}
+	\theta_\text{f} = \frac{1}{2}(\theta_- -\theta_+)
+\end{equation}
+gebildet und benötigt, da durch die Umpolung des Magnetfeldes der doppelte 
+\input{tables/th1.tex}
+\input{tables/th2.tex}
+\input{tables/th3.tex}
+\input{tables/thr.tex}

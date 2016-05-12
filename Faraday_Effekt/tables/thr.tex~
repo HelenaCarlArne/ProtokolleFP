@@ -1,0 +1,31 @@
+\begin{table}[h]
+\centering
+\caption{Resultierender Winkel Probe 1 und 2}
+\sisetup{%uncertainty-seperator = {\,},
+table-number-alignment = center,
+table-unit-alignment = center,
+%table-figures-integer = 1,
+table-figures-decimal = 5,
+table-auto-round = true
+}
+\begin{tabular}{  S[table-format= 3.1] 
+ S[table-format= 3.1] 
+ S[table-format= 3.1] 
+}
+\toprule
+{$\lambda \:/\: \si{\micro\meter}$}
+&{$\theta_1 \:/\: \si{\radian\per\milli\metre}$}
+&{$\theta_2 \:/\: \si{\radian\per\milli\metre}$} \\
+ \midrule
+1.06&0.0532276951652&0.0627235474454\\
+1.29&0.0188732435374&0.0357030910132\\
+1.45&0.003189364688&0.0196357974225\\
+1.96&0.0445820418665&0.0445804575081\\
+2.16&0.0386490877038&0.0924459783642\\
+2.34&0.039926641794&0.0658451614321\\
+2.51&0.0479507212037&0.071910181637\\
+2.65&0.0303701002144&0.0660379694823\\
+\bottomrule
+\end{tabular}
+\label{tab:thr}
+\end{table}

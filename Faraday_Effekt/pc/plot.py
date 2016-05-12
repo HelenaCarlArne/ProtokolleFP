@@ -97,6 +97,7 @@ e0 = 1.602 * 10 **(-19)
 eps0 = 8.854 * 10 **(-12)
 c = 3*10**8
 B = 447.5 * 10 ** (-3)
+m0 = 9.109*10**(-31)
 
 
 
@@ -129,15 +130,15 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('pc/rot.pdf')
 plt.clf()
 
-th1 = th1/180*np.pi
-th2 = th2/180*np.pi
-th3 = th3/180*np.pi
+th11 = th1/180*np.pi
+th22 = th2/180*np.pi
+th33 = th3/180*np.pi
 
-th1 = abs(th1-th3)
-th2 = abs(th2-th3)
+th1 = (th11-th33)
+th2 = (th22-th33)
 
-def reg(x, a, b):
-	return a*x +b
+def reg(x, a):
+	return a*x
 
 t = np.linspace(0,7, 1000)
 
@@ -149,7 +150,8 @@ plt.plot(l**2, th1, 'rx', label=r'$N = 1{,}2 \cdot 10^{18} \si{\per\cubic\centi\
 plt.plot(t, reg(t, *param1), 'b-', label='fit')
 
 plt.xlabel(r'$\lambda²\:/\: \si{\square\micro\meter}$')
-plt.ylabel(r'$\frac{\theta_1 - \theta_\text{rein}}{d_i} \:/\: \si{\per\milli\metre}$')
+plt.ylabel(r'$\frac{\theta_1 - \theta_\text{rein}}{d_i} \:/\: \si{\radian\per\milli\metre}$')
+plt.xlim(1,8)
 
 plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05),
           ncol=3, fancybox=True, shadow=True)
@@ -166,7 +168,7 @@ plt.plot(l**2, th2, 'rx', label=r'$N = 2{,}8 \cdot 10^{18} \si{\per\cubic\centi\
 plt.plot(t, reg(t, *param2), 'b-', label='fit')
 
 plt.xlabel(r'$\lambda²\:/\: \si{\square\micro\meter}$')
-plt.ylabel(r'$\frac{\theta_2 - \theta_\text{rein}}{d_i} \:/\: \si{\per\milli\metre}$')
+plt.ylabel(r'$\frac{\theta_2 - \theta_\text{rein}}{d_i} \:/\: \si{\radian\per\milli\metre}$')
 
 plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05),
           ncol=3, fancybox=True, shadow=True)
@@ -194,6 +196,39 @@ a2 = param2[0]*10**15
 m2 = unp.sqrt(e0**3*N2*B/(n*8*np.pi**2*eps0*c**3*a2))
 
 print(m2)
+
+m1e = m1/m0
+m2e = m2/m0
+
+print(m1e)
+print(m2e)
+
+#Tabellen
+#data1 = [a,b,c,d,e]
+#p1 = {'name':'tabelle1.tex','data':data1}
+#table(**p1)
+
+dataB = [sk, Bp, Bn]
+pB = {'name':'B.tex','data':dataB}
+#table(**pB)
+
+datath1 = [l, thp1, thn1, th11]
+pth1 = {'name':'th1.tex', 'data':datath1}
+#table(**pth1)
+
+datath2 = [l, thp2, thn2, th22]
+pth2 = {'name':'th2.tex', 'data':datath2}
+#table(**pth2)
+
+datath3 = [l, thp3, thn3, th33]
+pth3 = {'name':'th3.tex', 'data':datath3}
+#table(**pth3)
+
+datathr = [l, th1, th2]
+pthr = {'name':'thr.tex', 'data':datathr}
+#table(**pthr)
+
+
 
 
 

@@ -1,0 +1,33 @@
+\begin{table}[h]
+\centering
+\caption{Werte Probe 1}
+\sisetup{%uncertainty-seperator = {\,},
+table-number-alignment = center,
+table-unit-alignment = center,
+%table-figures-integer = 1,
+table-figures-decimal = 5,
+table-auto-round = true
+}
+\begin{tabular}{  S[table-format= 3.2] 
+ S[table-format= 3.2] 
+ S[table-format= 3.2] 
+ S[table-format= 3.3] 
+}
+\toprule
+{$\lambda \:/\: \si{\micro\meter}$}
+&{$\theta_{+}\:/\: °$}
+&{$\theta_{-}\:/\: °$}
+&{$\frac{\theta_{\text{f}}}{d}\:/\: \si{\radian\per\milli\meter}$} \\
+ \midrule
+1.06&127.83&140.16&0.0532276951652\\
+1.29&131.92&138.92&0.0188732435374\\
+1.45&131.58&135.67&0.003189364688\\
+1.96&269.0&277.92&0.0445820418665\\
+2.16&138.16&145.16&0.0386490877038\\
+2.34&173.58&181.0&0.039926641794\\
+2.51&209.33&201.08&0.0479507212037\\
+2.65&145.25&152.2&0.0303701002144\\
+\bottomrule
+\end{tabular}
+\label{tab:th1}
+\end{table}
