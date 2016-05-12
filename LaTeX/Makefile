@@ -43,7 +43,7 @@ pc/plot.pdf: pc/plot.py data matplotlibrc header-matplotlib.tex
 	@echo
 
 pc/plot.py:
-	@echo "Plots-Ordner fehlt!"
+	@echo "Plots-Ordner fehlt du Hurensohn!"
 	@echo "=> Kopiere aus CAT-Vorlage"
 	@mkdir -p pc
 	@cp ../LaTeX/pc/* pc/
@@ -51,39 +51,39 @@ pc/plot.py:
 
 
 lit.bib:
-	@echo 'Es fehlen die Bibliothek-Daten!'
+	@echo 'Es fehlen die Bibliothek-Daten du Hurensohn!'
 	@echo '=> Kopiere aus PeP-et-al-Vorlage'
 	@cp -n ../LaTeX/latex-template/lit.bib lit.bib
 	@echo
 
 programme.bib:
-	@echo 'Es fehlen die Bibliothek-Daten!'
+	@echo 'Es fehlen die Bibliothek-Daten du Hurensohn!'
 	@echo '=> Kopiere aus PeP-et-al-Vorlage'
 	@cp -n ../LaTeX/latex-template/programme.bib programme.bib
 	@echo
 
 matplotlibrc header-matplotlib.tex:
-	@echo "Konfigurationsdateien fehlen!"
+	@echo "Konfigurationsdateien fehlen du Hurensohn!"
 	@echo "=> Kopiere aus PeP-et-al- und CAT-Vorlage"
 	@cp -n ../LaTeX/latex-template/header-matplotlib.tex ./header-matplotlib.tex
 	@cp -n ../LaTeX/latex-template/matplotlibrc ./matplotlibrc
 	@echo
 
 header.tex:
-	@echo "Die Header-Datei fehlt!"
+	@echo "Die Header-Datei fehlt du Hurensohn!"
 	@echo "=> Kopiere aus CAT-Vorlage"
 	@cp -n ../LaTeX/header.tex header.tex
 	@echo
 
 main.tex: 
 	@echo
-	@echo 'Es fehlt die main.tex!'
+	@echo 'Es fehlt die main.tex du Hurensohn!'
 	@echo '=> Kopiere aus PeP-et-al-Vorlage'
 	@cp -n ../LaTeX/latex-template/main.tex main.tex
 	@echo
 
 content/*:
-	@echo "Content-Vorlagen fehlen!"
+	@echo "Content-Vorlagen fehlen du Hurensohn!"
 	@echo "=> Kopiere aus CAT-Vorlage"
 	@mkdir -p content
 	@cp -n ../LaTeX/content/* content/

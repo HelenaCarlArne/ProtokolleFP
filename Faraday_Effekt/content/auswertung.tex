@@ -7,7 +7,7 @@ Um die magentische Feldstärke bei der Probe zu ermitteln, wurde die gemessene F
 Diese sind in Abbildung \ref{fig:plot} zu sehen.
 \begin{figure}
   \centering
-  \includegraphics[draft]{pc/plot.pdf}
+  \includegraphics{pc/plot.pdf}
   \caption{Das Magnetfeld.}
   \label{fig:plot}
 \end{figure}
@@ -24,8 +24,32 @@ Dieser wird nach
 \begin{equation}
 	\theta_\text{f} = \frac{1}{2}(\theta_- -\theta_+)
 \end{equation}
-gebildet und benötigt, da durch die Umpolung des Magnetfeldes der doppelte 
+gebildet und benötigt, da durch die Umpolung des Magnetfeldes der doppelte Winkel gemessen wurde.
 \input{tables/th1.tex}
 \input{tables/th2.tex}
 \input{tables/th3.tex}
+Die Messerergebnisse werden gegen die Wellenlänge $\lambda$ in Abbildung \ref{fig:rot} aufgetragen.
+\begin{figure}
+	\centering
+	\includegraphics{pc/rot.pdf}
+	\caption{Gemessene Rotationswinkel.}
+	\label{fig:rot}
+\end{figure}
+Um die effektive Masse der Elektronen zu ermitteln, muss die Differenz der Rotationswinkel der dotierten Proben mit dem der reinen Probe berechnet werden. Die so resultierenden Rotationswinkel sind in Tabelle \ref{tab:thr} eingetragen.
+Diese werden in Abb. \ref{fig:p} gegen $\lambda²$ aufgetragen und mit einer Ursprungsgerade nach Gleichung \eqref{eqn:formel} gefittet.
+\begin{figure}
+	\centering
+	\includegraphics{pc/p.pdf}
+	\caption{Messwerte und fit.}
+	\label{fig:p}
+\end{figure}
+Mit dem Fitparameter $a_1 = \SI{0.007\pm0.002}{\per\cubic\micro\meter}\cdot 10^{-3}$ und $a_1 = \SI{0.013\pm0.002}{\per\cubic\micro\meter}\cdot10^{-3}$ als Geradensteigung ergeben sich mit
+\begin{equation}
+	m_{*i} = \sqrt{\frac{e³NB}{8\pi² n \epsilon_0 c³ a_i}}
+\end{equation}
+die effektiven Massen
+\begin{align}
+	m_{*1} &= \SI{6.9\pm0.8}{\kilo\gram}\cdot10^{-32} &= \SI{0.076\pm0.008}{m_e}\\
+	m_{*2} &= \SI{8.0\pm0.6}{\kilo\gram}\cdot10^{-32} &= \SI{0.088\pm0.007}{m_e}\text.
+\end{align}
 \input{tables/thr.tex}

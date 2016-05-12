@@ -108,7 +108,7 @@ plt.plot(sk, Bn,'bx-', label='B negativ gepolt')
 
 plt.xlabel(r'Abstand von der Probe in $\si{\milli\meter}$')
 plt.ylabel(r'$B \:/\: \si{\milli\tesla}$')
-plt.legend(loc='best')
+plt.legend(loc='best', fancybox=True, shadow=True)
 plt.grid()
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('pc/plot.pdf')
@@ -146,36 +146,31 @@ t = np.linspace(0,7, 1000)
 
 param1, cov1 = curve_fit(reg, l**2, th1)
 
-plt.plot(l**2, th1, 'rx', label=r'$N = 1{,}2 \cdot 10^{18} \si{\per\cubic\centi\meter}$, Messwerte')
+plt.plot(l**2, th1, 'bx', label=r'$N = 1{,}2 \cdot 10^{18} \si{\per\cubic\centi\meter}$, Messwerte')
 plt.plot(t, reg(t, *param1), 'b-', label='fit')
-
-plt.xlabel(r'$\lambda²\:/\: \si{\square\micro\meter}$')
-plt.ylabel(r'$\frac{\theta_1 - \theta_\text{rein}}{d_i} \:/\: \si{\radian\per\milli\metre}$')
-plt.xlim(1,8)
-
-plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05),
-          ncol=3, fancybox=True, shadow=True)
-plt.grid()
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('pc/p1.pdf')
-plt.clf()
 
 #Probe 2
 
 param2, cov2 = curve_fit(reg, l**2, th2)
 
 plt.plot(l**2, th2, 'rx', label=r'$N = 2{,}8 \cdot 10^{18} \si{\per\cubic\centi\meter}$, Messwerte')
-plt.plot(t, reg(t, *param2), 'b-', label='fit')
+plt.plot(t, reg(t, *param2), 'r-', label='fit')
 
 plt.xlabel(r'$\lambda²\:/\: \si{\square\micro\meter}$')
-plt.ylabel(r'$\frac{\theta_2 - \theta_\text{rein}}{d_i} \:/\: \si{\radian\per\milli\metre}$')
+plt.ylabel(r'$\frac{\theta_i}{d_i} - \frac{\theta_\text{rein}}{d_\text{rein}} \:/\: \si{\radian\per\milli\metre}$')
+plt.xlim(1,8)
 
 plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05),
           ncol=3, fancybox=True, shadow=True)
 plt.grid()
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('pc/p2.pdf')
+plt.savefig('pc/p.pdf')
 plt.clf()
+
+
+
+
+
 
 
 #Effektive Masse Probe 1
@@ -186,6 +181,7 @@ a1 = param1[0]*10**15
 m1 = unp.sqrt(e0**3*N1*B/(n*8*np.pi**2*eps0*c**3*a1))
 
 print(m1)
+print(param1)
 
 #Effektive Masse Probe 2
 
@@ -196,12 +192,15 @@ a2 = param2[0]*10**15
 m2 = unp.sqrt(e0**3*N2*B/(n*8*np.pi**2*eps0*c**3*a2))
 
 print(m2)
+print(param2)
 
 m1e = m1/m0
 m2e = m2/m0
 
 print(m1e)
 print(m2e)
+
+
 
 #Tabellen
 #data1 = [a,b,c,d,e]
