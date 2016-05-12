@@ -13,10 +13,10 @@ Abbildung \ref{fig:dispersion} gezeigt.
 \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/dispersion.png}
-    \caption{TRölölölölö \cite{skript}}
+    \caption{Beispiel einer Dispersionsrelation für Elektronen eines Halbleiters mit Parabel-Näherung. Charakteristisch ist die Bandlücke (hier: Energielücke) zwischen Valnezband und Leitungsband (hier: Leitfähigkeitsband). \cite{skript}}
     \label{fig:dispersion}
 \end{figure}
-Wird am $\Gamma$\-/Punkt die Dispersion durch eine Parabel angenährt,
+Wird am $\Gamma$\-/Punkt ($|\vec k| = 0$) die Dispersion durch eine Parabel angenährt,
 \begin{equation}
     E(\vec k) = E(0) + \frac{1}{2}\sum\limits_{i=1}^3 \frac{\partial^2 E}{\partial k_i^2}\Bigl|_{x=0}k_i^2,
 \end{equation}
@@ -24,11 +24,11 @@ und mit der Energiedispersion freier Elektronen verglichen, %die anstelle der Ru
 \begin{equation}
     E(\vec k) = \frac{h^2}{(2\pi)^2}\frac{k^2}{2m},
 \end{equation}
-kann ein Halbleiterelektronen als freies Elektron beschrieben werden, sofern die Masse des freien Halbleiterelektrons
+kann ein Halbleiterelektronen als freies Elektron beschrieben werden, sofern die Masse des freien Halbleiterelektrons als
 \begin{equation}
     m = \frac{h}{(2\pi)^2}\frac{1}{\frac{\partial^2 E}{\partial k_i^2}\Bigl|_{k=0}}
 \end{equation}
-ist.
+festgesetzt wird.
 Mit dieser effektiven Masse gehen vorherige Gleichungen ineinander über und die Konzepte vereinen.
 Für symmetrische Halbleiter ist die Unterscheidung der drei Richtungen $k_i$ überflüssig;
 es wird von kugelförmigen Energieflächen gesprochen.
@@ -51,20 +51,22 @@ Linear polarisiertes Licht wird als Überlagerung von links- und rechtsdrehender
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/drehung.png}
-    \caption{Trolololo \cite{skript}}
+    \caption{Drehung der Polarisationsebene von linear püolarisiertem Licht bei Transmission durch ein optisch aktives Material. \cite{skript}}
     \label{fig:drehung}
 \end{figure}
-Die Polarisation des Lichtes beim Eintritt in das Medium als
+Die Polarisation des Lichtes beim Eintritt in das Medium wird als
 \begin{equation}
     E(z=0) = E_0 \vec x_0
 \end{equation}
 festgelegt.
 Für $z = L$, dem Ort des Austritts aus dem Kristall, gilt
-\begin{alignat}{3}
+\begin{alignat*}{3}
     E(z=L) &= \frac{E_0}{2} \{ (\exp(ik_\text{R}L)+\exp(ik_\text{L}L))\vec x_0 + (i\exp(ik_\text{L}L)-i\exp(ik_\text{R}L))\vec y_0\}\\
-    &= \frac{E_0}{2} \vec x_0 \{ \exp(i(k_\text{R}+k_\text{L})\sfrac{L}{2})\exp(i(k_\text{R}-k_\text{L})\sfrac{L}{2}) + \exp(i(k_\text{R}+k_\text{L})\sfrac{L}{2})\exp(i(-k_\text{R}+k_\text{L})\sfrac{L}{2})\}\\
-    &+ \frac{E_0}{2}\vec y_0 \{ \exp(i(-k_\text{R}+k_\text{L})\sfrac{L}{2})\exp(i(k_\text{R}+k_\text{L})\sfrac{L}{2}) - \exp(i(k_\text{R}-k_\text{L})\sfrac{L}{2})\exp(i(k_\text{R}+k_\text{L})\sfrac{L}{2}) \}.
-\end{alignat}
+    &= \frac{E_0}{2} \vec x_0 \{ \exp(i(k_\text{R}+k_\text{L})\sfrac{L}{2})\exp(i(k_\text{R}-k_\text{L})\sfrac{L}{2}) \\
+    &\phantom{=} + \exp(i(k_\text{R}+k_\text{L})\sfrac{L}{2})\exp(i(-k_\text{R}+k_\text{L})\sfrac{L}{2})\}\\
+    &\phantom{=}+ \frac{E_0}{2}\vec y_0 \{ \exp(i(-k_\text{R}+k_\text{L})\sfrac{L}{2})\exp(i(k_\text{R}+k_\text{L})\sfrac{L}{2}) \\
+    &\phantom{=}- \exp(i(k_\text{R}-k_\text{L})\sfrac{L}{2})\exp(i(k_\text{R}+k_\text{L})\sfrac{L}{2}) \}.
+\end{alignat*}
 Mit den Abkürzungen
 \begin{align}
     \Psi &= \frac{L}{2} (k_\text{R}+k_\text{L})\\
@@ -94,7 +96,7 @@ Die Lösung dieser Gleichung \eqref{eq:wellengleichung},
 \begin{equation}
     k_\pm = \frac{\omega}{c}\sqrt{(1+\chi_{xx})\pm\chi_{xy}},
 \end{equation}
-ergibt sich aus der Koeffizientenmatrix für die $x$\-/,$y$\-/ und $z$\-/Komponenten.
+ergibt sich aus der Koeffizientenmatrix für die $x$\-/, $y$\-/ und $z$\-/Komponenten.
 Die beiden Geschwindigkeiten
 \begin{align}
     v_\text{Ph,R}=\frac{c}{\sqrt{1+\chi_{xx}+\chi_{xy}}} \qquad v_\text{Ph,L}=\frac{c}{\sqrt{1+\chi_{xx}-\chi_{xy}}}
@@ -122,7 +124,7 @@ lässt sich mit dem Ansatz von reiner Verschiebungspolarisation
     \label{eq:verschiebung}
 \end{equation}
 in eine vergleichbare Form zu \eqref{eq:polarisation} bringen.
-Hierzu wird der Ausdruck der Verschiebungspolarisation \eqref{eq:verschiebung}in die Kraftgleichung \eqref{eq:kraft} gesetzt und das so erhaltene Gleichungssystem betrachtet.
+Hierzu wird der Ausdruck der Verschiebungspolarisation \eqref{eq:verschiebung} in die Kraftgleichung \eqref{eq:kraft} gesetzt und das so erhaltene Gleichungssystem betrachtet.
 Wird weiter der Suszeptibilitätstensor $\chi$ in der Gestalt
 \begin{equation}
     \chi = \begin{pmatrix} \chi_{xx} & i\chi_{xy} & 0 \\ i\chi_{yx} & \chi_{yy} & 0\\ 0 & 0 & \chi_{zz} \end{pmatrix}
@@ -135,7 +137,7 @@ Durch Auflösen nach $\chi_{xy}$ wird abschließend mithilfe von Gleichung \eqre
 \end{equation}
 mit der Ladungsträgeranzahl $N$, dem Magnetfeld $B$, der Länge des Kristalls $L$, der Brechzahl $n$ gefunden.
 Für die Frequenz $\omega$ wird die Kreisfrequenz des Lichtes angesetzt.
-Mit den Bezeichungen Resonanzfrequenz $\omega_0^2 =\frac{K}{m}$ und Zyklotronfrequenz $\omega_C^2 =\frac{e_0^2}{m^2} B^2$ wird Ausdruck \eqref{theta_1} zu
+Mit den Bezeichungen Resonanzfrequenz $\omega_0^2 =\frac{k}{m}$ und Zyklotronfrequenz $\omega_C^2 =\frac{e_0^2}{m^2} B^2$ wird Ausdruck \eqref{theta_1} zu
 \begin{equation}
     \Theta = \frac{e_0^3}{2\epsilon_0 c}\frac{1}{m^2} \frac{\omega^2}{(-\omega^2+\omega_0^2)^2-(\omega_c\omega)^2} \frac{NBL}{n}.
     \label{theta_2}
