@@ -146,14 +146,14 @@ t = np.linspace(0,7, 1000)
 
 param1, cov1 = curve_fit(reg, l**2, th1)
 
-plt.plot(l**2, th1, 'bx', label=r'$N = 1{,}2 \cdot 10^{18} \si{\per\cubic\centi\meter}$, Messwerte')
+plt.plot(l**2, th1, 'bx', label=r'$N_1 = 1{,}2 \cdot 10^{18} \si{\per\cubic\centi\meter}$, Messwerte')
 plt.plot(t, reg(t, *param1), 'b-', label='fit')
 
 #Probe 2
 
 param2, cov2 = curve_fit(reg, l**2, th2)
 
-plt.plot(l**2, th2, 'rx', label=r'$N = 2{,}8 \cdot 10^{18} \si{\per\cubic\centi\meter}$, Messwerte')
+plt.plot(l**2, th2, 'rx', label=r'$N_2 = 2{,}8 \cdot 10^{18} \si{\per\cubic\centi\meter}$, Messwerte')
 plt.plot(t, reg(t, *param2), 'r-', label='fit')
 
 plt.xlabel(r'$\lambda²\:/\: \si{\square\micro\meter}$')
@@ -223,7 +223,7 @@ datath3 = [l, thp3, thn3, th33]
 pth3 = {'name':'th3.tex', 'data':datath3}
 #table(**pth3)
 
-datathr = [l, th1, th2]
+datathr = [l**2, th1, th2]
 pthr = {'name':'thr.tex', 'data':datathr}
 #table(**pthr)
 
