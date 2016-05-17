@@ -6,14 +6,14 @@ Es wird die effektive Masse von Elektronen in einem Material durch Ausnutzen des
 \label{sec:Theorie}
 \subsection{Effektive Masse}
 Die effektive Masse ist ein Konzept aus der Festkörperphysik,
-um die im Allgemeinen komplizierte Dispersionsrelation - und damit das Verhalten - von Elektronen im Halbleitern
+um die im Allgemeinen komplizierte Dispersionsrelation - und damit das Verhalten - von Elektronen in Halbleitern
 durch das Modell der freien Elektronen zu beschreiben.
-Eine beispielhafte Dispersionsrelation von Elektronen im Halbleitern ist in
+Eine beispielhafte Dispersionsrelation von Elektronen in Halbleitern ist in
 Abbildung \ref{fig:dispersion} gezeigt.
 \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/dispersion.png}
-    \caption{Beispiel einer Dispersionsrelation für Elektronen eines Halbleiters mit Parabel-Näherung. Charakteristisch ist die Bandlücke (hier: Energielücke) zwischen Valnezband und Leitungsband (hier: Leitfähigkeitsband). \cite{skript}}
+    \caption{Beispiel einer Dispersionsrelation für Elektronen eines Halbleiters mit Parabel-Näherung. Charakteristisch ist die Bandlücke (hier: Energielücke) zwischen Valenzband und Leitungsband (hier: Leitfähigkeitsband) \cite{skript}.}
     \label{fig:dispersion}
 \end{figure}
 Wird am $\Gamma$\-/Punkt ($|\vec k| = 0$) die Dispersion durch eine Parabel angenährt,
@@ -31,27 +31,28 @@ kann ein Halbleiterelektronen als freies Elektron beschrieben werden, sofern die
 festgesetzt wird.
 Mit dieser effektiven Masse gehen vorherige Gleichungen ineinander über und die Konzepte vereinen.
 Für symmetrische Halbleiter ist die Unterscheidung der drei Richtungen $k_i$ überflüssig;
-es wird von kugelförmigen Energieflächen gesprochen.
+es wird von kugelförmigen Energieflächen gesprochen,
 \begin{equation}
-    E(\vec k) = E(0) + \frac{h^2}{(2\pi)^2}\frac{k^2}{2m}
+    E(\vec k) = E(0) + \frac{h^2}{(2\pi)^2}\frac{k^2}{2m}.
 \end{equation}
 \subsection{Zirkulare Doppelbrechung von optisch aktiven Medien}
 \label{sec:doppel_aktiv}
-Zirkulare Doppelbrechung beschreibt die Abhängigkeit des Brechungsindex von der Polarisation mit dem Effekt,
-linear polarisiertes Licht bei der Transmission durch den Kristall um den sogenannten Faraday-Winkel $\Theta$ zu drehen.
+Zirkulare Doppelbrechung beschreibt die Abhängigkeit des Brechungsindex von der Polarisation. Dies hat zur Folge, dass
+linear polarisiertes Licht bei der Transmission durch den Kristall um den sogenannten Faraday-Winkel $\Theta$ gedreht wird.
 Die Ursache dafür liegt in elektrischen Dipolen, die einerseits in den Gitteratome und
 andererseits durch Bandelektronen bei Wechselwirkung mit den Atomrümpfen induziert werden.
-Linear polarisiertes Licht wird als Überlagerung von links- und rechtsdrehender zirkular polarisiertem Licht,
+Linear polarisiertes Licht wird als Überlagerung von links- und rechtsdrehend zirkular polarisiertem Licht,
 \begin{align}
     E(z) &= \frac{1}{2} \left(E_\text{R}(z)+E_\text{L}(z)\right)\\
     \shortintertext{mit}
-    E_\text{R}(z) &= (E_0 \vec x_0 - i E_0 \vec y_0) \exp(ik_\text{R}z)\\
-    E_\text{L}(z) &= (E_0 \vec x_0 + i E_0 \vec y_0) \exp(ik_\text{L}z).
+    E_\text{R}(z) &= (E_0 \vec x_0 - i E_0 \vec y_0) \exp(ik_\text{R}z)\quad\text{und}\\
+    E_\text{L}(z) &= (E_0 \vec x_0 + i E_0 \vec y_0) \exp(ik_\text{L}z),
 \end{align}
+dargestellt.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{graphics/drehung.png}
-    \caption{Drehung der Polarisationsebene von linear püolarisiertem Licht bei Transmission durch ein optisch aktives Material. \cite{skript}}
+    \caption{Drehung der Polarisationsebene von linear polarisiertem Licht bei Transmission durch ein optisch aktives Material \cite{skript}.}
     \label{fig:drehung}
 \end{figure}
 Die Polarisation des Lichtes beim Eintritt in das Medium wird als
@@ -87,7 +88,7 @@ Ein Material wird doppelbrechend, wenn der Dielektrizitätstensor $\chi$ nicht-d
 Ist dies der Fall, existieren zwei Lösungen $k_{\pm}$ für die Wellengleichung des Lichtes in Materie,
 \begin{align}
     \nabla\times(\nabla\times\vec E) &= -\frac{1}{c^2}(1+\chi)\frac{\partial^2 E}{\partial t^2}\label{eq:wellengleichung}\\
-    \intertext{mit Ansatz linearer Welle:}
+    \intertext{mit dem Ansatz einer linearen Welle:}
     \vec E &= \vec E_0 \exp(i(\vec k \cdot \vec r - \omega t))\\
     \shortintertext{und}
     \vec k &= k \vec z.
@@ -111,8 +112,9 @@ Nach \eqref{eq:abk_theta} besteht unter Annahme $\chi_{xy} << 1 + \chi_{xx}$ der
     \label{eq:theta}
 \end{equation}
 wobei $v_\text{ph} = \frac{c}{\sqrt{1+\chi_{xx}}}$ ausgenutzt wurde.
+In Gleichung \eqref{eq:theta} sind $L$ die Länge des Lichtweges, $\omega$ die Frequenz des Lichtes, $c$ die Lichtgeschwindigkeit im Vakuum und $n$ die Brechzahl des Mediums.
 \subsection{Zirkulare Doppelbrechung durch Anlegen von äußeren Feldern}
-Auch bei optisch inaktiven Materialen kann eine Drehung von linear polarisiertem Licht wie in Abschnitt \ref{sec:doppel_aktiv} beobachtet werden.
+Auch bei optisch inaktiven Materialen kann eine Drehung von linear polarisiertem Licht, wie in Abschnitt \ref{sec:doppel_aktiv} beschrieben wurde, beobachtet werden.
 Die Kraftgleichung von Elektronen, auf die $\vec E$\-/ und $\vec B$\-/Felder sowie ein harmonisches Potential wirken,
 \begin{equation}
     -m\omega^2\vec r + K \vec r = -e_0 \vec E + i e_0 \omega \vec r \times \vec B
@@ -123,7 +125,7 @@ lässt sich mit dem Ansatz von reiner Verschiebungspolarisation
     \vec P = - N e_0 \vec r
     \label{eq:verschiebung}
 \end{equation}
-in eine vergleichbare Form zu \eqref{eq:polarisation} bringen.
+in eine vergleichbare Form zu Formel \eqref{eq:polarisation} bringen.
 Hierzu wird der Ausdruck der Verschiebungspolarisation \eqref{eq:verschiebung} in die Kraftgleichung \eqref{eq:kraft} gesetzt und das so erhaltene Gleichungssystem betrachtet.
 Wird weiter der Suszeptibilitätstensor $\chi$ in der Gestalt
 \begin{equation}
