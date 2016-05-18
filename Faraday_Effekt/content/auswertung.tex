@@ -3,22 +3,23 @@
 {\footnotesize \textit{Jonat$\hbar$an Kriewald}}
 
 \subsection{Das Magnetfeld}
-Um die magentische Feldstärke bei der Probe zu ermitteln, wurde die gemessene Feldstärke gegen den Abstand zur Probe in beide Richtungen geplottet.
+Um die magnetische Feldstärke am Ort der Probe zu ermitteln, wurde die gemessene Feldstärke gegen den Abstand zur Probe in beide Richtungen aufgetragen.
 Diese sind in Abbildung \ref{fig:plot} zu sehen.
 \begin{figure}
   \centering
   \includegraphics{pc/plot.pdf}
-  \caption{Das Magnetfeld.}
+  \caption{Messwerte der magnetischen Feldstärke im Elektromagneten.}
   \label{fig:plot}
 \end{figure}
 Die Messwerte sind in Tabelle \ref{tab:B} eingetragen.
-Als Feldstärke an der Probe wird der Mittelwert von $B = \SI{447.5}{\milli\tesla}$ angenommen.
+Der Nullpunkt wird dabei an den Ort der Probe gesetzt.
+Als Feldstärke an der Probe wird der Mittelwert zwischen positiver und negativer Polung von $B = \SI{447.5}{\milli\tesla}$ angenommen.
 \input{tables/B.tex}
 \subsection{Messung der Faraday-Rotation}
-Die Proben an denen die Faraday-Rotation gemessen wurde, sind 2 dotierte und ein hochreiner GaAs Halbleiter.
+Die Proben, an denen die Faraday-Rotation gemessen wurde, sind 2 dotierte und ein hochreiner GaAs Halbleiter.
 Die dotierten Proben haben eine Ladungsträgerdichte von $N_1 =  1{,}2 \cdot 10^{18} \si{\per\cubic\centi\meter}$ respektive $N_2 = 2{,}8 \cdot 10^{18} \si{\per\cubic\centi\meter}$.
 Die Proben haben Dicken von $d_1 = \SI{1.36}{\milli\meter}$, $d_2 = \SI{1.296}{\milli\meter}$ und $d_\text{rein} = \SI{5.11}{\milli\meter}$.
-Die bei den unterschiedlich ausgerichteten Magnetfelder gemessenen Rotationswinkel sind in den Tabellen \ref{tab:th1} - \ref{tab:th3} zu sehen.
+Die bei den unterschiedlich gepolten Magnetfelder gemessenen Rotationswinkel sind in den Tabellen \ref{tab:th1} - \ref{tab:th3} zu sehen.
 Der Differenzwinkel wurde dabei mit der Probendicke normiert.
 Dieser wird nach 
 \begin{equation}
@@ -28,6 +29,7 @@ gebildet und benötigt, da durch die Umpolung des Magnetfeldes der doppelte Wink
 \input{tables/th1.tex}
 \input{tables/th2.tex}
 \input{tables/th3.tex}
+
 Die Messerergebnisse werden gegen die Wellenlänge $\lambda$ in Abbildung \ref{fig:rot} aufgetragen.
 \begin{figure}
 	\centering
@@ -36,11 +38,11 @@ Die Messerergebnisse werden gegen die Wellenlänge $\lambda$ in Abbildung \ref{f
 	\label{fig:rot}
 \end{figure}
 Um die effektive Masse der Elektronen zu ermitteln, muss die Differenz der Rotationswinkel der dotierten Proben mit dem der reinen Probe berechnet werden. Die so resultierenden Rotationswinkel sind in Tabelle \ref{tab:thr} eingetragen.
-Diese werden in Abb. \ref{fig:p} gegen $\lambda²$ aufgetragen und mit einer Ursprungsgerade nach Gleichung \eqref{eqn:formel} gefittet.
+Diese werden in Abb. \ref{fig:p} gegen $\lambda²$ aufgetragen und nach Gleichung \eqref{eqn:formel} mit einer linearen Regressionsrechnung $\frac{\theta}{l} = a\lambda²$ angepasst..
 \begin{figure}
 	\centering
 	\includegraphics{pc/p.pdf}
-	\caption{Messwerte und fit.}
+	\caption{Experimentell bestimmte und verarbeitete Werte mit Regressionsgerade.}
 	\label{fig:p}
 \end{figure}
 Mit dem Fitparameter $a_1 = \SI{0.007\pm0.002}{\per\cubic\micro\meter}\cdot 10^{-3}$ und $a_2 = \SI{0.013\pm0.002}{\per\cubic\micro\meter}\cdot10^{-3}$ als Geradensteigung ergeben sich mit
@@ -50,8 +52,8 @@ Mit dem Fitparameter $a_1 = \SI{0.007\pm0.002}{\per\cubic\micro\meter}\cdot 10^{
 die effektiven Massen
 \begin{align}
 	m_{*1} &= \SI{6.9\pm0.8}{\kilo\gram}\cdot10^{-32} &= \SI{0.076\pm0.008}{m_e}\\
-	m_{*2} &= \SI{8.0\pm0.6}{\kilo\gram}\cdot10^{-32} &= \SI{0.088\pm0.007}{m_e}\text.
+	m_{*2} &= \SI{8.0\pm0.6}{\kilo\gram}\cdot10^{-32} &= \SI{0.088\pm0.007}{m_e}\text{ \cite{Hurensohn1} .}
 \end{align}
-Hierbei wird ein Brechungsindex von $n=\SI{3.4}{}$ angenommen.
+Hierbei wird ein Brechungsindex von $n=\SI{3.4}{}$ \cite{Hurensohn2} angenommen.
 \input{tables/thr.tex}
 

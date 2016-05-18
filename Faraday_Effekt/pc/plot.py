@@ -103,8 +103,8 @@ m0 = 9.109*10**(-31)
 
 #B-Feld
 
-plt.plot(sk, Bp,'rx-', label='B positiv gepolt')
-plt.plot(sk, Bn,'bx-', label='B negativ gepolt')
+plt.plot(sk, Bp,'rx', label='B positiv gepolt')
+plt.plot(sk, Bn,'bx', label='B negativ gepolt')
 
 plt.xlabel(r'Abstand von der Probe in $\si{\milli\meter}$')
 plt.ylabel(r'$B \:/\: \si{\milli\tesla}$')
@@ -116,9 +116,9 @@ plt.clf()
 
 #Rotation
 
-plt.plot(l, th1,'r-', label=r'$N = 1{,}2 \cdot 10^{18} \si{\per\cubic\centi\meter}$')
-plt.plot(l, th2,'b-', label=r'$N = 2{,}8 \cdot 10^{18} \si{\per\cubic\centi\meter}$')
-plt.plot(l, th3,'k-', label='rein')
+plt.plot(l, th1,'r.', label=r'$N = 1{,}2 \cdot 10^{18} \si{\per\cubic\centi\meter}$')
+plt.plot(l, th2,'bx', label=r'$N = 2{,}8 \cdot 10^{18} \si{\per\cubic\centi\meter}$')
+plt.plot(l, th3,'kx', label='rein')
 
 plt.xlabel(r'$\lambda\:/\: \si{\micro\meter}$')
 plt.ylabel(r'$\frac{\theta}{d} \:/\: \si{\degree\per\milli\meter}$')
